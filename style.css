@@ -1,0 +1,120 @@
+:root {
+	--font-size: 17px;
+}
+html {
+    display: grid;
+    height: 100%;
+    grid-template-rows: 100%;
+}
+body {
+	display: inherit;
+	grid-template-rows: auto auto 1fr auto;
+}
+h1 {
+	font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 56px;
+    text-transform: none;
+    letter-spacing: -2px;
+    color: #505050;
+    white-space: nowrap;
+}
+@media only screen and (prefers-color-scheme: dark) {
+    h1 {
+        color:#fff;
+    }
+}
+h1 span {
+    font-size: 70px;
+    vertical-align: middle;
+}
+h1 span:first-child {
+    letter-spacing: -14px;
+}
+h1 span:nth-child(2) {
+    position: relative;
+    letter-spacing: -15px;
+    z-index: 1;
+}
+h1 span:nth-child(3) {
+    color: #c39f76;
+    filter: blur(2px);
+}
+h1 span:nth-child(2):before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    height: 28px;
+    border-left: 1.5px solid var(--background-color);
+    border-top: 1.5px solid var(--background-color);
+    width: 44px;
+    left: 2px;
+    border-top-left-radius: 41px 24px;
+}
+h1 span:nth-child(2):after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 4.5px;
+    height: 37px;
+    border-left: 1.5px solid var(--background-color);
+    z-index: 5;
+}
+body header h1 + p {
+	text-indent: 130px;
+    margin-top: -22px;
+    font-size: 15px;
+}
+
+body>footer, body>header, body>main {
+	padding: 0;
+}
+body header,
+body footer {
+	text-align: center;
+	margin-bottom: 5px;
+}
+body main.grid {
+	margin: 0 auto 50px;
+    grid-gap: calc(1.5*var(--grid-spacing-horizontal));
+	align-content: start;
+}
+@media (min-width: 992px) {
+    .grid {
+        grid-template-columns: repeat(3,minmax(0%,1fr));
+    }
+}
+body header > * {
+	margin: 5px;
+}
+article {
+	aspect-ratio: 2;
+    position: relative;
+    background: center/cover no-repeat;
+    margin: 0;
+}
+article a {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px 20px;
+    font-size: 20px;
+    text-decoration: none;
+    background: linear-gradient(#0000 50%,#fff);
+    font-weight: bold;
+}
+a.tweet {
+    background-color: #1095c1;
+    border-radius: 9999px;
+    display: grid;
+    place-content: center;
+    width: 52px;
+    height: 52px;
+    position: fixed;
+    left: 15px;
+    bottom: 80px;
+    box-shadow: rgb(0 0 0 / 40%) 0px 4px 8px;
+}
