@@ -118,3 +118,14 @@ a.tweet {
     bottom: 80px;
     box-shadow: rgb(0 0 0 / 40%) 0px 4px 8px;
 }
+.chrome:before {
+    content: "Chrome Only";
+    position: absolute;
+    inset: 0 0 auto auto;
+    transform-origin: 0 0;
+    transform: translate(29.3%) rotate(45deg);
+    background: #08769b;
+    border-image:conic-gradient(#08769b 0 0) fill 0//0 100vw;
+    color: #fff;
+    font-size: 13px;
+}
