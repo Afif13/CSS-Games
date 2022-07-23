@@ -1,0 +1,10 @@
+- let n = 4; /* number of columns/rows, don't forget to adjust the CSS value */
+- let image = "https://picsum.photos/id/1015/800/800";
+
+h1 CSS Puzzle
+p drag & drop the piece into...<br> Well, you know how a puzzle works :)
+g(style=`--i:url(${image})`)
+	- for(let i = 0; i < n*n; i++)
+		z
+			a
+			b(draggable="true")

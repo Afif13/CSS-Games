@@ -1,0 +1,5980 @@
+audio {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 100px;
+  height: 54px;
+  clip-path: circle(26px at 27% 50%);
+}
+
+h2 {
+  color: #fff;
+  font-family: sans-serif;
+  position: absolute;
+  inset: 0 0 0 170px;
+  margin: auto;
+  width: 160px;
+  height: fit-content;
+  font-size: 30px;
+  text-align: center;
+}
+
+s {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 50px;
+  aspect-ratio: 1;
+  background: #fc86a9;
+  border-radius: 50%;
+  opacity: 0;
+  transition: 999s 999s;
+}
+
+s:after {
+  content: "";
+  position: absolute;
+  width: 48px;
+  height: 20px;
+  background: #fff;
+  left: 104%;
+  top: calc(50% - 10px);
+  clip-path: polygon(20px 0, 20px 30%, 100% 30%, 100% 60%, 20px 60%, 20px 100%, 0 50%);
+  pointer-events: none;
+}
+
+s:before {
+  content: "When the music starts, click the circle!";
+  position: absolute;
+  left: calc(100% + 50px);
+  top: 50%;
+  color: #fff;
+  font-family: sans-serif;
+  font-weight: bold;
+  width: 195px;
+  text-align: center;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+audio:hover ~ s {
+  opacity: 1;
+  transition: 0s;
+}
+
+s:active {
+  opacity: 0.01;
+  transition: 0s;
+}
+
+c {
+  position: absolute;
+  display: grid;
+  width: 60px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  outline: 4px solid #fff;
+  place-items: center;
+  font-family: sans-serif;
+  font-weight: bold;
+  animation: c 2s linear both 1s;
+  transition: filter 999s 999s, outline 999s 999s;
+}
+
+l {
+  position: fixed;
+  z-index: 20;
+  inset: 0 0 100%;
+  background: #000;
+  transition: 999s 999s;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  overflow: hidden;
+  background: #000;
+  font-family: monospace;
+  pointer-events: none;
+}
+
+l:before {
+  content: "Your cursor left the screen :(";
+  font-size: 40px;
+  color: red;
+}
+
+l:after {
+  content: "Refresh the page to start a new game!";
+  font-size: 20px;
+  color: white;
+}
+
+cc {
+  position: fixed;
+  z-index: 23;
+  inset: 0;
+  display: none;
+  background: #000;
+  border: 60px solid;
+}
+
+@property --time {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+@keyframes time {
+  0% {
+    --time: 138;
+  }
+  100% {
+    --time: 0;
+  }
+}
+cc:before {
+  content: counter(time);
+  counter-reset: time var(--time);
+  animation: time 138s linear forwards;
+  display: grid;
+  place-content: center;
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  color: #fff9;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 80px;
+}
+
+s:active ~ cc,
+cc:hover {
+  display: block;
+}
+
+s:active ~ l {
+  inset: 0;
+  transition: 0s;
+}
+
+c:before,
+c:after {
+  content: "Miss";
+  grid-area: 1/1;
+}
+
+c:after {
+  content: "Good";
+  border-image: conic-gradient(#009247 0 0) fill 0//50px;
+  opacity: 0;
+  transition: opacity 999s 999s, font-size 999s 999s;
+}
+
+c:active {
+  filter: opacity(50%);
+  outline-color: #0000;
+  transition: filter 0s, outline 0s;
+}
+
+c:active:after {
+  opacity: 1;
+  font-size: 16px;
+  transition: opacity 0s, font-size 0s;
+}
+
+@keyframes c {
+  0%, 2% {
+    z-index: 9;
+    opacity: 0;
+    font-size: 0;
+    outline-offset: 35px;
+    background: #fc86a9;
+  }
+  10% {
+    z-index: 15;
+    opacity: 1;
+    font-size: 0;
+    outline-offset: 35px;
+    background: #fc86a9;
+  }
+  75% {
+    z-index: 15;
+    opacity: 1;
+    font-size: 0;
+    outline-offset: 0px;
+    background: #fc86a9;
+  }
+  76% {
+    z-index: 9;
+  }
+  80% {
+    font-size: 16px;
+    background: #ea2127;
+  }
+  100% {
+    opacity: 0;
+    background: #ea2127;
+  }
+}
+@property --c1 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(1) {
+  top: 20%;
+  left: 36%;
+  animation-duration: 4s;
+  animation-delay: 0.6s;
+}
+
+c:nth-of-type(1) ~ r {
+  --c1: 0;
+  --s1: paused ;
+}
+
+c:nth-of-type(1):active ~ r {
+  --s1: running;
+}
+
+@keyframes c1 {
+  to {
+    --c1:1;
+  }
+}
+@property --c2 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(2) {
+  top: 65%;
+  left: 4%;
+  animation-duration: 4s;
+  animation-delay: 1.2s;
+}
+
+c:nth-of-type(2) ~ r {
+  --c2: 0;
+  --s2: paused ;
+}
+
+c:nth-of-type(2):active ~ r {
+  --s2: running;
+}
+
+@keyframes c2 {
+  to {
+    --c2:1;
+  }
+}
+@property --c3 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(3) {
+  top: 47%;
+  left: 18%;
+  animation-duration: 4s;
+  animation-delay: 1.8s;
+}
+
+c:nth-of-type(3) ~ r {
+  --c3: 0;
+  --s3: paused ;
+}
+
+c:nth-of-type(3):active ~ r {
+  --s3: running;
+}
+
+@keyframes c3 {
+  to {
+    --c3:1;
+  }
+}
+@property --c4 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(4) {
+  top: 31%;
+  left: 12%;
+  animation-duration: 2s;
+  animation-delay: 2.4s;
+}
+
+c:nth-of-type(4) ~ r {
+  --c4: 0;
+  --s4: paused ;
+}
+
+c:nth-of-type(4):active ~ r {
+  --s4: running;
+}
+
+@keyframes c4 {
+  to {
+    --c4:1;
+  }
+}
+@property --c5 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(5) {
+  top: 48%;
+  left: 69%;
+  animation-duration: 3s;
+  animation-delay: 3s;
+}
+
+c:nth-of-type(5) ~ r {
+  --c5: 0;
+  --s5: paused ;
+}
+
+c:nth-of-type(5):active ~ r {
+  --s5: running;
+}
+
+@keyframes c5 {
+  to {
+    --c5:1;
+  }
+}
+@property --c6 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(6) {
+  top: 83%;
+  left: 11%;
+  animation-duration: 4s;
+  animation-delay: 3.6s;
+}
+
+c:nth-of-type(6) ~ r {
+  --c6: 0;
+  --s6: paused ;
+}
+
+c:nth-of-type(6):active ~ r {
+  --s6: running;
+}
+
+@keyframes c6 {
+  to {
+    --c6:1;
+  }
+}
+@property --c7 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(7) {
+  top: 96%;
+  left: 20%;
+  animation-duration: 3s;
+  animation-delay: 4.2s;
+}
+
+c:nth-of-type(7) ~ r {
+  --c7: 0;
+  --s7: paused ;
+}
+
+c:nth-of-type(7):active ~ r {
+  --s7: running;
+}
+
+@keyframes c7 {
+  to {
+    --c7:1;
+  }
+}
+@property --c8 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(8) {
+  top: 78%;
+  left: 66%;
+  animation-duration: 4s;
+  animation-delay: 4.8s;
+}
+
+c:nth-of-type(8) ~ r {
+  --c8: 0;
+  --s8: paused ;
+}
+
+c:nth-of-type(8):active ~ r {
+  --s8: running;
+}
+
+@keyframes c8 {
+  to {
+    --c8:1;
+  }
+}
+@property --c9 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(9) {
+  top: 72%;
+  left: 45%;
+  animation-duration: 2s;
+  animation-delay: 5.4s;
+}
+
+c:nth-of-type(9) ~ r {
+  --c9: 0;
+  --s9: paused ;
+}
+
+c:nth-of-type(9):active ~ r {
+  --s9: running;
+}
+
+@keyframes c9 {
+  to {
+    --c9:1;
+  }
+}
+@property --c10 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(10) {
+  top: 27%;
+  left: 25%;
+  animation-duration: 3s;
+  animation-delay: 6s;
+}
+
+c:nth-of-type(10) ~ r {
+  --c10: 0;
+  --s10: paused ;
+}
+
+c:nth-of-type(10):active ~ r {
+  --s10: running;
+}
+
+@keyframes c10 {
+  to {
+    --c10:1;
+  }
+}
+@property --c11 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(11) {
+  top: 92%;
+  left: 8%;
+  animation-duration: 3s;
+  animation-delay: 6.6s;
+}
+
+c:nth-of-type(11) ~ r {
+  --c11: 0;
+  --s11: paused ;
+}
+
+c:nth-of-type(11):active ~ r {
+  --s11: running;
+}
+
+@keyframes c11 {
+  to {
+    --c11:1;
+  }
+}
+@property --c12 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(12) {
+  top: 6%;
+  left: 1%;
+  animation-duration: 2s;
+  animation-delay: 7.2s;
+}
+
+c:nth-of-type(12) ~ r {
+  --c12: 0;
+  --s12: paused ;
+}
+
+c:nth-of-type(12):active ~ r {
+  --s12: running;
+}
+
+@keyframes c12 {
+  to {
+    --c12:1;
+  }
+}
+@property --c13 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(13) {
+  top: 67%;
+  left: 39%;
+  animation-duration: 4s;
+  animation-delay: 7.8s;
+}
+
+c:nth-of-type(13) ~ r {
+  --c13: 0;
+  --s13: paused ;
+}
+
+c:nth-of-type(13):active ~ r {
+  --s13: running;
+}
+
+@keyframes c13 {
+  to {
+    --c13:1;
+  }
+}
+@property --c14 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(14) {
+  top: 24%;
+  left: 24%;
+  animation-duration: 3s;
+  animation-delay: 8.4s;
+}
+
+c:nth-of-type(14) ~ r {
+  --c14: 0;
+  --s14: paused ;
+}
+
+c:nth-of-type(14):active ~ r {
+  --s14: running;
+}
+
+@keyframes c14 {
+  to {
+    --c14:1;
+  }
+}
+@property --c15 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(15) {
+  top: 25%;
+  left: 75%;
+  animation-duration: 2s;
+  animation-delay: 9s;
+}
+
+c:nth-of-type(15) ~ r {
+  --c15: 0;
+  --s15: paused ;
+}
+
+c:nth-of-type(15):active ~ r {
+  --s15: running;
+}
+
+@keyframes c15 {
+  to {
+    --c15:1;
+  }
+}
+@property --c16 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(16) {
+  top: 11%;
+  left: 43%;
+  animation-duration: 3s;
+  animation-delay: 9.6s;
+}
+
+c:nth-of-type(16) ~ r {
+  --c16: 0;
+  --s16: paused ;
+}
+
+c:nth-of-type(16):active ~ r {
+  --s16: running;
+}
+
+@keyframes c16 {
+  to {
+    --c16:1;
+  }
+}
+@property --c17 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(17) {
+  top: 93%;
+  left: 49%;
+  animation-duration: 4s;
+  animation-delay: 10.2s;
+}
+
+c:nth-of-type(17) ~ r {
+  --c17: 0;
+  --s17: paused ;
+}
+
+c:nth-of-type(17):active ~ r {
+  --s17: running;
+}
+
+@keyframes c17 {
+  to {
+    --c17:1;
+  }
+}
+@property --c18 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(18) {
+  top: 62%;
+  left: 6%;
+  animation-duration: 4s;
+  animation-delay: 10.8s;
+}
+
+c:nth-of-type(18) ~ r {
+  --c18: 0;
+  --s18: paused ;
+}
+
+c:nth-of-type(18):active ~ r {
+  --s18: running;
+}
+
+@keyframes c18 {
+  to {
+    --c18:1;
+  }
+}
+@property --c19 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(19) {
+  top: 90%;
+  left: 52%;
+  animation-duration: 4s;
+  animation-delay: 11.4s;
+}
+
+c:nth-of-type(19) ~ r {
+  --c19: 0;
+  --s19: paused ;
+}
+
+c:nth-of-type(19):active ~ r {
+  --s19: running;
+}
+
+@keyframes c19 {
+  to {
+    --c19:1;
+  }
+}
+@property --c20 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(20) {
+  top: 61%;
+  left: 17%;
+  animation-duration: 2s;
+  animation-delay: 12s;
+}
+
+c:nth-of-type(20) ~ r {
+  --c20: 0;
+  --s20: paused ;
+}
+
+c:nth-of-type(20):active ~ r {
+  --s20: running;
+}
+
+@keyframes c20 {
+  to {
+    --c20:1;
+  }
+}
+@property --c21 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(21) {
+  top: 42%;
+  left: 97%;
+  animation-duration: 2s;
+  animation-delay: 12.6s;
+}
+
+c:nth-of-type(21) ~ r {
+  --c21: 0;
+  --s21: paused ;
+}
+
+c:nth-of-type(21):active ~ r {
+  --s21: running;
+}
+
+@keyframes c21 {
+  to {
+    --c21:1;
+  }
+}
+@property --c22 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(22) {
+  top: 1%;
+  left: 30%;
+  animation-duration: 2s;
+  animation-delay: 13.2s;
+}
+
+c:nth-of-type(22) ~ r {
+  --c22: 0;
+  --s22: paused ;
+}
+
+c:nth-of-type(22):active ~ r {
+  --s22: running;
+}
+
+@keyframes c22 {
+  to {
+    --c22:1;
+  }
+}
+@property --c23 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(23) {
+  top: 75%;
+  left: 6%;
+  animation-duration: 4s;
+  animation-delay: 13.8s;
+}
+
+c:nth-of-type(23) ~ r {
+  --c23: 0;
+  --s23: paused ;
+}
+
+c:nth-of-type(23):active ~ r {
+  --s23: running;
+}
+
+@keyframes c23 {
+  to {
+    --c23:1;
+  }
+}
+@property --c24 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(24) {
+  top: 41%;
+  left: 75%;
+  animation-duration: 3s;
+  animation-delay: 14.4s;
+}
+
+c:nth-of-type(24) ~ r {
+  --c24: 0;
+  --s24: paused ;
+}
+
+c:nth-of-type(24):active ~ r {
+  --s24: running;
+}
+
+@keyframes c24 {
+  to {
+    --c24:1;
+  }
+}
+@property --c25 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(25) {
+  top: 95%;
+  left: 29%;
+  animation-duration: 2s;
+  animation-delay: 15s;
+}
+
+c:nth-of-type(25) ~ r {
+  --c25: 0;
+  --s25: paused ;
+}
+
+c:nth-of-type(25):active ~ r {
+  --s25: running;
+}
+
+@keyframes c25 {
+  to {
+    --c25:1;
+  }
+}
+@property --c26 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(26) {
+  top: 89%;
+  left: 34%;
+  animation-duration: 2s;
+  animation-delay: 15.6s;
+}
+
+c:nth-of-type(26) ~ r {
+  --c26: 0;
+  --s26: paused ;
+}
+
+c:nth-of-type(26):active ~ r {
+  --s26: running;
+}
+
+@keyframes c26 {
+  to {
+    --c26:1;
+  }
+}
+@property --c27 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(27) {
+  top: 83%;
+  left: 59%;
+  animation-duration: 2s;
+  animation-delay: 16.2s;
+}
+
+c:nth-of-type(27) ~ r {
+  --c27: 0;
+  --s27: paused ;
+}
+
+c:nth-of-type(27):active ~ r {
+  --s27: running;
+}
+
+@keyframes c27 {
+  to {
+    --c27:1;
+  }
+}
+@property --c28 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(28) {
+  top: 36%;
+  left: 96%;
+  animation-duration: 3s;
+  animation-delay: 16.8s;
+}
+
+c:nth-of-type(28) ~ r {
+  --c28: 0;
+  --s28: paused ;
+}
+
+c:nth-of-type(28):active ~ r {
+  --s28: running;
+}
+
+@keyframes c28 {
+  to {
+    --c28:1;
+  }
+}
+@property --c29 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(29) {
+  top: 93%;
+  left: 15%;
+  animation-duration: 4s;
+  animation-delay: 17.4s;
+}
+
+c:nth-of-type(29) ~ r {
+  --c29: 0;
+  --s29: paused ;
+}
+
+c:nth-of-type(29):active ~ r {
+  --s29: running;
+}
+
+@keyframes c29 {
+  to {
+    --c29:1;
+  }
+}
+@property --c30 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(30) {
+  top: 86%;
+  left: 98%;
+  animation-duration: 2s;
+  animation-delay: 18s;
+}
+
+c:nth-of-type(30) ~ r {
+  --c30: 0;
+  --s30: paused ;
+}
+
+c:nth-of-type(30):active ~ r {
+  --s30: running;
+}
+
+@keyframes c30 {
+  to {
+    --c30:1;
+  }
+}
+@property --c31 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(31) {
+  top: 44%;
+  left: 6%;
+  animation-duration: 2s;
+  animation-delay: 18.6s;
+}
+
+c:nth-of-type(31) ~ r {
+  --c31: 0;
+  --s31: paused ;
+}
+
+c:nth-of-type(31):active ~ r {
+  --s31: running;
+}
+
+@keyframes c31 {
+  to {
+    --c31:1;
+  }
+}
+@property --c32 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(32) {
+  top: 73%;
+  left: 83%;
+  animation-duration: 4s;
+  animation-delay: 19.2s;
+}
+
+c:nth-of-type(32) ~ r {
+  --c32: 0;
+  --s32: paused ;
+}
+
+c:nth-of-type(32):active ~ r {
+  --s32: running;
+}
+
+@keyframes c32 {
+  to {
+    --c32:1;
+  }
+}
+@property --c33 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(33) {
+  top: 75%;
+  left: 4%;
+  animation-duration: 4s;
+  animation-delay: 19.8s;
+}
+
+c:nth-of-type(33) ~ r {
+  --c33: 0;
+  --s33: paused ;
+}
+
+c:nth-of-type(33):active ~ r {
+  --s33: running;
+}
+
+@keyframes c33 {
+  to {
+    --c33:1;
+  }
+}
+@property --c34 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(34) {
+  top: 26%;
+  left: 69%;
+  animation-duration: 3s;
+  animation-delay: 20.4s;
+}
+
+c:nth-of-type(34) ~ r {
+  --c34: 0;
+  --s34: paused ;
+}
+
+c:nth-of-type(34):active ~ r {
+  --s34: running;
+}
+
+@keyframes c34 {
+  to {
+    --c34:1;
+  }
+}
+@property --c35 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(35) {
+  top: 2%;
+  left: 45%;
+  animation-duration: 2s;
+  animation-delay: 21s;
+}
+
+c:nth-of-type(35) ~ r {
+  --c35: 0;
+  --s35: paused ;
+}
+
+c:nth-of-type(35):active ~ r {
+  --s35: running;
+}
+
+@keyframes c35 {
+  to {
+    --c35:1;
+  }
+}
+@property --c36 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(36) {
+  top: 20%;
+  left: 23%;
+  animation-duration: 4s;
+  animation-delay: 21.6s;
+}
+
+c:nth-of-type(36) ~ r {
+  --c36: 0;
+  --s36: paused ;
+}
+
+c:nth-of-type(36):active ~ r {
+  --s36: running;
+}
+
+@keyframes c36 {
+  to {
+    --c36:1;
+  }
+}
+@property --c37 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(37) {
+  top: 50%;
+  left: 17%;
+  animation-duration: 2s;
+  animation-delay: 22.2s;
+}
+
+c:nth-of-type(37) ~ r {
+  --c37: 0;
+  --s37: paused ;
+}
+
+c:nth-of-type(37):active ~ r {
+  --s37: running;
+}
+
+@keyframes c37 {
+  to {
+    --c37:1;
+  }
+}
+@property --c38 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(38) {
+  top: 60%;
+  left: 97%;
+  animation-duration: 3s;
+  animation-delay: 22.8s;
+}
+
+c:nth-of-type(38) ~ r {
+  --c38: 0;
+  --s38: paused ;
+}
+
+c:nth-of-type(38):active ~ r {
+  --s38: running;
+}
+
+@keyframes c38 {
+  to {
+    --c38:1;
+  }
+}
+@property --c39 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(39) {
+  top: 35%;
+  left: 66%;
+  animation-duration: 4s;
+  animation-delay: 23.4s;
+}
+
+c:nth-of-type(39) ~ r {
+  --c39: 0;
+  --s39: paused ;
+}
+
+c:nth-of-type(39):active ~ r {
+  --s39: running;
+}
+
+@keyframes c39 {
+  to {
+    --c39:1;
+  }
+}
+@property --c40 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(40) {
+  top: 64%;
+  left: 77%;
+  animation-duration: 4s;
+  animation-delay: 24s;
+}
+
+c:nth-of-type(40) ~ r {
+  --c40: 0;
+  --s40: paused ;
+}
+
+c:nth-of-type(40):active ~ r {
+  --s40: running;
+}
+
+@keyframes c40 {
+  to {
+    --c40:1;
+  }
+}
+@property --c41 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(41) {
+  top: 7%;
+  left: 26%;
+  animation-duration: 3s;
+  animation-delay: 24.6s;
+}
+
+c:nth-of-type(41) ~ r {
+  --c41: 0;
+  --s41: paused ;
+}
+
+c:nth-of-type(41):active ~ r {
+  --s41: running;
+}
+
+@keyframes c41 {
+  to {
+    --c41:1;
+  }
+}
+@property --c42 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(42) {
+  top: 35%;
+  left: 74%;
+  animation-duration: 4s;
+  animation-delay: 25.2s;
+}
+
+c:nth-of-type(42) ~ r {
+  --c42: 0;
+  --s42: paused ;
+}
+
+c:nth-of-type(42):active ~ r {
+  --s42: running;
+}
+
+@keyframes c42 {
+  to {
+    --c42:1;
+  }
+}
+@property --c43 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(43) {
+  top: 44%;
+  left: 47%;
+  animation-duration: 2s;
+  animation-delay: 25.8s;
+}
+
+c:nth-of-type(43) ~ r {
+  --c43: 0;
+  --s43: paused ;
+}
+
+c:nth-of-type(43):active ~ r {
+  --s43: running;
+}
+
+@keyframes c43 {
+  to {
+    --c43:1;
+  }
+}
+@property --c44 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(44) {
+  top: 92%;
+  left: 6%;
+  animation-duration: 2s;
+  animation-delay: 26.4s;
+}
+
+c:nth-of-type(44) ~ r {
+  --c44: 0;
+  --s44: paused ;
+}
+
+c:nth-of-type(44):active ~ r {
+  --s44: running;
+}
+
+@keyframes c44 {
+  to {
+    --c44:1;
+  }
+}
+@property --c45 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(45) {
+  top: 86%;
+  left: 22%;
+  animation-duration: 4s;
+  animation-delay: 27s;
+}
+
+c:nth-of-type(45) ~ r {
+  --c45: 0;
+  --s45: paused ;
+}
+
+c:nth-of-type(45):active ~ r {
+  --s45: running;
+}
+
+@keyframes c45 {
+  to {
+    --c45:1;
+  }
+}
+@property --c46 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(46) {
+  top: 100%;
+  left: 82%;
+  animation-duration: 4s;
+  animation-delay: 27.6s;
+}
+
+c:nth-of-type(46) ~ r {
+  --c46: 0;
+  --s46: paused ;
+}
+
+c:nth-of-type(46):active ~ r {
+  --s46: running;
+}
+
+@keyframes c46 {
+  to {
+    --c46:1;
+  }
+}
+@property --c47 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(47) {
+  top: 58%;
+  left: 46%;
+  animation-duration: 4s;
+  animation-delay: 28.2s;
+}
+
+c:nth-of-type(47) ~ r {
+  --c47: 0;
+  --s47: paused ;
+}
+
+c:nth-of-type(47):active ~ r {
+  --s47: running;
+}
+
+@keyframes c47 {
+  to {
+    --c47:1;
+  }
+}
+@property --c48 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(48) {
+  top: 74%;
+  left: 45%;
+  animation-duration: 2s;
+  animation-delay: 28.8s;
+}
+
+c:nth-of-type(48) ~ r {
+  --c48: 0;
+  --s48: paused ;
+}
+
+c:nth-of-type(48):active ~ r {
+  --s48: running;
+}
+
+@keyframes c48 {
+  to {
+    --c48:1;
+  }
+}
+@property --c49 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(49) {
+  top: 16%;
+  left: 92%;
+  animation-duration: 2s;
+  animation-delay: 29.4s;
+}
+
+c:nth-of-type(49) ~ r {
+  --c49: 0;
+  --s49: paused ;
+}
+
+c:nth-of-type(49):active ~ r {
+  --s49: running;
+}
+
+@keyframes c49 {
+  to {
+    --c49:1;
+  }
+}
+@property --c50 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(50) {
+  top: 40%;
+  left: 99%;
+  animation-duration: 2s;
+  animation-delay: 30s;
+}
+
+c:nth-of-type(50) ~ r {
+  --c50: 0;
+  --s50: paused ;
+}
+
+c:nth-of-type(50):active ~ r {
+  --s50: running;
+}
+
+@keyframes c50 {
+  to {
+    --c50:1;
+  }
+}
+@property --c51 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(51) {
+  top: 69%;
+  left: 42%;
+  animation-duration: 2s;
+  animation-delay: 30.6s;
+}
+
+c:nth-of-type(51) ~ r {
+  --c51: 0;
+  --s51: paused ;
+}
+
+c:nth-of-type(51):active ~ r {
+  --s51: running;
+}
+
+@keyframes c51 {
+  to {
+    --c51:1;
+  }
+}
+@property --c52 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(52) {
+  top: 48%;
+  left: 90%;
+  animation-duration: 3s;
+  animation-delay: 31.2s;
+}
+
+c:nth-of-type(52) ~ r {
+  --c52: 0;
+  --s52: paused ;
+}
+
+c:nth-of-type(52):active ~ r {
+  --s52: running;
+}
+
+@keyframes c52 {
+  to {
+    --c52:1;
+  }
+}
+@property --c53 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(53) {
+  top: 94%;
+  left: 50%;
+  animation-duration: 2s;
+  animation-delay: 31.8s;
+}
+
+c:nth-of-type(53) ~ r {
+  --c53: 0;
+  --s53: paused ;
+}
+
+c:nth-of-type(53):active ~ r {
+  --s53: running;
+}
+
+@keyframes c53 {
+  to {
+    --c53:1;
+  }
+}
+@property --c54 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(54) {
+  top: 57%;
+  left: 99%;
+  animation-duration: 2s;
+  animation-delay: 32.4s;
+}
+
+c:nth-of-type(54) ~ r {
+  --c54: 0;
+  --s54: paused ;
+}
+
+c:nth-of-type(54):active ~ r {
+  --s54: running;
+}
+
+@keyframes c54 {
+  to {
+    --c54:1;
+  }
+}
+@property --c55 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(55) {
+  top: 82%;
+  left: 14%;
+  animation-duration: 2s;
+  animation-delay: 33s;
+}
+
+c:nth-of-type(55) ~ r {
+  --c55: 0;
+  --s55: paused ;
+}
+
+c:nth-of-type(55):active ~ r {
+  --s55: running;
+}
+
+@keyframes c55 {
+  to {
+    --c55:1;
+  }
+}
+@property --c56 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(56) {
+  top: 20%;
+  left: 53%;
+  animation-duration: 4s;
+  animation-delay: 33.6s;
+}
+
+c:nth-of-type(56) ~ r {
+  --c56: 0;
+  --s56: paused ;
+}
+
+c:nth-of-type(56):active ~ r {
+  --s56: running;
+}
+
+@keyframes c56 {
+  to {
+    --c56:1;
+  }
+}
+@property --c57 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(57) {
+  top: 99%;
+  left: 29%;
+  animation-duration: 3s;
+  animation-delay: 34.2s;
+}
+
+c:nth-of-type(57) ~ r {
+  --c57: 0;
+  --s57: paused ;
+}
+
+c:nth-of-type(57):active ~ r {
+  --s57: running;
+}
+
+@keyframes c57 {
+  to {
+    --c57:1;
+  }
+}
+@property --c58 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(58) {
+  top: 94%;
+  left: 59%;
+  animation-duration: 2s;
+  animation-delay: 34.8s;
+}
+
+c:nth-of-type(58) ~ r {
+  --c58: 0;
+  --s58: paused ;
+}
+
+c:nth-of-type(58):active ~ r {
+  --s58: running;
+}
+
+@keyframes c58 {
+  to {
+    --c58:1;
+  }
+}
+@property --c59 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(59) {
+  top: 100%;
+  left: 83%;
+  animation-duration: 3s;
+  animation-delay: 35.4s;
+}
+
+c:nth-of-type(59) ~ r {
+  --c59: 0;
+  --s59: paused ;
+}
+
+c:nth-of-type(59):active ~ r {
+  --s59: running;
+}
+
+@keyframes c59 {
+  to {
+    --c59:1;
+  }
+}
+@property --c60 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(60) {
+  top: 25%;
+  left: 81%;
+  animation-duration: 4s;
+  animation-delay: 36s;
+}
+
+c:nth-of-type(60) ~ r {
+  --c60: 0;
+  --s60: paused ;
+}
+
+c:nth-of-type(60):active ~ r {
+  --s60: running;
+}
+
+@keyframes c60 {
+  to {
+    --c60:1;
+  }
+}
+@property --c61 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(61) {
+  top: 38%;
+  left: 37%;
+  animation-duration: 4s;
+  animation-delay: 36.6s;
+}
+
+c:nth-of-type(61) ~ r {
+  --c61: 0;
+  --s61: paused ;
+}
+
+c:nth-of-type(61):active ~ r {
+  --s61: running;
+}
+
+@keyframes c61 {
+  to {
+    --c61:1;
+  }
+}
+@property --c62 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(62) {
+  top: 55%;
+  left: 61%;
+  animation-duration: 4s;
+  animation-delay: 37.2s;
+}
+
+c:nth-of-type(62) ~ r {
+  --c62: 0;
+  --s62: paused ;
+}
+
+c:nth-of-type(62):active ~ r {
+  --s62: running;
+}
+
+@keyframes c62 {
+  to {
+    --c62:1;
+  }
+}
+@property --c63 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(63) {
+  top: 9%;
+  left: 69%;
+  animation-duration: 2s;
+  animation-delay: 37.8s;
+}
+
+c:nth-of-type(63) ~ r {
+  --c63: 0;
+  --s63: paused ;
+}
+
+c:nth-of-type(63):active ~ r {
+  --s63: running;
+}
+
+@keyframes c63 {
+  to {
+    --c63:1;
+  }
+}
+@property --c64 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(64) {
+  top: 26%;
+  left: 74%;
+  animation-duration: 3s;
+  animation-delay: 38.4s;
+}
+
+c:nth-of-type(64) ~ r {
+  --c64: 0;
+  --s64: paused ;
+}
+
+c:nth-of-type(64):active ~ r {
+  --s64: running;
+}
+
+@keyframes c64 {
+  to {
+    --c64:1;
+  }
+}
+@property --c65 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(65) {
+  top: 22%;
+  left: 7%;
+  animation-duration: 2s;
+  animation-delay: 39s;
+}
+
+c:nth-of-type(65) ~ r {
+  --c65: 0;
+  --s65: paused ;
+}
+
+c:nth-of-type(65):active ~ r {
+  --s65: running;
+}
+
+@keyframes c65 {
+  to {
+    --c65:1;
+  }
+}
+@property --c66 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(66) {
+  top: 56%;
+  left: 42%;
+  animation-duration: 3s;
+  animation-delay: 39.6s;
+}
+
+c:nth-of-type(66) ~ r {
+  --c66: 0;
+  --s66: paused ;
+}
+
+c:nth-of-type(66):active ~ r {
+  --s66: running;
+}
+
+@keyframes c66 {
+  to {
+    --c66:1;
+  }
+}
+@property --c67 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(67) {
+  top: 46%;
+  left: 7%;
+  animation-duration: 4s;
+  animation-delay: 40.2s;
+}
+
+c:nth-of-type(67) ~ r {
+  --c67: 0;
+  --s67: paused ;
+}
+
+c:nth-of-type(67):active ~ r {
+  --s67: running;
+}
+
+@keyframes c67 {
+  to {
+    --c67:1;
+  }
+}
+@property --c68 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(68) {
+  top: 86%;
+  left: 61%;
+  animation-duration: 2s;
+  animation-delay: 40.8s;
+}
+
+c:nth-of-type(68) ~ r {
+  --c68: 0;
+  --s68: paused ;
+}
+
+c:nth-of-type(68):active ~ r {
+  --s68: running;
+}
+
+@keyframes c68 {
+  to {
+    --c68:1;
+  }
+}
+@property --c69 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(69) {
+  top: 67%;
+  left: 20%;
+  animation-duration: 2s;
+  animation-delay: 41.4s;
+}
+
+c:nth-of-type(69) ~ r {
+  --c69: 0;
+  --s69: paused ;
+}
+
+c:nth-of-type(69):active ~ r {
+  --s69: running;
+}
+
+@keyframes c69 {
+  to {
+    --c69:1;
+  }
+}
+@property --c70 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(70) {
+  top: 42%;
+  left: 31%;
+  animation-duration: 4s;
+  animation-delay: 42s;
+}
+
+c:nth-of-type(70) ~ r {
+  --c70: 0;
+  --s70: paused ;
+}
+
+c:nth-of-type(70):active ~ r {
+  --s70: running;
+}
+
+@keyframes c70 {
+  to {
+    --c70:1;
+  }
+}
+@property --c71 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(71) {
+  top: 72%;
+  left: 13%;
+  animation-duration: 3s;
+  animation-delay: 42.6s;
+}
+
+c:nth-of-type(71) ~ r {
+  --c71: 0;
+  --s71: paused ;
+}
+
+c:nth-of-type(71):active ~ r {
+  --s71: running;
+}
+
+@keyframes c71 {
+  to {
+    --c71:1;
+  }
+}
+@property --c72 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(72) {
+  top: 96%;
+  left: 68%;
+  animation-duration: 4s;
+  animation-delay: 43.2s;
+}
+
+c:nth-of-type(72) ~ r {
+  --c72: 0;
+  --s72: paused ;
+}
+
+c:nth-of-type(72):active ~ r {
+  --s72: running;
+}
+
+@keyframes c72 {
+  to {
+    --c72:1;
+  }
+}
+@property --c73 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(73) {
+  top: 13%;
+  left: 48%;
+  animation-duration: 2s;
+  animation-delay: 43.8s;
+}
+
+c:nth-of-type(73) ~ r {
+  --c73: 0;
+  --s73: paused ;
+}
+
+c:nth-of-type(73):active ~ r {
+  --s73: running;
+}
+
+@keyframes c73 {
+  to {
+    --c73:1;
+  }
+}
+@property --c74 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(74) {
+  top: 13%;
+  left: 73%;
+  animation-duration: 4s;
+  animation-delay: 44.4s;
+}
+
+c:nth-of-type(74) ~ r {
+  --c74: 0;
+  --s74: paused ;
+}
+
+c:nth-of-type(74):active ~ r {
+  --s74: running;
+}
+
+@keyframes c74 {
+  to {
+    --c74:1;
+  }
+}
+@property --c75 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(75) {
+  top: 67%;
+  left: 99%;
+  animation-duration: 4s;
+  animation-delay: 45s;
+}
+
+c:nth-of-type(75) ~ r {
+  --c75: 0;
+  --s75: paused ;
+}
+
+c:nth-of-type(75):active ~ r {
+  --s75: running;
+}
+
+@keyframes c75 {
+  to {
+    --c75:1;
+  }
+}
+@property --c76 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(76) {
+  top: 55%;
+  left: 45%;
+  animation-duration: 3s;
+  animation-delay: 45.6s;
+}
+
+c:nth-of-type(76) ~ r {
+  --c76: 0;
+  --s76: paused ;
+}
+
+c:nth-of-type(76):active ~ r {
+  --s76: running;
+}
+
+@keyframes c76 {
+  to {
+    --c76:1;
+  }
+}
+@property --c77 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(77) {
+  top: 74%;
+  left: 76%;
+  animation-duration: 3s;
+  animation-delay: 46.2s;
+}
+
+c:nth-of-type(77) ~ r {
+  --c77: 0;
+  --s77: paused ;
+}
+
+c:nth-of-type(77):active ~ r {
+  --s77: running;
+}
+
+@keyframes c77 {
+  to {
+    --c77:1;
+  }
+}
+@property --c78 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(78) {
+  top: 81%;
+  left: 59%;
+  animation-duration: 3s;
+  animation-delay: 46.8s;
+}
+
+c:nth-of-type(78) ~ r {
+  --c78: 0;
+  --s78: paused ;
+}
+
+c:nth-of-type(78):active ~ r {
+  --s78: running;
+}
+
+@keyframes c78 {
+  to {
+    --c78:1;
+  }
+}
+@property --c79 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(79) {
+  top: 89%;
+  left: 63%;
+  animation-duration: 4s;
+  animation-delay: 47.4s;
+}
+
+c:nth-of-type(79) ~ r {
+  --c79: 0;
+  --s79: paused ;
+}
+
+c:nth-of-type(79):active ~ r {
+  --s79: running;
+}
+
+@keyframes c79 {
+  to {
+    --c79:1;
+  }
+}
+@property --c80 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(80) {
+  top: 25%;
+  left: 4%;
+  animation-duration: 2s;
+  animation-delay: 48s;
+}
+
+c:nth-of-type(80) ~ r {
+  --c80: 0;
+  --s80: paused ;
+}
+
+c:nth-of-type(80):active ~ r {
+  --s80: running;
+}
+
+@keyframes c80 {
+  to {
+    --c80:1;
+  }
+}
+@property --c81 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(81) {
+  top: 26%;
+  left: 60%;
+  animation-duration: 2s;
+  animation-delay: 48.6s;
+}
+
+c:nth-of-type(81) ~ r {
+  --c81: 0;
+  --s81: paused ;
+}
+
+c:nth-of-type(81):active ~ r {
+  --s81: running;
+}
+
+@keyframes c81 {
+  to {
+    --c81:1;
+  }
+}
+@property --c82 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(82) {
+  top: 2%;
+  left: 85%;
+  animation-duration: 3s;
+  animation-delay: 49.2s;
+}
+
+c:nth-of-type(82) ~ r {
+  --c82: 0;
+  --s82: paused ;
+}
+
+c:nth-of-type(82):active ~ r {
+  --s82: running;
+}
+
+@keyframes c82 {
+  to {
+    --c82:1;
+  }
+}
+@property --c83 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(83) {
+  top: 26%;
+  left: 28%;
+  animation-duration: 4s;
+  animation-delay: 49.8s;
+}
+
+c:nth-of-type(83) ~ r {
+  --c83: 0;
+  --s83: paused ;
+}
+
+c:nth-of-type(83):active ~ r {
+  --s83: running;
+}
+
+@keyframes c83 {
+  to {
+    --c83:1;
+  }
+}
+@property --c84 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(84) {
+  top: 2%;
+  left: 37%;
+  animation-duration: 4s;
+  animation-delay: 50.4s;
+}
+
+c:nth-of-type(84) ~ r {
+  --c84: 0;
+  --s84: paused ;
+}
+
+c:nth-of-type(84):active ~ r {
+  --s84: running;
+}
+
+@keyframes c84 {
+  to {
+    --c84:1;
+  }
+}
+@property --c85 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(85) {
+  top: 13%;
+  left: 16%;
+  animation-duration: 4s;
+  animation-delay: 51s;
+}
+
+c:nth-of-type(85) ~ r {
+  --c85: 0;
+  --s85: paused ;
+}
+
+c:nth-of-type(85):active ~ r {
+  --s85: running;
+}
+
+@keyframes c85 {
+  to {
+    --c85:1;
+  }
+}
+@property --c86 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(86) {
+  top: 61%;
+  left: 82%;
+  animation-duration: 4s;
+  animation-delay: 51.6s;
+}
+
+c:nth-of-type(86) ~ r {
+  --c86: 0;
+  --s86: paused ;
+}
+
+c:nth-of-type(86):active ~ r {
+  --s86: running;
+}
+
+@keyframes c86 {
+  to {
+    --c86:1;
+  }
+}
+@property --c87 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(87) {
+  top: 42%;
+  left: 2%;
+  animation-duration: 3s;
+  animation-delay: 52.2s;
+}
+
+c:nth-of-type(87) ~ r {
+  --c87: 0;
+  --s87: paused ;
+}
+
+c:nth-of-type(87):active ~ r {
+  --s87: running;
+}
+
+@keyframes c87 {
+  to {
+    --c87:1;
+  }
+}
+@property --c88 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(88) {
+  top: 86%;
+  left: 73%;
+  animation-duration: 2s;
+  animation-delay: 52.8s;
+}
+
+c:nth-of-type(88) ~ r {
+  --c88: 0;
+  --s88: paused ;
+}
+
+c:nth-of-type(88):active ~ r {
+  --s88: running;
+}
+
+@keyframes c88 {
+  to {
+    --c88:1;
+  }
+}
+@property --c89 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(89) {
+  top: 80%;
+  left: 39%;
+  animation-duration: 4s;
+  animation-delay: 53.4s;
+}
+
+c:nth-of-type(89) ~ r {
+  --c89: 0;
+  --s89: paused ;
+}
+
+c:nth-of-type(89):active ~ r {
+  --s89: running;
+}
+
+@keyframes c89 {
+  to {
+    --c89:1;
+  }
+}
+@property --c90 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(90) {
+  top: 12%;
+  left: 35%;
+  animation-duration: 4s;
+  animation-delay: 54s;
+}
+
+c:nth-of-type(90) ~ r {
+  --c90: 0;
+  --s90: paused ;
+}
+
+c:nth-of-type(90):active ~ r {
+  --s90: running;
+}
+
+@keyframes c90 {
+  to {
+    --c90:1;
+  }
+}
+@property --c91 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(91) {
+  top: 65%;
+  left: 64%;
+  animation-duration: 3s;
+  animation-delay: 54.6s;
+}
+
+c:nth-of-type(91) ~ r {
+  --c91: 0;
+  --s91: paused ;
+}
+
+c:nth-of-type(91):active ~ r {
+  --s91: running;
+}
+
+@keyframes c91 {
+  to {
+    --c91:1;
+  }
+}
+@property --c92 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(92) {
+  top: 81%;
+  left: 12%;
+  animation-duration: 2s;
+  animation-delay: 55.2s;
+}
+
+c:nth-of-type(92) ~ r {
+  --c92: 0;
+  --s92: paused ;
+}
+
+c:nth-of-type(92):active ~ r {
+  --s92: running;
+}
+
+@keyframes c92 {
+  to {
+    --c92:1;
+  }
+}
+@property --c93 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(93) {
+  top: 60%;
+  left: 3%;
+  animation-duration: 2s;
+  animation-delay: 55.8s;
+}
+
+c:nth-of-type(93) ~ r {
+  --c93: 0;
+  --s93: paused ;
+}
+
+c:nth-of-type(93):active ~ r {
+  --s93: running;
+}
+
+@keyframes c93 {
+  to {
+    --c93:1;
+  }
+}
+@property --c94 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(94) {
+  top: 65%;
+  left: 30%;
+  animation-duration: 2s;
+  animation-delay: 56.4s;
+}
+
+c:nth-of-type(94) ~ r {
+  --c94: 0;
+  --s94: paused ;
+}
+
+c:nth-of-type(94):active ~ r {
+  --s94: running;
+}
+
+@keyframes c94 {
+  to {
+    --c94:1;
+  }
+}
+@property --c95 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(95) {
+  top: 27%;
+  left: 82%;
+  animation-duration: 4s;
+  animation-delay: 57s;
+}
+
+c:nth-of-type(95) ~ r {
+  --c95: 0;
+  --s95: paused ;
+}
+
+c:nth-of-type(95):active ~ r {
+  --s95: running;
+}
+
+@keyframes c95 {
+  to {
+    --c95:1;
+  }
+}
+@property --c96 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(96) {
+  top: 72%;
+  left: 17%;
+  animation-duration: 3s;
+  animation-delay: 57.6s;
+}
+
+c:nth-of-type(96) ~ r {
+  --c96: 0;
+  --s96: paused ;
+}
+
+c:nth-of-type(96):active ~ r {
+  --s96: running;
+}
+
+@keyframes c96 {
+  to {
+    --c96:1;
+  }
+}
+@property --c97 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(97) {
+  top: 98%;
+  left: 29%;
+  animation-duration: 2s;
+  animation-delay: 58.2s;
+}
+
+c:nth-of-type(97) ~ r {
+  --c97: 0;
+  --s97: paused ;
+}
+
+c:nth-of-type(97):active ~ r {
+  --s97: running;
+}
+
+@keyframes c97 {
+  to {
+    --c97:1;
+  }
+}
+@property --c98 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(98) {
+  top: 10%;
+  left: 12%;
+  animation-duration: 2s;
+  animation-delay: 58.8s;
+}
+
+c:nth-of-type(98) ~ r {
+  --c98: 0;
+  --s98: paused ;
+}
+
+c:nth-of-type(98):active ~ r {
+  --s98: running;
+}
+
+@keyframes c98 {
+  to {
+    --c98:1;
+  }
+}
+@property --c99 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(99) {
+  top: 63%;
+  left: 77%;
+  animation-duration: 3s;
+  animation-delay: 59.4s;
+}
+
+c:nth-of-type(99) ~ r {
+  --c99: 0;
+  --s99: paused ;
+}
+
+c:nth-of-type(99):active ~ r {
+  --s99: running;
+}
+
+@keyframes c99 {
+  to {
+    --c99:1;
+  }
+}
+@property --c100 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(100) {
+  top: 6%;
+  left: 86%;
+  animation-duration: 3s;
+  animation-delay: 60s;
+}
+
+c:nth-of-type(100) ~ r {
+  --c100: 0;
+  --s100: paused ;
+}
+
+c:nth-of-type(100):active ~ r {
+  --s100: running;
+}
+
+@keyframes c100 {
+  to {
+    --c100:1;
+  }
+}
+@property --c101 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(101) {
+  top: 22%;
+  left: 82%;
+  animation-duration: 3s;
+  animation-delay: 60.6s;
+}
+
+c:nth-of-type(101) ~ r {
+  --c101: 0;
+  --s101: paused ;
+}
+
+c:nth-of-type(101):active ~ r {
+  --s101: running;
+}
+
+@keyframes c101 {
+  to {
+    --c101:1;
+  }
+}
+@property --c102 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(102) {
+  top: 42%;
+  left: 72%;
+  animation-duration: 2s;
+  animation-delay: 61.2s;
+}
+
+c:nth-of-type(102) ~ r {
+  --c102: 0;
+  --s102: paused ;
+}
+
+c:nth-of-type(102):active ~ r {
+  --s102: running;
+}
+
+@keyframes c102 {
+  to {
+    --c102:1;
+  }
+}
+@property --c103 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(103) {
+  top: 93%;
+  left: 41%;
+  animation-duration: 2s;
+  animation-delay: 61.8s;
+}
+
+c:nth-of-type(103) ~ r {
+  --c103: 0;
+  --s103: paused ;
+}
+
+c:nth-of-type(103):active ~ r {
+  --s103: running;
+}
+
+@keyframes c103 {
+  to {
+    --c103:1;
+  }
+}
+@property --c104 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(104) {
+  top: 93%;
+  left: 54%;
+  animation-duration: 4s;
+  animation-delay: 62.4s;
+}
+
+c:nth-of-type(104) ~ r {
+  --c104: 0;
+  --s104: paused ;
+}
+
+c:nth-of-type(104):active ~ r {
+  --s104: running;
+}
+
+@keyframes c104 {
+  to {
+    --c104:1;
+  }
+}
+@property --c105 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(105) {
+  top: 48%;
+  left: 74%;
+  animation-duration: 4s;
+  animation-delay: 63s;
+}
+
+c:nth-of-type(105) ~ r {
+  --c105: 0;
+  --s105: paused ;
+}
+
+c:nth-of-type(105):active ~ r {
+  --s105: running;
+}
+
+@keyframes c105 {
+  to {
+    --c105:1;
+  }
+}
+@property --c106 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(106) {
+  top: 34%;
+  left: 100%;
+  animation-duration: 3s;
+  animation-delay: 63.6s;
+}
+
+c:nth-of-type(106) ~ r {
+  --c106: 0;
+  --s106: paused ;
+}
+
+c:nth-of-type(106):active ~ r {
+  --s106: running;
+}
+
+@keyframes c106 {
+  to {
+    --c106:1;
+  }
+}
+@property --c107 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(107) {
+  top: 55%;
+  left: 33%;
+  animation-duration: 4s;
+  animation-delay: 64.2s;
+}
+
+c:nth-of-type(107) ~ r {
+  --c107: 0;
+  --s107: paused ;
+}
+
+c:nth-of-type(107):active ~ r {
+  --s107: running;
+}
+
+@keyframes c107 {
+  to {
+    --c107:1;
+  }
+}
+@property --c108 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(108) {
+  top: 87%;
+  left: 96%;
+  animation-duration: 4s;
+  animation-delay: 64.8s;
+}
+
+c:nth-of-type(108) ~ r {
+  --c108: 0;
+  --s108: paused ;
+}
+
+c:nth-of-type(108):active ~ r {
+  --s108: running;
+}
+
+@keyframes c108 {
+  to {
+    --c108:1;
+  }
+}
+@property --c109 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(109) {
+  top: 84%;
+  left: 62%;
+  animation-duration: 4s;
+  animation-delay: 65.4s;
+}
+
+c:nth-of-type(109) ~ r {
+  --c109: 0;
+  --s109: paused ;
+}
+
+c:nth-of-type(109):active ~ r {
+  --s109: running;
+}
+
+@keyframes c109 {
+  to {
+    --c109:1;
+  }
+}
+@property --c110 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(110) {
+  top: 50%;
+  left: 11%;
+  animation-duration: 4s;
+  animation-delay: 66s;
+}
+
+c:nth-of-type(110) ~ r {
+  --c110: 0;
+  --s110: paused ;
+}
+
+c:nth-of-type(110):active ~ r {
+  --s110: running;
+}
+
+@keyframes c110 {
+  to {
+    --c110:1;
+  }
+}
+@property --c111 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(111) {
+  top: 30%;
+  left: 85%;
+  animation-duration: 4s;
+  animation-delay: 66.6s;
+}
+
+c:nth-of-type(111) ~ r {
+  --c111: 0;
+  --s111: paused ;
+}
+
+c:nth-of-type(111):active ~ r {
+  --s111: running;
+}
+
+@keyframes c111 {
+  to {
+    --c111:1;
+  }
+}
+@property --c112 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(112) {
+  top: 4%;
+  left: 78%;
+  animation-duration: 4s;
+  animation-delay: 67.2s;
+}
+
+c:nth-of-type(112) ~ r {
+  --c112: 0;
+  --s112: paused ;
+}
+
+c:nth-of-type(112):active ~ r {
+  --s112: running;
+}
+
+@keyframes c112 {
+  to {
+    --c112:1;
+  }
+}
+@property --c113 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(113) {
+  top: 3%;
+  left: 51%;
+  animation-duration: 4s;
+  animation-delay: 67.8s;
+}
+
+c:nth-of-type(113) ~ r {
+  --c113: 0;
+  --s113: paused ;
+}
+
+c:nth-of-type(113):active ~ r {
+  --s113: running;
+}
+
+@keyframes c113 {
+  to {
+    --c113:1;
+  }
+}
+@property --c114 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(114) {
+  top: 45%;
+  left: 51%;
+  animation-duration: 3s;
+  animation-delay: 68.4s;
+}
+
+c:nth-of-type(114) ~ r {
+  --c114: 0;
+  --s114: paused ;
+}
+
+c:nth-of-type(114):active ~ r {
+  --s114: running;
+}
+
+@keyframes c114 {
+  to {
+    --c114:1;
+  }
+}
+@property --c115 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(115) {
+  top: 98%;
+  left: 5%;
+  animation-duration: 2s;
+  animation-delay: 69s;
+}
+
+c:nth-of-type(115) ~ r {
+  --c115: 0;
+  --s115: paused ;
+}
+
+c:nth-of-type(115):active ~ r {
+  --s115: running;
+}
+
+@keyframes c115 {
+  to {
+    --c115:1;
+  }
+}
+@property --c116 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(116) {
+  top: 16%;
+  left: 12%;
+  animation-duration: 3s;
+  animation-delay: 69.6s;
+}
+
+c:nth-of-type(116) ~ r {
+  --c116: 0;
+  --s116: paused ;
+}
+
+c:nth-of-type(116):active ~ r {
+  --s116: running;
+}
+
+@keyframes c116 {
+  to {
+    --c116:1;
+  }
+}
+@property --c117 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(117) {
+  top: 97%;
+  left: 74%;
+  animation-duration: 3s;
+  animation-delay: 70.2s;
+}
+
+c:nth-of-type(117) ~ r {
+  --c117: 0;
+  --s117: paused ;
+}
+
+c:nth-of-type(117):active ~ r {
+  --s117: running;
+}
+
+@keyframes c117 {
+  to {
+    --c117:1;
+  }
+}
+@property --c118 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(118) {
+  top: 29%;
+  left: 8%;
+  animation-duration: 2s;
+  animation-delay: 70.8s;
+}
+
+c:nth-of-type(118) ~ r {
+  --c118: 0;
+  --s118: paused ;
+}
+
+c:nth-of-type(118):active ~ r {
+  --s118: running;
+}
+
+@keyframes c118 {
+  to {
+    --c118:1;
+  }
+}
+@property --c119 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(119) {
+  top: 25%;
+  left: 85%;
+  animation-duration: 3s;
+  animation-delay: 71.4s;
+}
+
+c:nth-of-type(119) ~ r {
+  --c119: 0;
+  --s119: paused ;
+}
+
+c:nth-of-type(119):active ~ r {
+  --s119: running;
+}
+
+@keyframes c119 {
+  to {
+    --c119:1;
+  }
+}
+@property --c120 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(120) {
+  top: 30%;
+  left: 23%;
+  animation-duration: 2s;
+  animation-delay: 72s;
+}
+
+c:nth-of-type(120) ~ r {
+  --c120: 0;
+  --s120: paused ;
+}
+
+c:nth-of-type(120):active ~ r {
+  --s120: running;
+}
+
+@keyframes c120 {
+  to {
+    --c120:1;
+  }
+}
+@property --c121 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(121) {
+  top: 58%;
+  left: 9%;
+  animation-duration: 2s;
+  animation-delay: 72.6s;
+}
+
+c:nth-of-type(121) ~ r {
+  --c121: 0;
+  --s121: paused ;
+}
+
+c:nth-of-type(121):active ~ r {
+  --s121: running;
+}
+
+@keyframes c121 {
+  to {
+    --c121:1;
+  }
+}
+@property --c122 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(122) {
+  top: 88%;
+  left: 49%;
+  animation-duration: 3s;
+  animation-delay: 73.2s;
+}
+
+c:nth-of-type(122) ~ r {
+  --c122: 0;
+  --s122: paused ;
+}
+
+c:nth-of-type(122):active ~ r {
+  --s122: running;
+}
+
+@keyframes c122 {
+  to {
+    --c122:1;
+  }
+}
+@property --c123 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(123) {
+  top: 55%;
+  left: 32%;
+  animation-duration: 4s;
+  animation-delay: 73.8s;
+}
+
+c:nth-of-type(123) ~ r {
+  --c123: 0;
+  --s123: paused ;
+}
+
+c:nth-of-type(123):active ~ r {
+  --s123: running;
+}
+
+@keyframes c123 {
+  to {
+    --c123:1;
+  }
+}
+@property --c124 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(124) {
+  top: 41%;
+  left: 10%;
+  animation-duration: 4s;
+  animation-delay: 74.4s;
+}
+
+c:nth-of-type(124) ~ r {
+  --c124: 0;
+  --s124: paused ;
+}
+
+c:nth-of-type(124):active ~ r {
+  --s124: running;
+}
+
+@keyframes c124 {
+  to {
+    --c124:1;
+  }
+}
+@property --c125 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(125) {
+  top: 29%;
+  left: 82%;
+  animation-duration: 3s;
+  animation-delay: 75s;
+}
+
+c:nth-of-type(125) ~ r {
+  --c125: 0;
+  --s125: paused ;
+}
+
+c:nth-of-type(125):active ~ r {
+  --s125: running;
+}
+
+@keyframes c125 {
+  to {
+    --c125:1;
+  }
+}
+@property --c126 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(126) {
+  top: 89%;
+  left: 7%;
+  animation-duration: 4s;
+  animation-delay: 75.6s;
+}
+
+c:nth-of-type(126) ~ r {
+  --c126: 0;
+  --s126: paused ;
+}
+
+c:nth-of-type(126):active ~ r {
+  --s126: running;
+}
+
+@keyframes c126 {
+  to {
+    --c126:1;
+  }
+}
+@property --c127 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(127) {
+  top: 21%;
+  left: 8%;
+  animation-duration: 3s;
+  animation-delay: 76.2s;
+}
+
+c:nth-of-type(127) ~ r {
+  --c127: 0;
+  --s127: paused ;
+}
+
+c:nth-of-type(127):active ~ r {
+  --s127: running;
+}
+
+@keyframes c127 {
+  to {
+    --c127:1;
+  }
+}
+@property --c128 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(128) {
+  top: 37%;
+  left: 33%;
+  animation-duration: 4s;
+  animation-delay: 76.8s;
+}
+
+c:nth-of-type(128) ~ r {
+  --c128: 0;
+  --s128: paused ;
+}
+
+c:nth-of-type(128):active ~ r {
+  --s128: running;
+}
+
+@keyframes c128 {
+  to {
+    --c128:1;
+  }
+}
+@property --c129 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(129) {
+  top: 38%;
+  left: 91%;
+  animation-duration: 3s;
+  animation-delay: 77.4s;
+}
+
+c:nth-of-type(129) ~ r {
+  --c129: 0;
+  --s129: paused ;
+}
+
+c:nth-of-type(129):active ~ r {
+  --s129: running;
+}
+
+@keyframes c129 {
+  to {
+    --c129:1;
+  }
+}
+@property --c130 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(130) {
+  top: 3%;
+  left: 96%;
+  animation-duration: 4s;
+  animation-delay: 78s;
+}
+
+c:nth-of-type(130) ~ r {
+  --c130: 0;
+  --s130: paused ;
+}
+
+c:nth-of-type(130):active ~ r {
+  --s130: running;
+}
+
+@keyframes c130 {
+  to {
+    --c130:1;
+  }
+}
+@property --c131 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(131) {
+  top: 99%;
+  left: 70%;
+  animation-duration: 4s;
+  animation-delay: 78.6s;
+}
+
+c:nth-of-type(131) ~ r {
+  --c131: 0;
+  --s131: paused ;
+}
+
+c:nth-of-type(131):active ~ r {
+  --s131: running;
+}
+
+@keyframes c131 {
+  to {
+    --c131:1;
+  }
+}
+@property --c132 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(132) {
+  top: 61%;
+  left: 79%;
+  animation-duration: 4s;
+  animation-delay: 79.2s;
+}
+
+c:nth-of-type(132) ~ r {
+  --c132: 0;
+  --s132: paused ;
+}
+
+c:nth-of-type(132):active ~ r {
+  --s132: running;
+}
+
+@keyframes c132 {
+  to {
+    --c132:1;
+  }
+}
+@property --c133 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(133) {
+  top: 30%;
+  left: 14%;
+  animation-duration: 4s;
+  animation-delay: 79.8s;
+}
+
+c:nth-of-type(133) ~ r {
+  --c133: 0;
+  --s133: paused ;
+}
+
+c:nth-of-type(133):active ~ r {
+  --s133: running;
+}
+
+@keyframes c133 {
+  to {
+    --c133:1;
+  }
+}
+@property --c134 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(134) {
+  top: 26%;
+  left: 7%;
+  animation-duration: 4s;
+  animation-delay: 80.4s;
+}
+
+c:nth-of-type(134) ~ r {
+  --c134: 0;
+  --s134: paused ;
+}
+
+c:nth-of-type(134):active ~ r {
+  --s134: running;
+}
+
+@keyframes c134 {
+  to {
+    --c134:1;
+  }
+}
+@property --c135 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(135) {
+  top: 60%;
+  left: 38%;
+  animation-duration: 3s;
+  animation-delay: 81s;
+}
+
+c:nth-of-type(135) ~ r {
+  --c135: 0;
+  --s135: paused ;
+}
+
+c:nth-of-type(135):active ~ r {
+  --s135: running;
+}
+
+@keyframes c135 {
+  to {
+    --c135:1;
+  }
+}
+@property --c136 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(136) {
+  top: 67%;
+  left: 86%;
+  animation-duration: 4s;
+  animation-delay: 81.6s;
+}
+
+c:nth-of-type(136) ~ r {
+  --c136: 0;
+  --s136: paused ;
+}
+
+c:nth-of-type(136):active ~ r {
+  --s136: running;
+}
+
+@keyframes c136 {
+  to {
+    --c136:1;
+  }
+}
+@property --c137 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(137) {
+  top: 100%;
+  left: 13%;
+  animation-duration: 2s;
+  animation-delay: 82.2s;
+}
+
+c:nth-of-type(137) ~ r {
+  --c137: 0;
+  --s137: paused ;
+}
+
+c:nth-of-type(137):active ~ r {
+  --s137: running;
+}
+
+@keyframes c137 {
+  to {
+    --c137:1;
+  }
+}
+@property --c138 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(138) {
+  top: 5%;
+  left: 54%;
+  animation-duration: 2s;
+  animation-delay: 82.8s;
+}
+
+c:nth-of-type(138) ~ r {
+  --c138: 0;
+  --s138: paused ;
+}
+
+c:nth-of-type(138):active ~ r {
+  --s138: running;
+}
+
+@keyframes c138 {
+  to {
+    --c138:1;
+  }
+}
+@property --c139 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(139) {
+  top: 94%;
+  left: 85%;
+  animation-duration: 2s;
+  animation-delay: 83.4s;
+}
+
+c:nth-of-type(139) ~ r {
+  --c139: 0;
+  --s139: paused ;
+}
+
+c:nth-of-type(139):active ~ r {
+  --s139: running;
+}
+
+@keyframes c139 {
+  to {
+    --c139:1;
+  }
+}
+@property --c140 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(140) {
+  top: 14%;
+  left: 47%;
+  animation-duration: 2s;
+  animation-delay: 84s;
+}
+
+c:nth-of-type(140) ~ r {
+  --c140: 0;
+  --s140: paused ;
+}
+
+c:nth-of-type(140):active ~ r {
+  --s140: running;
+}
+
+@keyframes c140 {
+  to {
+    --c140:1;
+  }
+}
+@property --c141 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(141) {
+  top: 91%;
+  left: 1%;
+  animation-duration: 3s;
+  animation-delay: 84.6s;
+}
+
+c:nth-of-type(141) ~ r {
+  --c141: 0;
+  --s141: paused ;
+}
+
+c:nth-of-type(141):active ~ r {
+  --s141: running;
+}
+
+@keyframes c141 {
+  to {
+    --c141:1;
+  }
+}
+@property --c142 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(142) {
+  top: 41%;
+  left: 68%;
+  animation-duration: 3s;
+  animation-delay: 85.2s;
+}
+
+c:nth-of-type(142) ~ r {
+  --c142: 0;
+  --s142: paused ;
+}
+
+c:nth-of-type(142):active ~ r {
+  --s142: running;
+}
+
+@keyframes c142 {
+  to {
+    --c142:1;
+  }
+}
+@property --c143 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(143) {
+  top: 3%;
+  left: 83%;
+  animation-duration: 2s;
+  animation-delay: 85.8s;
+}
+
+c:nth-of-type(143) ~ r {
+  --c143: 0;
+  --s143: paused ;
+}
+
+c:nth-of-type(143):active ~ r {
+  --s143: running;
+}
+
+@keyframes c143 {
+  to {
+    --c143:1;
+  }
+}
+@property --c144 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(144) {
+  top: 59%;
+  left: 68%;
+  animation-duration: 3s;
+  animation-delay: 86.4s;
+}
+
+c:nth-of-type(144) ~ r {
+  --c144: 0;
+  --s144: paused ;
+}
+
+c:nth-of-type(144):active ~ r {
+  --s144: running;
+}
+
+@keyframes c144 {
+  to {
+    --c144:1;
+  }
+}
+@property --c145 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(145) {
+  top: 22%;
+  left: 89%;
+  animation-duration: 4s;
+  animation-delay: 87s;
+}
+
+c:nth-of-type(145) ~ r {
+  --c145: 0;
+  --s145: paused ;
+}
+
+c:nth-of-type(145):active ~ r {
+  --s145: running;
+}
+
+@keyframes c145 {
+  to {
+    --c145:1;
+  }
+}
+@property --c146 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(146) {
+  top: 8%;
+  left: 73%;
+  animation-duration: 4s;
+  animation-delay: 87.6s;
+}
+
+c:nth-of-type(146) ~ r {
+  --c146: 0;
+  --s146: paused ;
+}
+
+c:nth-of-type(146):active ~ r {
+  --s146: running;
+}
+
+@keyframes c146 {
+  to {
+    --c146:1;
+  }
+}
+@property --c147 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(147) {
+  top: 29%;
+  left: 12%;
+  animation-duration: 4s;
+  animation-delay: 88.2s;
+}
+
+c:nth-of-type(147) ~ r {
+  --c147: 0;
+  --s147: paused ;
+}
+
+c:nth-of-type(147):active ~ r {
+  --s147: running;
+}
+
+@keyframes c147 {
+  to {
+    --c147:1;
+  }
+}
+@property --c148 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(148) {
+  top: 62%;
+  left: 1%;
+  animation-duration: 3s;
+  animation-delay: 88.8s;
+}
+
+c:nth-of-type(148) ~ r {
+  --c148: 0;
+  --s148: paused ;
+}
+
+c:nth-of-type(148):active ~ r {
+  --s148: running;
+}
+
+@keyframes c148 {
+  to {
+    --c148:1;
+  }
+}
+@property --c149 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(149) {
+  top: 64%;
+  left: 86%;
+  animation-duration: 3s;
+  animation-delay: 89.4s;
+}
+
+c:nth-of-type(149) ~ r {
+  --c149: 0;
+  --s149: paused ;
+}
+
+c:nth-of-type(149):active ~ r {
+  --s149: running;
+}
+
+@keyframes c149 {
+  to {
+    --c149:1;
+  }
+}
+@property --c150 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(150) {
+  top: 82%;
+  left: 14%;
+  animation-duration: 2s;
+  animation-delay: 90s;
+}
+
+c:nth-of-type(150) ~ r {
+  --c150: 0;
+  --s150: paused ;
+}
+
+c:nth-of-type(150):active ~ r {
+  --s150: running;
+}
+
+@keyframes c150 {
+  to {
+    --c150:1;
+  }
+}
+@property --c151 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(151) {
+  top: 81%;
+  left: 30%;
+  animation-duration: 3s;
+  animation-delay: 90.6s;
+}
+
+c:nth-of-type(151) ~ r {
+  --c151: 0;
+  --s151: paused ;
+}
+
+c:nth-of-type(151):active ~ r {
+  --s151: running;
+}
+
+@keyframes c151 {
+  to {
+    --c151:1;
+  }
+}
+@property --c152 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(152) {
+  top: 30%;
+  left: 82%;
+  animation-duration: 2s;
+  animation-delay: 91.2s;
+}
+
+c:nth-of-type(152) ~ r {
+  --c152: 0;
+  --s152: paused ;
+}
+
+c:nth-of-type(152):active ~ r {
+  --s152: running;
+}
+
+@keyframes c152 {
+  to {
+    --c152:1;
+  }
+}
+@property --c153 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(153) {
+  top: 82%;
+  left: 63%;
+  animation-duration: 3s;
+  animation-delay: 91.8s;
+}
+
+c:nth-of-type(153) ~ r {
+  --c153: 0;
+  --s153: paused ;
+}
+
+c:nth-of-type(153):active ~ r {
+  --s153: running;
+}
+
+@keyframes c153 {
+  to {
+    --c153:1;
+  }
+}
+@property --c154 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(154) {
+  top: 66%;
+  left: 100%;
+  animation-duration: 4s;
+  animation-delay: 92.4s;
+}
+
+c:nth-of-type(154) ~ r {
+  --c154: 0;
+  --s154: paused ;
+}
+
+c:nth-of-type(154):active ~ r {
+  --s154: running;
+}
+
+@keyframes c154 {
+  to {
+    --c154:1;
+  }
+}
+@property --c155 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(155) {
+  top: 91%;
+  left: 48%;
+  animation-duration: 3s;
+  animation-delay: 93s;
+}
+
+c:nth-of-type(155) ~ r {
+  --c155: 0;
+  --s155: paused ;
+}
+
+c:nth-of-type(155):active ~ r {
+  --s155: running;
+}
+
+@keyframes c155 {
+  to {
+    --c155:1;
+  }
+}
+@property --c156 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(156) {
+  top: 56%;
+  left: 96%;
+  animation-duration: 3s;
+  animation-delay: 93.6s;
+}
+
+c:nth-of-type(156) ~ r {
+  --c156: 0;
+  --s156: paused ;
+}
+
+c:nth-of-type(156):active ~ r {
+  --s156: running;
+}
+
+@keyframes c156 {
+  to {
+    --c156:1;
+  }
+}
+@property --c157 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(157) {
+  top: 53%;
+  left: 40%;
+  animation-duration: 4s;
+  animation-delay: 94.2s;
+}
+
+c:nth-of-type(157) ~ r {
+  --c157: 0;
+  --s157: paused ;
+}
+
+c:nth-of-type(157):active ~ r {
+  --s157: running;
+}
+
+@keyframes c157 {
+  to {
+    --c157:1;
+  }
+}
+@property --c158 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(158) {
+  top: 17%;
+  left: 62%;
+  animation-duration: 4s;
+  animation-delay: 94.8s;
+}
+
+c:nth-of-type(158) ~ r {
+  --c158: 0;
+  --s158: paused ;
+}
+
+c:nth-of-type(158):active ~ r {
+  --s158: running;
+}
+
+@keyframes c158 {
+  to {
+    --c158:1;
+  }
+}
+@property --c159 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(159) {
+  top: 58%;
+  left: 75%;
+  animation-duration: 3s;
+  animation-delay: 95.4s;
+}
+
+c:nth-of-type(159) ~ r {
+  --c159: 0;
+  --s159: paused ;
+}
+
+c:nth-of-type(159):active ~ r {
+  --s159: running;
+}
+
+@keyframes c159 {
+  to {
+    --c159:1;
+  }
+}
+@property --c160 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(160) {
+  top: 46%;
+  left: 42%;
+  animation-duration: 2s;
+  animation-delay: 96s;
+}
+
+c:nth-of-type(160) ~ r {
+  --c160: 0;
+  --s160: paused ;
+}
+
+c:nth-of-type(160):active ~ r {
+  --s160: running;
+}
+
+@keyframes c160 {
+  to {
+    --c160:1;
+  }
+}
+@property --c161 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(161) {
+  top: 6%;
+  left: 3%;
+  animation-duration: 3s;
+  animation-delay: 96.6s;
+}
+
+c:nth-of-type(161) ~ r {
+  --c161: 0;
+  --s161: paused ;
+}
+
+c:nth-of-type(161):active ~ r {
+  --s161: running;
+}
+
+@keyframes c161 {
+  to {
+    --c161:1;
+  }
+}
+@property --c162 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(162) {
+  top: 71%;
+  left: 94%;
+  animation-duration: 4s;
+  animation-delay: 97.2s;
+}
+
+c:nth-of-type(162) ~ r {
+  --c162: 0;
+  --s162: paused ;
+}
+
+c:nth-of-type(162):active ~ r {
+  --s162: running;
+}
+
+@keyframes c162 {
+  to {
+    --c162:1;
+  }
+}
+@property --c163 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(163) {
+  top: 63%;
+  left: 48%;
+  animation-duration: 3s;
+  animation-delay: 97.8s;
+}
+
+c:nth-of-type(163) ~ r {
+  --c163: 0;
+  --s163: paused ;
+}
+
+c:nth-of-type(163):active ~ r {
+  --s163: running;
+}
+
+@keyframes c163 {
+  to {
+    --c163:1;
+  }
+}
+@property --c164 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(164) {
+  top: 17%;
+  left: 28%;
+  animation-duration: 4s;
+  animation-delay: 98.4s;
+}
+
+c:nth-of-type(164) ~ r {
+  --c164: 0;
+  --s164: paused ;
+}
+
+c:nth-of-type(164):active ~ r {
+  --s164: running;
+}
+
+@keyframes c164 {
+  to {
+    --c164:1;
+  }
+}
+@property --c165 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(165) {
+  top: 39%;
+  left: 43%;
+  animation-duration: 2s;
+  animation-delay: 99s;
+}
+
+c:nth-of-type(165) ~ r {
+  --c165: 0;
+  --s165: paused ;
+}
+
+c:nth-of-type(165):active ~ r {
+  --s165: running;
+}
+
+@keyframes c165 {
+  to {
+    --c165:1;
+  }
+}
+@property --c166 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(166) {
+  top: 29%;
+  left: 87%;
+  animation-duration: 3s;
+  animation-delay: 99.6s;
+}
+
+c:nth-of-type(166) ~ r {
+  --c166: 0;
+  --s166: paused ;
+}
+
+c:nth-of-type(166):active ~ r {
+  --s166: running;
+}
+
+@keyframes c166 {
+  to {
+    --c166:1;
+  }
+}
+@property --c167 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(167) {
+  top: 75%;
+  left: 51%;
+  animation-duration: 2s;
+  animation-delay: 100.2s;
+}
+
+c:nth-of-type(167) ~ r {
+  --c167: 0;
+  --s167: paused ;
+}
+
+c:nth-of-type(167):active ~ r {
+  --s167: running;
+}
+
+@keyframes c167 {
+  to {
+    --c167:1;
+  }
+}
+@property --c168 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(168) {
+  top: 38%;
+  left: 48%;
+  animation-duration: 4s;
+  animation-delay: 100.8s;
+}
+
+c:nth-of-type(168) ~ r {
+  --c168: 0;
+  --s168: paused ;
+}
+
+c:nth-of-type(168):active ~ r {
+  --s168: running;
+}
+
+@keyframes c168 {
+  to {
+    --c168:1;
+  }
+}
+@property --c169 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(169) {
+  top: 60%;
+  left: 63%;
+  animation-duration: 2s;
+  animation-delay: 101.4s;
+}
+
+c:nth-of-type(169) ~ r {
+  --c169: 0;
+  --s169: paused ;
+}
+
+c:nth-of-type(169):active ~ r {
+  --s169: running;
+}
+
+@keyframes c169 {
+  to {
+    --c169:1;
+  }
+}
+@property --c170 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(170) {
+  top: 43%;
+  left: 28%;
+  animation-duration: 4s;
+  animation-delay: 102s;
+}
+
+c:nth-of-type(170) ~ r {
+  --c170: 0;
+  --s170: paused ;
+}
+
+c:nth-of-type(170):active ~ r {
+  --s170: running;
+}
+
+@keyframes c170 {
+  to {
+    --c170:1;
+  }
+}
+@property --c171 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(171) {
+  top: 2%;
+  left: 44%;
+  animation-duration: 3s;
+  animation-delay: 102.6s;
+}
+
+c:nth-of-type(171) ~ r {
+  --c171: 0;
+  --s171: paused ;
+}
+
+c:nth-of-type(171):active ~ r {
+  --s171: running;
+}
+
+@keyframes c171 {
+  to {
+    --c171:1;
+  }
+}
+@property --c172 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(172) {
+  top: 82%;
+  left: 7%;
+  animation-duration: 2s;
+  animation-delay: 103.2s;
+}
+
+c:nth-of-type(172) ~ r {
+  --c172: 0;
+  --s172: paused ;
+}
+
+c:nth-of-type(172):active ~ r {
+  --s172: running;
+}
+
+@keyframes c172 {
+  to {
+    --c172:1;
+  }
+}
+@property --c173 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(173) {
+  top: 23%;
+  left: 16%;
+  animation-duration: 4s;
+  animation-delay: 103.8s;
+}
+
+c:nth-of-type(173) ~ r {
+  --c173: 0;
+  --s173: paused ;
+}
+
+c:nth-of-type(173):active ~ r {
+  --s173: running;
+}
+
+@keyframes c173 {
+  to {
+    --c173:1;
+  }
+}
+@property --c174 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(174) {
+  top: 36%;
+  left: 41%;
+  animation-duration: 2s;
+  animation-delay: 104.4s;
+}
+
+c:nth-of-type(174) ~ r {
+  --c174: 0;
+  --s174: paused ;
+}
+
+c:nth-of-type(174):active ~ r {
+  --s174: running;
+}
+
+@keyframes c174 {
+  to {
+    --c174:1;
+  }
+}
+@property --c175 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(175) {
+  top: 18%;
+  left: 8%;
+  animation-duration: 3s;
+  animation-delay: 105s;
+}
+
+c:nth-of-type(175) ~ r {
+  --c175: 0;
+  --s175: paused ;
+}
+
+c:nth-of-type(175):active ~ r {
+  --s175: running;
+}
+
+@keyframes c175 {
+  to {
+    --c175:1;
+  }
+}
+@property --c176 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(176) {
+  top: 87%;
+  left: 2%;
+  animation-duration: 3s;
+  animation-delay: 105.6s;
+}
+
+c:nth-of-type(176) ~ r {
+  --c176: 0;
+  --s176: paused ;
+}
+
+c:nth-of-type(176):active ~ r {
+  --s176: running;
+}
+
+@keyframes c176 {
+  to {
+    --c176:1;
+  }
+}
+@property --c177 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(177) {
+  top: 8%;
+  left: 36%;
+  animation-duration: 2s;
+  animation-delay: 106.2s;
+}
+
+c:nth-of-type(177) ~ r {
+  --c177: 0;
+  --s177: paused ;
+}
+
+c:nth-of-type(177):active ~ r {
+  --s177: running;
+}
+
+@keyframes c177 {
+  to {
+    --c177:1;
+  }
+}
+@property --c178 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(178) {
+  top: 62%;
+  left: 86%;
+  animation-duration: 2s;
+  animation-delay: 106.8s;
+}
+
+c:nth-of-type(178) ~ r {
+  --c178: 0;
+  --s178: paused ;
+}
+
+c:nth-of-type(178):active ~ r {
+  --s178: running;
+}
+
+@keyframes c178 {
+  to {
+    --c178:1;
+  }
+}
+@property --c179 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(179) {
+  top: 48%;
+  left: 22%;
+  animation-duration: 3s;
+  animation-delay: 107.4s;
+}
+
+c:nth-of-type(179) ~ r {
+  --c179: 0;
+  --s179: paused ;
+}
+
+c:nth-of-type(179):active ~ r {
+  --s179: running;
+}
+
+@keyframes c179 {
+  to {
+    --c179:1;
+  }
+}
+@property --c180 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(180) {
+  top: 76%;
+  left: 58%;
+  animation-duration: 3s;
+  animation-delay: 108s;
+}
+
+c:nth-of-type(180) ~ r {
+  --c180: 0;
+  --s180: paused ;
+}
+
+c:nth-of-type(180):active ~ r {
+  --s180: running;
+}
+
+@keyframes c180 {
+  to {
+    --c180:1;
+  }
+}
+@property --c181 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(181) {
+  top: 10%;
+  left: 44%;
+  animation-duration: 2s;
+  animation-delay: 108.6s;
+}
+
+c:nth-of-type(181) ~ r {
+  --c181: 0;
+  --s181: paused ;
+}
+
+c:nth-of-type(181):active ~ r {
+  --s181: running;
+}
+
+@keyframes c181 {
+  to {
+    --c181:1;
+  }
+}
+@property --c182 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(182) {
+  top: 43%;
+  left: 28%;
+  animation-duration: 2s;
+  animation-delay: 109.2s;
+}
+
+c:nth-of-type(182) ~ r {
+  --c182: 0;
+  --s182: paused ;
+}
+
+c:nth-of-type(182):active ~ r {
+  --s182: running;
+}
+
+@keyframes c182 {
+  to {
+    --c182:1;
+  }
+}
+@property --c183 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(183) {
+  top: 30%;
+  left: 72%;
+  animation-duration: 4s;
+  animation-delay: 109.8s;
+}
+
+c:nth-of-type(183) ~ r {
+  --c183: 0;
+  --s183: paused ;
+}
+
+c:nth-of-type(183):active ~ r {
+  --s183: running;
+}
+
+@keyframes c183 {
+  to {
+    --c183:1;
+  }
+}
+@property --c184 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(184) {
+  top: 81%;
+  left: 49%;
+  animation-duration: 3s;
+  animation-delay: 110.4s;
+}
+
+c:nth-of-type(184) ~ r {
+  --c184: 0;
+  --s184: paused ;
+}
+
+c:nth-of-type(184):active ~ r {
+  --s184: running;
+}
+
+@keyframes c184 {
+  to {
+    --c184:1;
+  }
+}
+@property --c185 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(185) {
+  top: 11%;
+  left: 7%;
+  animation-duration: 4s;
+  animation-delay: 111s;
+}
+
+c:nth-of-type(185) ~ r {
+  --c185: 0;
+  --s185: paused ;
+}
+
+c:nth-of-type(185):active ~ r {
+  --s185: running;
+}
+
+@keyframes c185 {
+  to {
+    --c185:1;
+  }
+}
+@property --c186 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(186) {
+  top: 85%;
+  left: 78%;
+  animation-duration: 3s;
+  animation-delay: 111.6s;
+}
+
+c:nth-of-type(186) ~ r {
+  --c186: 0;
+  --s186: paused ;
+}
+
+c:nth-of-type(186):active ~ r {
+  --s186: running;
+}
+
+@keyframes c186 {
+  to {
+    --c186:1;
+  }
+}
+@property --c187 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(187) {
+  top: 81%;
+  left: 3%;
+  animation-duration: 2s;
+  animation-delay: 112.2s;
+}
+
+c:nth-of-type(187) ~ r {
+  --c187: 0;
+  --s187: paused ;
+}
+
+c:nth-of-type(187):active ~ r {
+  --s187: running;
+}
+
+@keyframes c187 {
+  to {
+    --c187:1;
+  }
+}
+@property --c188 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(188) {
+  top: 93%;
+  left: 93%;
+  animation-duration: 3s;
+  animation-delay: 112.8s;
+}
+
+c:nth-of-type(188) ~ r {
+  --c188: 0;
+  --s188: paused ;
+}
+
+c:nth-of-type(188):active ~ r {
+  --s188: running;
+}
+
+@keyframes c188 {
+  to {
+    --c188:1;
+  }
+}
+@property --c189 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(189) {
+  top: 4%;
+  left: 10%;
+  animation-duration: 4s;
+  animation-delay: 113.4s;
+}
+
+c:nth-of-type(189) ~ r {
+  --c189: 0;
+  --s189: paused ;
+}
+
+c:nth-of-type(189):active ~ r {
+  --s189: running;
+}
+
+@keyframes c189 {
+  to {
+    --c189:1;
+  }
+}
+@property --c190 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(190) {
+  top: 9%;
+  left: 29%;
+  animation-duration: 3s;
+  animation-delay: 114s;
+}
+
+c:nth-of-type(190) ~ r {
+  --c190: 0;
+  --s190: paused ;
+}
+
+c:nth-of-type(190):active ~ r {
+  --s190: running;
+}
+
+@keyframes c190 {
+  to {
+    --c190:1;
+  }
+}
+@property --c191 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(191) {
+  top: 46%;
+  left: 64%;
+  animation-duration: 3s;
+  animation-delay: 114.6s;
+}
+
+c:nth-of-type(191) ~ r {
+  --c191: 0;
+  --s191: paused ;
+}
+
+c:nth-of-type(191):active ~ r {
+  --s191: running;
+}
+
+@keyframes c191 {
+  to {
+    --c191:1;
+  }
+}
+@property --c192 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(192) {
+  top: 6%;
+  left: 68%;
+  animation-duration: 2s;
+  animation-delay: 115.2s;
+}
+
+c:nth-of-type(192) ~ r {
+  --c192: 0;
+  --s192: paused ;
+}
+
+c:nth-of-type(192):active ~ r {
+  --s192: running;
+}
+
+@keyframes c192 {
+  to {
+    --c192:1;
+  }
+}
+@property --c193 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(193) {
+  top: 63%;
+  left: 60%;
+  animation-duration: 3s;
+  animation-delay: 115.8s;
+}
+
+c:nth-of-type(193) ~ r {
+  --c193: 0;
+  --s193: paused ;
+}
+
+c:nth-of-type(193):active ~ r {
+  --s193: running;
+}
+
+@keyframes c193 {
+  to {
+    --c193:1;
+  }
+}
+@property --c194 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(194) {
+  top: 41%;
+  left: 48%;
+  animation-duration: 2s;
+  animation-delay: 116.4s;
+}
+
+c:nth-of-type(194) ~ r {
+  --c194: 0;
+  --s194: paused ;
+}
+
+c:nth-of-type(194):active ~ r {
+  --s194: running;
+}
+
+@keyframes c194 {
+  to {
+    --c194:1;
+  }
+}
+@property --c195 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(195) {
+  top: 27%;
+  left: 18%;
+  animation-duration: 2s;
+  animation-delay: 117s;
+}
+
+c:nth-of-type(195) ~ r {
+  --c195: 0;
+  --s195: paused ;
+}
+
+c:nth-of-type(195):active ~ r {
+  --s195: running;
+}
+
+@keyframes c195 {
+  to {
+    --c195:1;
+  }
+}
+@property --c196 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(196) {
+  top: 57%;
+  left: 52%;
+  animation-duration: 4s;
+  animation-delay: 117.6s;
+}
+
+c:nth-of-type(196) ~ r {
+  --c196: 0;
+  --s196: paused ;
+}
+
+c:nth-of-type(196):active ~ r {
+  --s196: running;
+}
+
+@keyframes c196 {
+  to {
+    --c196:1;
+  }
+}
+@property --c197 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(197) {
+  top: 14%;
+  left: 5%;
+  animation-duration: 4s;
+  animation-delay: 118.2s;
+}
+
+c:nth-of-type(197) ~ r {
+  --c197: 0;
+  --s197: paused ;
+}
+
+c:nth-of-type(197):active ~ r {
+  --s197: running;
+}
+
+@keyframes c197 {
+  to {
+    --c197:1;
+  }
+}
+@property --c198 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(198) {
+  top: 48%;
+  left: 75%;
+  animation-duration: 2s;
+  animation-delay: 118.8s;
+}
+
+c:nth-of-type(198) ~ r {
+  --c198: 0;
+  --s198: paused ;
+}
+
+c:nth-of-type(198):active ~ r {
+  --s198: running;
+}
+
+@keyframes c198 {
+  to {
+    --c198:1;
+  }
+}
+@property --c199 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(199) {
+  top: 84%;
+  left: 100%;
+  animation-duration: 4s;
+  animation-delay: 119.4s;
+}
+
+c:nth-of-type(199) ~ r {
+  --c199: 0;
+  --s199: paused ;
+}
+
+c:nth-of-type(199):active ~ r {
+  --s199: running;
+}
+
+@keyframes c199 {
+  to {
+    --c199:1;
+  }
+}
+@property --c200 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(200) {
+  top: 39%;
+  left: 50%;
+  animation-duration: 2s;
+  animation-delay: 120s;
+}
+
+c:nth-of-type(200) ~ r {
+  --c200: 0;
+  --s200: paused ;
+}
+
+c:nth-of-type(200):active ~ r {
+  --s200: running;
+}
+
+@keyframes c200 {
+  to {
+    --c200:1;
+  }
+}
+@property --c201 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(201) {
+  top: 9%;
+  left: 29%;
+  animation-duration: 2s;
+  animation-delay: 120.6s;
+}
+
+c:nth-of-type(201) ~ r {
+  --c201: 0;
+  --s201: paused ;
+}
+
+c:nth-of-type(201):active ~ r {
+  --s201: running;
+}
+
+@keyframes c201 {
+  to {
+    --c201:1;
+  }
+}
+@property --c202 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(202) {
+  top: 2%;
+  left: 57%;
+  animation-duration: 3s;
+  animation-delay: 121.2s;
+}
+
+c:nth-of-type(202) ~ r {
+  --c202: 0;
+  --s202: paused ;
+}
+
+c:nth-of-type(202):active ~ r {
+  --s202: running;
+}
+
+@keyframes c202 {
+  to {
+    --c202:1;
+  }
+}
+@property --c203 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(203) {
+  top: 76%;
+  left: 96%;
+  animation-duration: 4s;
+  animation-delay: 121.8s;
+}
+
+c:nth-of-type(203) ~ r {
+  --c203: 0;
+  --s203: paused ;
+}
+
+c:nth-of-type(203):active ~ r {
+  --s203: running;
+}
+
+@keyframes c203 {
+  to {
+    --c203:1;
+  }
+}
+@property --c204 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(204) {
+  top: 59%;
+  left: 81%;
+  animation-duration: 4s;
+  animation-delay: 122.4s;
+}
+
+c:nth-of-type(204) ~ r {
+  --c204: 0;
+  --s204: paused ;
+}
+
+c:nth-of-type(204):active ~ r {
+  --s204: running;
+}
+
+@keyframes c204 {
+  to {
+    --c204:1;
+  }
+}
+@property --c205 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(205) {
+  top: 55%;
+  left: 88%;
+  animation-duration: 2s;
+  animation-delay: 123s;
+}
+
+c:nth-of-type(205) ~ r {
+  --c205: 0;
+  --s205: paused ;
+}
+
+c:nth-of-type(205):active ~ r {
+  --s205: running;
+}
+
+@keyframes c205 {
+  to {
+    --c205:1;
+  }
+}
+@property --c206 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(206) {
+  top: 4%;
+  left: 5%;
+  animation-duration: 2s;
+  animation-delay: 123.6s;
+}
+
+c:nth-of-type(206) ~ r {
+  --c206: 0;
+  --s206: paused ;
+}
+
+c:nth-of-type(206):active ~ r {
+  --s206: running;
+}
+
+@keyframes c206 {
+  to {
+    --c206:1;
+  }
+}
+@property --c207 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(207) {
+  top: 48%;
+  left: 77%;
+  animation-duration: 3s;
+  animation-delay: 124.2s;
+}
+
+c:nth-of-type(207) ~ r {
+  --c207: 0;
+  --s207: paused ;
+}
+
+c:nth-of-type(207):active ~ r {
+  --s207: running;
+}
+
+@keyframes c207 {
+  to {
+    --c207:1;
+  }
+}
+@property --c208 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(208) {
+  top: 97%;
+  left: 80%;
+  animation-duration: 2s;
+  animation-delay: 124.8s;
+}
+
+c:nth-of-type(208) ~ r {
+  --c208: 0;
+  --s208: paused ;
+}
+
+c:nth-of-type(208):active ~ r {
+  --s208: running;
+}
+
+@keyframes c208 {
+  to {
+    --c208:1;
+  }
+}
+@property --c209 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(209) {
+  top: 49%;
+  left: 72%;
+  animation-duration: 4s;
+  animation-delay: 125.4s;
+}
+
+c:nth-of-type(209) ~ r {
+  --c209: 0;
+  --s209: paused ;
+}
+
+c:nth-of-type(209):active ~ r {
+  --s209: running;
+}
+
+@keyframes c209 {
+  to {
+    --c209:1;
+  }
+}
+@property --c210 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(210) {
+  top: 36%;
+  left: 26%;
+  animation-duration: 3s;
+  animation-delay: 126s;
+}
+
+c:nth-of-type(210) ~ r {
+  --c210: 0;
+  --s210: paused ;
+}
+
+c:nth-of-type(210):active ~ r {
+  --s210: running;
+}
+
+@keyframes c210 {
+  to {
+    --c210:1;
+  }
+}
+@property --c211 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(211) {
+  top: 26%;
+  left: 47%;
+  animation-duration: 4s;
+  animation-delay: 126.6s;
+}
+
+c:nth-of-type(211) ~ r {
+  --c211: 0;
+  --s211: paused ;
+}
+
+c:nth-of-type(211):active ~ r {
+  --s211: running;
+}
+
+@keyframes c211 {
+  to {
+    --c211:1;
+  }
+}
+@property --c212 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(212) {
+  top: 25%;
+  left: 95%;
+  animation-duration: 3s;
+  animation-delay: 127.2s;
+}
+
+c:nth-of-type(212) ~ r {
+  --c212: 0;
+  --s212: paused ;
+}
+
+c:nth-of-type(212):active ~ r {
+  --s212: running;
+}
+
+@keyframes c212 {
+  to {
+    --c212:1;
+  }
+}
+@property --c213 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(213) {
+  top: 56%;
+  left: 42%;
+  animation-duration: 3s;
+  animation-delay: 127.8s;
+}
+
+c:nth-of-type(213) ~ r {
+  --c213: 0;
+  --s213: paused ;
+}
+
+c:nth-of-type(213):active ~ r {
+  --s213: running;
+}
+
+@keyframes c213 {
+  to {
+    --c213:1;
+  }
+}
+@property --c214 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(214) {
+  top: 80%;
+  left: 85%;
+  animation-duration: 2s;
+  animation-delay: 128.4s;
+}
+
+c:nth-of-type(214) ~ r {
+  --c214: 0;
+  --s214: paused ;
+}
+
+c:nth-of-type(214):active ~ r {
+  --s214: running;
+}
+
+@keyframes c214 {
+  to {
+    --c214:1;
+  }
+}
+@property --c215 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(215) {
+  top: 92%;
+  left: 20%;
+  animation-duration: 4s;
+  animation-delay: 129s;
+}
+
+c:nth-of-type(215) ~ r {
+  --c215: 0;
+  --s215: paused ;
+}
+
+c:nth-of-type(215):active ~ r {
+  --s215: running;
+}
+
+@keyframes c215 {
+  to {
+    --c215:1;
+  }
+}
+@property --c216 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(216) {
+  top: 1%;
+  left: 17%;
+  animation-duration: 4s;
+  animation-delay: 129.6s;
+}
+
+c:nth-of-type(216) ~ r {
+  --c216: 0;
+  --s216: paused ;
+}
+
+c:nth-of-type(216):active ~ r {
+  --s216: running;
+}
+
+@keyframes c216 {
+  to {
+    --c216:1;
+  }
+}
+@property --c217 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(217) {
+  top: 38%;
+  left: 51%;
+  animation-duration: 3s;
+  animation-delay: 130.2s;
+}
+
+c:nth-of-type(217) ~ r {
+  --c217: 0;
+  --s217: paused ;
+}
+
+c:nth-of-type(217):active ~ r {
+  --s217: running;
+}
+
+@keyframes c217 {
+  to {
+    --c217:1;
+  }
+}
+@property --c218 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(218) {
+  top: 69%;
+  left: 62%;
+  animation-duration: 2s;
+  animation-delay: 130.8s;
+}
+
+c:nth-of-type(218) ~ r {
+  --c218: 0;
+  --s218: paused ;
+}
+
+c:nth-of-type(218):active ~ r {
+  --s218: running;
+}
+
+@keyframes c218 {
+  to {
+    --c218:1;
+  }
+}
+@property --c219 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(219) {
+  top: 5%;
+  left: 12%;
+  animation-duration: 3s;
+  animation-delay: 131.4s;
+}
+
+c:nth-of-type(219) ~ r {
+  --c219: 0;
+  --s219: paused ;
+}
+
+c:nth-of-type(219):active ~ r {
+  --s219: running;
+}
+
+@keyframes c219 {
+  to {
+    --c219:1;
+  }
+}
+@property --c220 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(220) {
+  top: 100%;
+  left: 54%;
+  animation-duration: 2s;
+  animation-delay: 132s;
+}
+
+c:nth-of-type(220) ~ r {
+  --c220: 0;
+  --s220: paused ;
+}
+
+c:nth-of-type(220):active ~ r {
+  --s220: running;
+}
+
+@keyframes c220 {
+  to {
+    --c220:1;
+  }
+}
+r {
+  --sum:calc(0 + var(--c1) + var(--c2) + var(--c3) + var(--c4) + var(--c5) + var(--c6) + var(--c7) + var(--c8) + var(--c9) + var(--c10) + var(--c11) + var(--c12) + var(--c13) + var(--c14) + var(--c15) + var(--c16) + var(--c17) + var(--c18) + var(--c19) + var(--c20) + var(--c21) + var(--c22) + var(--c23) + var(--c24) + var(--c25) + var(--c26) + var(--c27) + var(--c28) + var(--c29) + var(--c30) + var(--c31) + var(--c32) + var(--c33) + var(--c34) + var(--c35) + var(--c36) + var(--c37) + var(--c38) + var(--c39) + var(--c40) + var(--c41) + var(--c42) + var(--c43) + var(--c44) + var(--c45) + var(--c46) + var(--c47) + var(--c48) + var(--c49) + var(--c50) + var(--c51) + var(--c52) + var(--c53) + var(--c54) + var(--c55) + var(--c56) + var(--c57) + var(--c58) + var(--c59) + var(--c60) + var(--c61) + var(--c62) + var(--c63) + var(--c64) + var(--c65) + var(--c66) + var(--c67) + var(--c68) + var(--c69) + var(--c70) + var(--c71) + var(--c72) + var(--c73) + var(--c74) + var(--c75) + var(--c76) + var(--c77) + var(--c78) + var(--c79) + var(--c80) + var(--c81) + var(--c82) + var(--c83) + var(--c84) + var(--c85) + var(--c86) + var(--c87) + var(--c88) + var(--c89) + var(--c90) + var(--c91) + var(--c92) + var(--c93) + var(--c94) + var(--c95) + var(--c96) + var(--c97) + var(--c98) + var(--c99) + var(--c100) + var(--c101) + var(--c102) + var(--c103) + var(--c104) + var(--c105) + var(--c106) + var(--c107) + var(--c108) + var(--c109) + var(--c110) + var(--c111) + var(--c112) + var(--c113) + var(--c114) + var(--c115) + var(--c116) + var(--c117) + var(--c118) + var(--c119) + var(--c120) + var(--c121) + var(--c122) + var(--c123) + var(--c124) + var(--c125) + var(--c126) + var(--c127) + var(--c128) + var(--c129) + var(--c130) + var(--c131) + var(--c132) + var(--c133) + var(--c134) + var(--c135) + var(--c136) + var(--c137) + var(--c138) + var(--c139) + var(--c140) + var(--c141) + var(--c142) + var(--c143) + var(--c144) + var(--c145) + var(--c146) + var(--c147) + var(--c148) + var(--c149) + var(--c150) + var(--c151) + var(--c152) + var(--c153) + var(--c154) + var(--c155) + var(--c156) + var(--c157) + var(--c158) + var(--c159) + var(--c160) + var(--c161) + var(--c162) + var(--c163) + var(--c164) + var(--c165) + var(--c166) + var(--c167) + var(--c168) + var(--c169) + var(--c170) + var(--c171) + var(--c172) + var(--c173) + var(--c174) + var(--c175) + var(--c176) + var(--c177) + var(--c178) + var(--c179) + var(--c180) + var(--c181) + var(--c182) + var(--c183) + var(--c184) + var(--c185) + var(--c186) + var(--c187) + var(--c188) + var(--c189) + var(--c190) + var(--c191) + var(--c192) + var(--c193) + var(--c194) + var(--c195) + var(--c196) + var(--c197) + var(--c198) + var(--c199) + var(--c200) + var(--c201) + var(--c202) + var(--c203) + var(--c204) + var(--c205) + var(--c206) + var(--c207) + var(--c208) + var(--c209) + var(--c210) + var(--c211) + var(--c212) + var(--c213) + var(--c214) + var(--c215) + var(--c216) + var(--c217) + var(--c218) + var(--c219) + var(--c220));
+  animation: 138s end linear forwards, c1 var(--s1) forwards 0.01s, c2 var(--s2) forwards 0.01s, c3 var(--s3) forwards 0.01s, c4 var(--s4) forwards 0.01s, c5 var(--s5) forwards 0.01s, c6 var(--s6) forwards 0.01s, c7 var(--s7) forwards 0.01s, c8 var(--s8) forwards 0.01s, c9 var(--s9) forwards 0.01s, c10 var(--s10) forwards 0.01s, c11 var(--s11) forwards 0.01s, c12 var(--s12) forwards 0.01s, c13 var(--s13) forwards 0.01s, c14 var(--s14) forwards 0.01s, c15 var(--s15) forwards 0.01s, c16 var(--s16) forwards 0.01s, c17 var(--s17) forwards 0.01s, c18 var(--s18) forwards 0.01s, c19 var(--s19) forwards 0.01s, c20 var(--s20) forwards 0.01s, c21 var(--s21) forwards 0.01s, c22 var(--s22) forwards 0.01s, c23 var(--s23) forwards 0.01s, c24 var(--s24) forwards 0.01s, c25 var(--s25) forwards 0.01s, c26 var(--s26) forwards 0.01s, c27 var(--s27) forwards 0.01s, c28 var(--s28) forwards 0.01s, c29 var(--s29) forwards 0.01s, c30 var(--s30) forwards 0.01s, c31 var(--s31) forwards 0.01s, c32 var(--s32) forwards 0.01s, c33 var(--s33) forwards 0.01s, c34 var(--s34) forwards 0.01s, c35 var(--s35) forwards 0.01s, c36 var(--s36) forwards 0.01s, c37 var(--s37) forwards 0.01s, c38 var(--s38) forwards 0.01s, c39 var(--s39) forwards 0.01s, c40 var(--s40) forwards 0.01s, c41 var(--s41) forwards 0.01s, c42 var(--s42) forwards 0.01s, c43 var(--s43) forwards 0.01s, c44 var(--s44) forwards 0.01s, c45 var(--s45) forwards 0.01s, c46 var(--s46) forwards 0.01s, c47 var(--s47) forwards 0.01s, c48 var(--s48) forwards 0.01s, c49 var(--s49) forwards 0.01s, c50 var(--s50) forwards 0.01s, c51 var(--s51) forwards 0.01s, c52 var(--s52) forwards 0.01s, c53 var(--s53) forwards 0.01s, c54 var(--s54) forwards 0.01s, c55 var(--s55) forwards 0.01s, c56 var(--s56) forwards 0.01s, c57 var(--s57) forwards 0.01s, c58 var(--s58) forwards 0.01s, c59 var(--s59) forwards 0.01s, c60 var(--s60) forwards 0.01s, c61 var(--s61) forwards 0.01s, c62 var(--s62) forwards 0.01s, c63 var(--s63) forwards 0.01s, c64 var(--s64) forwards 0.01s, c65 var(--s65) forwards 0.01s, c66 var(--s66) forwards 0.01s, c67 var(--s67) forwards 0.01s, c68 var(--s68) forwards 0.01s, c69 var(--s69) forwards 0.01s, c70 var(--s70) forwards 0.01s, c71 var(--s71) forwards 0.01s, c72 var(--s72) forwards 0.01s, c73 var(--s73) forwards 0.01s, c74 var(--s74) forwards 0.01s, c75 var(--s75) forwards 0.01s, c76 var(--s76) forwards 0.01s, c77 var(--s77) forwards 0.01s, c78 var(--s78) forwards 0.01s, c79 var(--s79) forwards 0.01s, c80 var(--s80) forwards 0.01s, c81 var(--s81) forwards 0.01s, c82 var(--s82) forwards 0.01s, c83 var(--s83) forwards 0.01s, c84 var(--s84) forwards 0.01s, c85 var(--s85) forwards 0.01s, c86 var(--s86) forwards 0.01s, c87 var(--s87) forwards 0.01s, c88 var(--s88) forwards 0.01s, c89 var(--s89) forwards 0.01s, c90 var(--s90) forwards 0.01s, c91 var(--s91) forwards 0.01s, c92 var(--s92) forwards 0.01s, c93 var(--s93) forwards 0.01s, c94 var(--s94) forwards 0.01s, c95 var(--s95) forwards 0.01s, c96 var(--s96) forwards 0.01s, c97 var(--s97) forwards 0.01s, c98 var(--s98) forwards 0.01s, c99 var(--s99) forwards 0.01s, c100 var(--s100) forwards 0.01s, c101 var(--s101) forwards 0.01s, c102 var(--s102) forwards 0.01s, c103 var(--s103) forwards 0.01s, c104 var(--s104) forwards 0.01s, c105 var(--s105) forwards 0.01s, c106 var(--s106) forwards 0.01s, c107 var(--s107) forwards 0.01s, c108 var(--s108) forwards 0.01s, c109 var(--s109) forwards 0.01s, c110 var(--s110) forwards 0.01s, c111 var(--s111) forwards 0.01s, c112 var(--s112) forwards 0.01s, c113 var(--s113) forwards 0.01s, c114 var(--s114) forwards 0.01s, c115 var(--s115) forwards 0.01s, c116 var(--s116) forwards 0.01s, c117 var(--s117) forwards 0.01s, c118 var(--s118) forwards 0.01s, c119 var(--s119) forwards 0.01s, c120 var(--s120) forwards 0.01s, c121 var(--s121) forwards 0.01s, c122 var(--s122) forwards 0.01s, c123 var(--s123) forwards 0.01s, c124 var(--s124) forwards 0.01s, c125 var(--s125) forwards 0.01s, c126 var(--s126) forwards 0.01s, c127 var(--s127) forwards 0.01s, c128 var(--s128) forwards 0.01s, c129 var(--s129) forwards 0.01s, c130 var(--s130) forwards 0.01s, c131 var(--s131) forwards 0.01s, c132 var(--s132) forwards 0.01s, c133 var(--s133) forwards 0.01s, c134 var(--s134) forwards 0.01s, c135 var(--s135) forwards 0.01s, c136 var(--s136) forwards 0.01s, c137 var(--s137) forwards 0.01s, c138 var(--s138) forwards 0.01s, c139 var(--s139) forwards 0.01s, c140 var(--s140) forwards 0.01s, c141 var(--s141) forwards 0.01s, c142 var(--s142) forwards 0.01s, c143 var(--s143) forwards 0.01s, c144 var(--s144) forwards 0.01s, c145 var(--s145) forwards 0.01s, c146 var(--s146) forwards 0.01s, c147 var(--s147) forwards 0.01s, c148 var(--s148) forwards 0.01s, c149 var(--s149) forwards 0.01s, c150 var(--s150) forwards 0.01s, c151 var(--s151) forwards 0.01s, c152 var(--s152) forwards 0.01s, c153 var(--s153) forwards 0.01s, c154 var(--s154) forwards 0.01s, c155 var(--s155) forwards 0.01s, c156 var(--s156) forwards 0.01s, c157 var(--s157) forwards 0.01s, c158 var(--s158) forwards 0.01s, c159 var(--s159) forwards 0.01s, c160 var(--s160) forwards 0.01s, c161 var(--s161) forwards 0.01s, c162 var(--s162) forwards 0.01s, c163 var(--s163) forwards 0.01s, c164 var(--s164) forwards 0.01s, c165 var(--s165) forwards 0.01s, c166 var(--s166) forwards 0.01s, c167 var(--s167) forwards 0.01s, c168 var(--s168) forwards 0.01s, c169 var(--s169) forwards 0.01s, c170 var(--s170) forwards 0.01s, c171 var(--s171) forwards 0.01s, c172 var(--s172) forwards 0.01s, c173 var(--s173) forwards 0.01s, c174 var(--s174) forwards 0.01s, c175 var(--s175) forwards 0.01s, c176 var(--s176) forwards 0.01s, c177 var(--s177) forwards 0.01s, c178 var(--s178) forwards 0.01s, c179 var(--s179) forwards 0.01s, c180 var(--s180) forwards 0.01s, c181 var(--s181) forwards 0.01s, c182 var(--s182) forwards 0.01s, c183 var(--s183) forwards 0.01s, c184 var(--s184) forwards 0.01s, c185 var(--s185) forwards 0.01s, c186 var(--s186) forwards 0.01s, c187 var(--s187) forwards 0.01s, c188 var(--s188) forwards 0.01s, c189 var(--s189) forwards 0.01s, c190 var(--s190) forwards 0.01s, c191 var(--s191) forwards 0.01s, c192 var(--s192) forwards 0.01s, c193 var(--s193) forwards 0.01s, c194 var(--s194) forwards 0.01s, c195 var(--s195) forwards 0.01s, c196 var(--s196) forwards 0.01s, c197 var(--s197) forwards 0.01s, c198 var(--s198) forwards 0.01s, c199 var(--s199) forwards 0.01s, c200 var(--s200) forwards 0.01s, c201 var(--s201) forwards 0.01s, c202 var(--s202) forwards 0.01s, c203 var(--s203) forwards 0.01s, c204 var(--s204) forwards 0.01s, c205 var(--s205) forwards 0.01s, c206 var(--s206) forwards 0.01s, c207 var(--s207) forwards 0.01s, c208 var(--s208) forwards 0.01s, c209 var(--s209) forwards 0.01s, c210 var(--s210) forwards 0.01s, c211 var(--s211) forwards 0.01s, c212 var(--s212) forwards 0.01s, c213 var(--s213) forwards 0.01s, c214 var(--s214) forwards 0.01s, c215 var(--s215) forwards 0.01s, c216 var(--s216) forwards 0.01s, c217 var(--s217) forwards 0.01s, c218 var(--s218) forwards 0.01s, c219 var(--s219) forwards 0.01s, c220 var(--s220) forwards 0.01s;
+  position: absolute;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+  z-index: 999;
+  background: #000;
+  font-family: monospace;
+}
+
+@keyframes end {
+  0%, 99% {
+    inset: 0 0 100%;
+  }
+  100% {
+    inset: 0;
+  }
+}
+r:before {
+  content: "Score: " counter(T) "/220";
+  counter-reset: T var(--sum);
+  font-size: 60px;
+}
+
+r:after {
+  content: "Refresh the page to start a new game!";
+  font-size: 20px;
+  color: red;
+}
+
+html {
+  background: #000;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><foreignObject width="100%" height="100%"><div xmlns="http://www.w3.org/1999/xhtml" style="width:70%;height:70%;margin:15%;border-radius:50%;background:%23eae889;box-shadow: 0px 0px 10px %23fff;" ></div></foreignObject></svg>') 20 20, auto;
+}
+
+html:active {
+  background: #000;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><foreignObject width="100%" height="100%"><div xmlns="http://www.w3.org/1999/xhtml" style="width:70%;height:70%;margin:15%;border-radius:50%;background:%2389ea91;box-shadow: 0px 0px 10px %23fff;" ></div></foreignObject></svg>') 20 20, auto;
+}

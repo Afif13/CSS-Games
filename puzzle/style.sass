@@ -1,0 +1,87 @@
+$n : 4; /* number of columns/rows, don't forget to adjust the HTML value */
+
+g {
+	--s: 300px; /* size of the puzzle */
+	display: grid;
+	max-width: var(--s);
+	border: 1px solid;
+	margin: auto;
+	grid-template-columns: repeat($n,1fr);
+}
+g:before {
+	content: "Original Image";
+	color: #fff;
+	font-size: 25px;
+	font-weight: bold;
+	text-shadow: 0 0 2px #000,0 0 2px #000,0 0 2px #000;
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	width: calc(var(--s)*0.6);
+	aspect-ratio: 1;
+	-webkit-mask: repeating-linear-gradient(-45deg,#000 0 10%,#000d 0 20%);
+	background: var(--i) 0/100% 100%;
+	display: grid;
+	place-content: center;
+}
+z {
+	aspect-ratio: 1;
+	outline: 1px dashed;
+	display: grid;
+	position: relative;
+	pointer-events: none;
+}
+a {
+	width: 0;
+	transition: 0s .2s;
+	pointer-events: initial;
+}
+b {
+	position: absolute;
+	inset: 0;
+	background: var(--i) 0/var(--s) var(--s);
+	box-shadow: 0 0 4px 1px red;
+	z-index: 2;
+	cursor: grab;
+	pointer-events: initial;
+}
+@for $i from 1 to ($n*$n + 1) {
+	$r: (random(180));
+	$x: (($i - 1)%$n);
+	$y: floor(($i - 0.001)/$n);
+	z:nth-of-type(#{$i}) b{
+		background-position: ($x/($n - 1))*100% ($y/($n - 1))*100%;
+		transform: 
+			translate((($n - 1)/2 - $x)*100%,(($n - 1)/2 - $y)*100%) 
+			rotate($r*1deg) 
+			translate((random(100)*1% + ($n - 1)*100%)) 
+			rotate((random(20) - 10 - $r)*1deg)
+	}
+}
+z b {
+	transition: 9999s 9999s;
+}
+z:active a{
+	width: 100%;
+	transition: 0s;
+}
+z a:hover ~ b {
+	transform: translate(0);
+	box-shadow: none;
+	transition: 0s;
+}
+
+body {
+  background: #2c6603;
+  color: #fff;
+  font-family: system-ui, sans-serif;
+}
+h1 {
+  font-size: 2rem;
+	margin: 0;
+  text-align: center;
+}
+p {
+  font-size: 1.2rem;
+  text-align: center;
+}

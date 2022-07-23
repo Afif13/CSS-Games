@@ -1,0 +1,281 @@
+grid {
+  display: grid;
+  grid: repeat(8,1fr)/repeat(10,1fr);
+  margin: 10px auto 0;
+  position: relative;
+  cursor: pointer;
+}
+c,w {
+  width: 40px;
+  aspect-ratio: 1;
+}
+c {
+  background: radial-gradient(#f7a011 34%,#f8ce00 35% 51%,#0000 52%) 0/100% 100% no-repeat;
+  transition: 999s 999s;
+}  
+c:hover {
+  background-size: 0 0;
+  transition: 0s;
+}
+
+$sum: ();
+$anime: ();
+@for $i from 1 to 36 {
+  @property --c#{$i}{
+    syntax: '<integer>';
+    inherits: true;
+    initial-value: 0;
+  }
+  c:nth-of-type(#{$i}) ~ result{
+    --c#{$i}: 0;
+    --s#{$i}: paused
+  }
+  c:nth-of-type(#{$i}):hover ~ result{
+    --s#{$i}: running;
+  }
+  @keyframes c#{$i} {
+    to{--c#{$i}:1;}
+  }
+  $sum: append($sum,'+ var(--c#{$i})' , space);
+  $anime: append($anime,'c#{$i} var(--s#{$i}) forwards 0.01s' , comma);
+}
+result {
+  --sum:calc(0 #{$sum});
+  animation: #{$anime};
+  position: absolute;
+  inset: 0 0 clamp(0%, (35 - var(--sum))*9999% ,100%) 0;
+  display: grid;
+  place-content: center;
+  font-size: 70px;
+  color: #00b300;
+  overflow: hidden;
+  background: #fff9;
+}
+result:before {
+  content: "Bravo!";
+}
+
+w {
+  background:
+    linear-gradient(#a49d83 50%,#0000   0) 75% 0/2px 50% repeat-y,
+    linear-gradient(#0000   50%,#a49d83 0) 25% 0/2px 50% repeat-y,
+    linear-gradient(#966042 calc(100% - 2px),#a49d83 0) 0 0/100% calc(100%/4);
+}
+w::before {
+  content: "Game Over";
+  position: fixed;
+  inset: 0 0 100%;
+  z-index: 5695845;
+  background: #000;
+  color: red;
+  font-size: 80px;
+  display: grid;
+  place-content: center;
+  overflow: hidden;
+  transition: 99999s;
+}
+w::after {
+  content: "Refresh the page to start a new game";
+  position: fixed;
+  inset: 0 0 100%;
+  z-index: 5695845;
+  color: #fff;
+  font-size: 30px;
+  display: grid;
+  place-content: end center;
+  overflow: hidden;
+  transition: 99999s;
+}
+w:hover::before,
+w:hover::after{
+  inset: 0;
+  transition: 0s;
+}
+
+/* The time from https://codepen.io/t_afif/pen/ExbRBPN*/
+@property --n{
+  syntax: '<integer>';
+  inherits: true;
+  initial-value: 0;
+}
+@property --t{
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #000;
+}
+@property --r{
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #000;
+}
+@property --b{
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #000;
+}
+@property --l{
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #000;
+}
+
+d {
+  width: 40px; /* size */
+  display: inline-grid;
+  aspect-ratio: .55;
+}
+d:before,
+d:after {
+  content: "";
+  padding: 20%;
+  background:
+    conic-gradient(from -45deg at 50% 45%,var(--t) 90deg,#0000 0),
+    conic-gradient(from  45deg at 55% 50%,var(--r) 90deg,#0000 0),
+    conic-gradient(from 135deg at 50% 55%,var(--b) 90deg,#0000 0),
+    conic-gradient(from 225deg at 45% 50%,var(--l) 90deg,#0000 0);
+  --m: conic-gradient(#000 0 0) content-box,conic-gradient(#000 0 0);
+  -webkit-mask: var(--m);
+          mask: var(--m);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  clip-path: polygon(25% 0,75% 0,100% 25%,100% 75%,75% 100%,25% 100%,0 75%,0 25%);
+  transition:--t .45s,--l .45s,--b .45s,--r .45s;
+}
+d:after {
+  margin-top: -20%;
+  --t: #0000;
+}
+d {
+  --1:(var(--n) - 1)*(var(--n) - 1);
+  --2:(var(--n) - 2)*(var(--n) - 2);
+  --3:(var(--n) - 3)*(var(--n) - 3);
+  --4:(var(--n) - 4)*(var(--n) - 4);
+  --5:(var(--n) - 5)*(var(--n) - 5);
+  --6:(var(--n) - 6)*(var(--n) - 6);
+  --7:(var(--n) - 7)*(var(--n) - 7);
+  --8:(var(--n) - 8)*(var(--n) - 8);
+  --9:(var(--n) - 9)*(var(--n) - 9);
+}
+
+d:before {
+  --t:rgb(
+    clamp(30,var(--1)*var(--4)*999,250)
+    clamp(30,var(--1)*var(--4)*999,250)
+    30);
+  --r:rgb(
+    clamp(30,var(--5)*var(--6)*999,250)
+    clamp(30,var(--5)*var(--6)*999,250)
+    30);
+  --b:rgb(
+    clamp(30,var(--n)*var(--1)*var(--7)*999,250)
+    clamp(30,var(--n)*var(--1)*var(--7)*999,250)
+    30);
+  --l:rgb(
+    clamp(30,var(--1)*var(--2)*var(--3)*var(--7)*999,250)
+    clamp(30,var(--1)*var(--2)*var(--3)*var(--7)*999,250)
+    30);
+}
+d:after {
+  --r:rgb(
+    clamp(30,var(--2)*999,250)
+    clamp(30,var(--2)*999,250)
+    30);
+  --b:rgb(
+    clamp(30,var(--1)*var(--4)*var(--7)*999,250)
+    clamp(30,var(--1)*var(--4)*var(--7)*999,250)
+    30);
+  --l:rgb(
+    clamp(30,var(--1)*var(--3)*var(--4)*var(--5)*var(--7)*var(--9)*999,250)
+    clamp(30,var(--1)*var(--3)*var(--4)*var(--5)*var(--7)*var(--9)*999,250)
+    30);
+}
+timer d:nth-of-type(1) {animation:d6 60s linear infinite}
+timer d:nth-of-type(2) {animation:d9 10s linear infinite}
+timer d:nth-of-type(3) {animation:d9  1s linear infinite;grid-column:4}
+timer d:nth-of-type(4) {animation:d9 .1s linear infinite}
+@keyframes d9 {
+  0%,
+  9.95%{--n:0}
+  10%,
+  19.95%{--n:1}
+  20%,
+  29.95%{--n:2}
+  30%,
+  39.95%{--n:3}
+  40%,
+  49.95%{--n:4}
+  50%,
+  59.95%{--n:5}
+  60%,
+  69.95%{--n:6}
+  70%,
+  79.95%{--n:7}
+  80%,
+  89.95%{--n:8}
+  90%,
+  99.95%{--n:9}
+}
+@keyframes d6 {
+  0%,
+  16.64%{--n:0}
+  16.67%,
+  33.30%{--n:1}
+  33.33%,
+  49.96%{--n:2}
+  50.00%,
+  66.63%{--n:3}
+  66.67%,
+  83.30%{--n:4}
+  83.33%,
+  99.97%{--n:5}
+}
+
+timer {
+  position: absolute;
+  display: grid;
+  top: 50%;
+  left: 100%;
+  transform: translate(20%, -50%);
+  grid-template-columns: 1fr 1fr 10px 1fr 1fr;
+  grid-gap: 10px;
+  pointer-events: none;
+  background: 
+    linear-gradient(rgb(250 250 30) 0 0) 50% 30%/10px 10px no-repeat,
+    linear-gradient(rgb(250 250 30) 0 0) 50% 70%/10px 10px no-repeat;
+}
+@media (max-width:900px) {
+  timer {
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 10%);
+  }
+}
+
+grid timer d:nth-child(n),
+grid result:hover ~ timer d:nth-child(n){
+  animation-play-state: paused;
+}
+grid:hover timer d:nth-child(n) {
+  animation-play-state: running;
+}
+grid:hover timer {
+  filter: hue-rotate(45deg);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-content: start center;
+  background: #000;
+  color: #fff;
+  font-family: system-ui, sans-serif;
+}
+h1,p {
+  font-size: 2rem;
+  margin:0;
+  text-align:center;
+}
+p {
+  font-size:1.2rem;
+}

@@ -1,0 +1,1066 @@
+c {
+  position: absolute;
+  z-index: 99;
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(#2473e4 27.5%, #fefeff 28% 35%, #0000 35.5%), conic-gradient(from -30deg at 71.8% 49%, #f8c038 240deg, #0000 0) 0 105%/100% 76% no-repeat, conic-gradient(from -30deg at 27% 61%, #d73e32 119deg, #3a974d 120deg);
+}
+
+e {
+  position: absolute;
+  z-index: 99;
+  width: 50px;
+  aspect-ratio: 1;
+  display: grid;
+  transform-style: preserve-3d;
+}
+
+e::before {
+  content: "";
+  grid-area: 1/1;
+  border-radius: 50%;
+  margin: 10% 4% 5% 12%;
+  background: linear-gradient(#00a0d8 0 0) 50% 49%/100% 12% no-repeat, radial-gradient(40% 50%, #0000 55%, #00a0d8 56%);
+  clip-path: polygon(0 0, 100% 0, 100% 55%, 60% 55%, 60% 65%, 100% 65%, 100% 100%, 0 100%);
+}
+
+e::after {
+  content: "";
+  grid-area: 1/1;
+  border-radius: 50%;
+  margin: -4% 0% -13% 6%;
+  background: radial-gradient(43% 57%, #0000 80%, #ffcc09 82%);
+  transform: rotate(45deg) rotateY(47deg);
+  clip-path: polygon(0 0, 100% 0, 100% 25%, 60% 25%, 60% 52%, 100% 65%, 100% 100%, 0 100%);
+}
+
+e, c {
+  animation: hide 0.01s var(--h, paused) forwards, move 4s infinite alternate;
+}
+
+e:active {
+  --h:running;
+}
+
+@keyframes move {
+  0% {
+    transform: translate(-10%, 50%);
+  }
+  33% {
+    transform: translate(10%, -100%);
+  }
+  66% {
+    transform: translate(120%, 30%);
+  }
+  80% {
+    transform: translate(-20%, 0%);
+  }
+  100% {
+    transform: translate(-80%, -10%);
+  }
+}
+@keyframes hide {
+  100% {
+    visibility: hidden;
+  }
+}
+@property --sum {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+@property --c1 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(1) {
+  left: 35%;
+  top: 52%;
+  animation-duration: 0.01s, 6s;
+  animation-delay: 0s, -1s;
+}
+
+e:nth-of-type(1) {
+  top: 27%;
+  left: 55%;
+  animation-duration: 0.01s, 2s;
+  animation-delay: 0s, -2s;
+}
+
+e:nth-of-type(1) ~ r,
+e:nth-of-type(1) ~ l {
+  --c1: 0;
+  --s1: paused ;
+}
+
+e:nth-of-type(1):active ~ r,
+e:nth-of-type(1):active ~ l {
+  --s1: running;
+}
+
+@keyframes c1 {
+  to {
+    --c1:1;
+  }
+}
+@property --c2 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(2) {
+  left: 34%;
+  top: 14%;
+  animation-duration: 0.01s, 6s;
+  animation-delay: 0s, -4s;
+}
+
+e:nth-of-type(2) {
+  top: 43%;
+  left: 38%;
+  animation-duration: 0.01s, 5s;
+  animation-delay: 0s, -7s;
+}
+
+e:nth-of-type(2) ~ r,
+e:nth-of-type(2) ~ l {
+  --c2: 0;
+  --s2: paused ;
+}
+
+e:nth-of-type(2):active ~ r,
+e:nth-of-type(2):active ~ l {
+  --s2: running;
+}
+
+@keyframes c2 {
+  to {
+    --c2:1;
+  }
+}
+@property --c3 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(3) {
+  left: 52%;
+  top: 24%;
+  animation-duration: 0.01s, 7s;
+  animation-delay: 0s, -4s;
+}
+
+e:nth-of-type(3) {
+  top: 12%;
+  left: 72%;
+  animation-duration: 0.01s, 3s;
+  animation-delay: 0s, -6s;
+}
+
+e:nth-of-type(3) ~ r,
+e:nth-of-type(3) ~ l {
+  --c3: 0;
+  --s3: paused ;
+}
+
+e:nth-of-type(3):active ~ r,
+e:nth-of-type(3):active ~ l {
+  --s3: running;
+}
+
+@keyframes c3 {
+  to {
+    --c3:1;
+  }
+}
+@property --c4 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(4) {
+  left: 19%;
+  top: 72%;
+  animation-duration: 0.01s, 6s;
+  animation-delay: 0s, -3s;
+}
+
+e:nth-of-type(4) {
+  top: 57%;
+  left: 53%;
+  animation-duration: 0.01s, 6s;
+  animation-delay: 0s, -2s;
+}
+
+e:nth-of-type(4) ~ r,
+e:nth-of-type(4) ~ l {
+  --c4: 0;
+  --s4: paused ;
+}
+
+e:nth-of-type(4):active ~ r,
+e:nth-of-type(4):active ~ l {
+  --s4: running;
+}
+
+@keyframes c4 {
+  to {
+    --c4:1;
+  }
+}
+@property --c5 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(5) {
+  left: 37%;
+  top: 17%;
+  animation-duration: 0.01s, 3s;
+  animation-delay: 0s, -2s;
+}
+
+e:nth-of-type(5) {
+  top: 18%;
+  left: 28%;
+  animation-duration: 0.01s, 2s;
+  animation-delay: 0s, -6s;
+}
+
+e:nth-of-type(5) ~ r,
+e:nth-of-type(5) ~ l {
+  --c5: 0;
+  --s5: paused ;
+}
+
+e:nth-of-type(5):active ~ r,
+e:nth-of-type(5):active ~ l {
+  --s5: running;
+}
+
+@keyframes c5 {
+  to {
+    --c5:1;
+  }
+}
+@property --c6 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(6) {
+  left: 70%;
+  top: 76%;
+  animation-duration: 0.01s, 7s;
+  animation-delay: 0s, -5s;
+}
+
+e:nth-of-type(6) {
+  top: 43%;
+  left: 13%;
+  animation-duration: 0.01s, 6s;
+  animation-delay: 0s, -2s;
+}
+
+e:nth-of-type(6) ~ r,
+e:nth-of-type(6) ~ l {
+  --c6: 0;
+  --s6: paused ;
+}
+
+e:nth-of-type(6):active ~ r,
+e:nth-of-type(6):active ~ l {
+  --s6: running;
+}
+
+@keyframes c6 {
+  to {
+    --c6:1;
+  }
+}
+@property --c7 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(7) {
+  left: 53%;
+  top: 70%;
+  animation-duration: 0.01s, 2s;
+  animation-delay: 0s, -5s;
+}
+
+e:nth-of-type(7) {
+  top: 21%;
+  left: 77%;
+  animation-duration: 0.01s, 4s;
+  animation-delay: 0s, -4s;
+}
+
+e:nth-of-type(7) ~ r,
+e:nth-of-type(7) ~ l {
+  --c7: 0;
+  --s7: paused ;
+}
+
+e:nth-of-type(7):active ~ r,
+e:nth-of-type(7):active ~ l {
+  --s7: running;
+}
+
+@keyframes c7 {
+  to {
+    --c7:1;
+  }
+}
+@property --c8 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(8) {
+  left: 65%;
+  top: 55%;
+  animation-duration: 0.01s, 2s;
+  animation-delay: 0s, -2s;
+}
+
+e:nth-of-type(8) {
+  top: 20%;
+  left: 67%;
+  animation-duration: 0.01s, 4s;
+  animation-delay: 0s, -1s;
+}
+
+e:nth-of-type(8) ~ r,
+e:nth-of-type(8) ~ l {
+  --c8: 0;
+  --s8: paused ;
+}
+
+e:nth-of-type(8):active ~ r,
+e:nth-of-type(8):active ~ l {
+  --s8: running;
+}
+
+@keyframes c8 {
+  to {
+    --c8:1;
+  }
+}
+@property --c9 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(9) {
+  left: 81%;
+  top: 6%;
+  animation-duration: 0.01s, 2s;
+  animation-delay: 0s, -4s;
+}
+
+e:nth-of-type(9) {
+  top: 75%;
+  left: 51%;
+  animation-duration: 0.01s, 4s;
+  animation-delay: 0s, -5s;
+}
+
+e:nth-of-type(9) ~ r,
+e:nth-of-type(9) ~ l {
+  --c9: 0;
+  --s9: paused ;
+}
+
+e:nth-of-type(9):active ~ r,
+e:nth-of-type(9):active ~ l {
+  --s9: running;
+}
+
+@keyframes c9 {
+  to {
+    --c9:1;
+  }
+}
+@property --c10 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(10) {
+  left: 37%;
+  top: 80%;
+  animation-duration: 0.01s, 7s;
+  animation-delay: 0s, -2s;
+}
+
+e:nth-of-type(10) {
+  top: 79%;
+  left: 89%;
+  animation-duration: 0.01s, 6s;
+  animation-delay: 0s, -6s;
+}
+
+e:nth-of-type(10) ~ r,
+e:nth-of-type(10) ~ l {
+  --c10: 0;
+  --s10: paused ;
+}
+
+e:nth-of-type(10):active ~ r,
+e:nth-of-type(10):active ~ l {
+  --s10: running;
+}
+
+@keyframes c10 {
+  to {
+    --c10:1;
+  }
+}
+@property --c11 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(11) {
+  left: 57%;
+  top: 26%;
+  animation-duration: 0.01s, 2s;
+  animation-delay: 0s, -1s;
+}
+
+e:nth-of-type(11) {
+  top: 14%;
+  left: 76%;
+  animation-duration: 0.01s, 6s;
+  animation-delay: 0s, -1s;
+}
+
+e:nth-of-type(11) ~ r,
+e:nth-of-type(11) ~ l {
+  --c11: 0;
+  --s11: paused ;
+}
+
+e:nth-of-type(11):active ~ r,
+e:nth-of-type(11):active ~ l {
+  --s11: running;
+}
+
+@keyframes c11 {
+  to {
+    --c11:1;
+  }
+}
+@property --c12 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(12) {
+  left: 22%;
+  top: 13%;
+  animation-duration: 0.01s, 5s;
+  animation-delay: 0s, -5s;
+}
+
+e:nth-of-type(12) {
+  top: 65%;
+  left: 26%;
+  animation-duration: 0.01s, 2s;
+  animation-delay: 0s, -7s;
+}
+
+e:nth-of-type(12) ~ r,
+e:nth-of-type(12) ~ l {
+  --c12: 0;
+  --s12: paused ;
+}
+
+e:nth-of-type(12):active ~ r,
+e:nth-of-type(12):active ~ l {
+  --s12: running;
+}
+
+@keyframes c12 {
+  to {
+    --c12:1;
+  }
+}
+@property --c13 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(13) {
+  left: 57%;
+  top: 52%;
+  animation-duration: 0.01s, 6s;
+  animation-delay: 0s, -4s;
+}
+
+e:nth-of-type(13) {
+  top: 80%;
+  left: 60%;
+  animation-duration: 0.01s, 3s;
+  animation-delay: 0s, -2s;
+}
+
+e:nth-of-type(13) ~ r,
+e:nth-of-type(13) ~ l {
+  --c13: 0;
+  --s13: paused ;
+}
+
+e:nth-of-type(13):active ~ r,
+e:nth-of-type(13):active ~ l {
+  --s13: running;
+}
+
+@keyframes c13 {
+  to {
+    --c13:1;
+  }
+}
+@property --c14 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(14) {
+  left: 63%;
+  top: 72%;
+  animation-duration: 0.01s, 2s;
+  animation-delay: 0s, -5s;
+}
+
+e:nth-of-type(14) {
+  top: 53%;
+  left: 57%;
+  animation-duration: 0.01s, 5s;
+  animation-delay: 0s, -7s;
+}
+
+e:nth-of-type(14) ~ r,
+e:nth-of-type(14) ~ l {
+  --c14: 0;
+  --s14: paused ;
+}
+
+e:nth-of-type(14):active ~ r,
+e:nth-of-type(14):active ~ l {
+  --s14: running;
+}
+
+@keyframes c14 {
+  to {
+    --c14:1;
+  }
+}
+@property --c15 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(15) {
+  left: 40%;
+  top: 40%;
+  animation-duration: 0.01s, 4s;
+  animation-delay: 0s, -4s;
+}
+
+e:nth-of-type(15) {
+  top: 21%;
+  left: 67%;
+  animation-duration: 0.01s, 2s;
+  animation-delay: 0s, -3s;
+}
+
+e:nth-of-type(15) ~ r,
+e:nth-of-type(15) ~ l {
+  --c15: 0;
+  --s15: paused ;
+}
+
+e:nth-of-type(15):active ~ r,
+e:nth-of-type(15):active ~ l {
+  --s15: running;
+}
+
+@keyframes c15 {
+  to {
+    --c15:1;
+  }
+}
+@property --c16 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(16) {
+  left: 31%;
+  top: 27%;
+  animation-duration: 0.01s, 3s;
+  animation-delay: 0s, -5s;
+}
+
+e:nth-of-type(16) {
+  top: 70%;
+  left: 60%;
+  animation-duration: 0.01s, 4s;
+  animation-delay: 0s, -1s;
+}
+
+e:nth-of-type(16) ~ r,
+e:nth-of-type(16) ~ l {
+  --c16: 0;
+  --s16: paused ;
+}
+
+e:nth-of-type(16):active ~ r,
+e:nth-of-type(16):active ~ l {
+  --s16: running;
+}
+
+@keyframes c16 {
+  to {
+    --c16:1;
+  }
+}
+@property --c17 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(17) {
+  left: 26%;
+  top: 35%;
+  animation-duration: 0.01s, 4s;
+  animation-delay: 0s, -3s;
+}
+
+e:nth-of-type(17) {
+  top: 40%;
+  left: 7%;
+  animation-duration: 0.01s, 2s;
+  animation-delay: 0s, -1s;
+}
+
+e:nth-of-type(17) ~ r,
+e:nth-of-type(17) ~ l {
+  --c17: 0;
+  --s17: paused ;
+}
+
+e:nth-of-type(17):active ~ r,
+e:nth-of-type(17):active ~ l {
+  --s17: running;
+}
+
+@keyframes c17 {
+  to {
+    --c17:1;
+  }
+}
+@property --c18 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(18) {
+  left: 18%;
+  top: 23%;
+  animation-duration: 0.01s, 5s;
+  animation-delay: 0s, -5s;
+}
+
+e:nth-of-type(18) {
+  top: 6%;
+  left: 52%;
+  animation-duration: 0.01s, 7s;
+  animation-delay: 0s, -2s;
+}
+
+e:nth-of-type(18) ~ r,
+e:nth-of-type(18) ~ l {
+  --c18: 0;
+  --s18: paused ;
+}
+
+e:nth-of-type(18):active ~ r,
+e:nth-of-type(18):active ~ l {
+  --s18: running;
+}
+
+@keyframes c18 {
+  to {
+    --c18:1;
+  }
+}
+@property --c19 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(19) {
+  left: 58%;
+  top: 71%;
+  animation-duration: 0.01s, 7s;
+  animation-delay: 0s, -3s;
+}
+
+e:nth-of-type(19) {
+  top: 11%;
+  left: 76%;
+  animation-duration: 0.01s, 6s;
+  animation-delay: 0s, -7s;
+}
+
+e:nth-of-type(19) ~ r,
+e:nth-of-type(19) ~ l {
+  --c19: 0;
+  --s19: paused ;
+}
+
+e:nth-of-type(19):active ~ r,
+e:nth-of-type(19):active ~ l {
+  --s19: running;
+}
+
+@keyframes c19 {
+  to {
+    --c19:1;
+  }
+}
+@property --c20 {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+c:nth-of-type(20) {
+  left: 87%;
+  top: 14%;
+  animation-duration: 0.01s, 2s;
+  animation-delay: 0s, -1s;
+}
+
+e:nth-of-type(20) {
+  top: 40%;
+  left: 13%;
+  animation-duration: 0.01s, 4s;
+  animation-delay: 0s, -7s;
+}
+
+e:nth-of-type(20) ~ r,
+e:nth-of-type(20) ~ l {
+  --c20: 0;
+  --s20: paused ;
+}
+
+e:nth-of-type(20):active ~ r,
+e:nth-of-type(20):active ~ l {
+  --s20: running;
+}
+
+@keyframes c20 {
+  to {
+    --c20:1;
+  }
+}
+r {
+  --sum:calc(0 + var(--c1) + var(--c2) + var(--c3) + var(--c4) + var(--c5) + var(--c6) + var(--c7) + var(--c8) + var(--c9) + var(--c10) + var(--c11) + var(--c12) + var(--c13) + var(--c14) + var(--c15) + var(--c16) + var(--c17) + var(--c18) + var(--c19) + var(--c20));
+  animation: c1 var(--s1) forwards 0.01s, c2 var(--s2) forwards 0.01s, c3 var(--s3) forwards 0.01s, c4 var(--s4) forwards 0.01s, c5 var(--s5) forwards 0.01s, c6 var(--s6) forwards 0.01s, c7 var(--s7) forwards 0.01s, c8 var(--s8) forwards 0.01s, c9 var(--s9) forwards 0.01s, c10 var(--s10) forwards 0.01s, c11 var(--s11) forwards 0.01s, c12 var(--s12) forwards 0.01s, c13 var(--s13) forwards 0.01s, c14 var(--s14) forwards 0.01s, c15 var(--s15) forwards 0.01s, c16 var(--s16) forwards 0.01s, c17 var(--s17) forwards 0.01s, c18 var(--s18) forwards 0.01s, c19 var(--s19) forwards 0.01s, c20 var(--s20) forwards 0.01s;
+  position: fixed;
+  inset: 0 0 clamp(0%, (20 - var(--sum))*9999% ,100%) 0;
+  display: grid;
+  place-content: center;
+  font-size: 70px;
+  color: #00b300;
+  overflow: hidden;
+  background: linear-gradient(0deg, #0000 80px, #fff 0);
+  z-index: 999;
+}
+
+r:before {
+  content: "Bravo! IE is Dead!";
+}
+
+l {
+  --sum:calc(0 + var(--c1) + var(--c2) + var(--c3) + var(--c4) + var(--c5) + var(--c6) + var(--c7) + var(--c8) + var(--c9) + var(--c10) + var(--c11) + var(--c12) + var(--c13) + var(--c14) + var(--c15) + var(--c16) + var(--c17) + var(--c18) + var(--c19) + var(--c20));
+  animation: c1 var(--s1) forwards 0.01s, c2 var(--s2) forwards 0.01s, c3 var(--s3) forwards 0.01s, c4 var(--s4) forwards 0.01s, c5 var(--s5) forwards 0.01s, c6 var(--s6) forwards 0.01s, c7 var(--s7) forwards 0.01s, c8 var(--s8) forwards 0.01s, c9 var(--s9) forwards 0.01s, c10 var(--s10) forwards 0.01s, c11 var(--s11) forwards 0.01s, c12 var(--s12) forwards 0.01s, c13 var(--s13) forwards 0.01s, c14 var(--s14) forwards 0.01s, c15 var(--s15) forwards 0.01s, c16 var(--s16) forwards 0.01s, c17 var(--s17) forwards 0.01s, c18 var(--s18) forwards 0.01s, c19 var(--s19) forwards 0.01s, c20 var(--s20) forwards 0.01s;
+  position: fixed;
+  display: grid;
+  font-size: 30px;
+  font-family: monospace;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  bottom: 8px;
+  left: 12px;
+}
+
+l::before {
+  content: "IE Left";
+}
+
+l::after {
+  content: counter(IE);
+  counter-reset: IE calc(20 - var(--sum));
+}
+
+f::before {
+  content: "Game Over \aYou killed a Chrome :(";
+  text-align: center;
+  white-space: pre-wrap;
+  position: fixed;
+  inset: 0 0 100%;
+  z-index: 5695845;
+  background: #000;
+  color: red;
+  font-size: 80px;
+  display: grid;
+  place-content: center;
+  overflow: hidden;
+  transition: 99999s;
+}
+
+f::after {
+  content: "Refresh the page to start a new game";
+  position: fixed;
+  inset: 0 0 100%;
+  z-index: 5695845;
+  color: #fff;
+  font-size: 30px;
+  display: grid;
+  place-content: end center;
+  overflow: hidden;
+  transition: 99999s;
+}
+
+c:active ~ f::before,
+c:active ~ f::after {
+  inset: 0;
+  transition: 0s;
+}
+
+/* The time from https://codepen.io/t_afif/pen/ExbRBPN*/
+@property --n {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 0;
+}
+@property --t {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #000;
+}
+@property --r {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #000;
+}
+@property --b {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #000;
+}
+@property --l {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #000;
+}
+d {
+  width: 30px;
+  /* size */
+  display: inline-grid;
+  aspect-ratio: 0.55;
+}
+
+d:before,
+d:after {
+  content: "";
+  padding: 20%;
+  background: conic-gradient(from -45deg at 50% 45%, var(--t) 90deg, #0000 0), conic-gradient(from 45deg at 55% 50%, var(--r) 90deg, #0000 0), conic-gradient(from 135deg at 50% 55%, var(--b) 90deg, #0000 0), conic-gradient(from 225deg at 45% 50%, var(--l) 90deg, #0000 0);
+  --m: conic-gradient(#000 0 0) content-box,conic-gradient(#000 0 0);
+  -webkit-mask: var(--m);
+  mask: var(--m);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  clip-path: polygon(25% 0, 75% 0, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0 75%, 0 25%);
+  transition: --t 0.45s, --l 0.45s, --b 0.45s, --r 0.45s;
+}
+
+d:after {
+  margin-top: -20%;
+  --t: #0000;
+}
+
+d {
+  --1:(var(--n) - 1)*(var(--n) - 1);
+  --2:(var(--n) - 2)*(var(--n) - 2);
+  --3:(var(--n) - 3)*(var(--n) - 3);
+  --4:(var(--n) - 4)*(var(--n) - 4);
+  --5:(var(--n) - 5)*(var(--n) - 5);
+  --6:(var(--n) - 6)*(var(--n) - 6);
+  --7:(var(--n) - 7)*(var(--n) - 7);
+  --8:(var(--n) - 8)*(var(--n) - 8);
+  --9:(var(--n) - 9)*(var(--n) - 9);
+}
+
+d:before {
+  --t: rgb(255 255 255/ clamp(0,var(--1)*var(--4)*999,1));
+  --r: rgb(255 255 255/ clamp(0,var(--5)*var(--6)*999,1));
+  --b: rgb(255 255 255/ clamp(0,var(--n)*var(--1)*var(--7)*999,1));
+  --l: rgb(255 255 255/ clamp(0,var(--1)*var(--2)*var(--3)*var(--7)*999,1));
+}
+
+d:after {
+  --r: rgb(255 255 255/ clamp(0,var(--2)*999,1));
+  --b: rgb(255 255 255/ clamp(0,var(--1)*var(--4)*var(--7)*999,1));
+  --l: rgb(255 255 255/ clamp(0,var(--1)*var(--3)*var(--4)*var(--5)*var(--7)*var(--9)*999,1));
+}
+
+timer d:nth-of-type(1) {
+  animation: d6 60s linear infinite;
+}
+
+timer d:nth-of-type(2) {
+  animation: d9 10s linear infinite;
+}
+
+timer d:nth-of-type(3) {
+  animation: d9 1s linear infinite;
+  grid-column: 4;
+}
+
+timer d:nth-of-type(4) {
+  animation: d9 0.1s linear infinite;
+}
+
+@keyframes d9 {
+  0%, 9.95% {
+    --n:0;
+  }
+  10%, 19.95% {
+    --n:1;
+  }
+  20%, 29.95% {
+    --n:2;
+  }
+  30%, 39.95% {
+    --n:3;
+  }
+  40%, 49.95% {
+    --n:4;
+  }
+  50%, 59.95% {
+    --n:5;
+  }
+  60%, 69.95% {
+    --n:6;
+  }
+  70%, 79.95% {
+    --n:7;
+  }
+  80%, 89.95% {
+    --n:8;
+  }
+  90%, 99.95% {
+    --n:9;
+  }
+}
+@keyframes d6 {
+  0%, 16.64% {
+    --n:0;
+  }
+  16.67%, 33.30% {
+    --n:1;
+  }
+  33.33%, 49.96% {
+    --n:2;
+  }
+  50.00%, 66.63% {
+    --n:3;
+  }
+  66.67%, 83.30% {
+    --n:4;
+  }
+  83.33%, 99.97% {
+    --n:5;
+  }
+}
+timer {
+  position: fixed;
+  display: grid;
+  right: 8px;
+  bottom: 8px;
+  padding: 10px;
+  grid-template-columns: 1fr 1fr 10px 1fr 1fr;
+  grid-gap: 10px;
+  pointer-events: none;
+  background: linear-gradient(white 0 0) 50% 30%/8px 8px no-repeat, linear-gradient(white 0 0) 50% 70%/8px 8px no-repeat;
+}
+
+timer d:nth-child(n) {
+  animation-play-state: paused;
+}
+
+r:hover ~ timer {
+  z-index: 9999;
+}
+
+html:hover timer d:nth-child(n) {
+  animation-play-state: running;
+}
+
+r:hover ~ timer d:nth-child(n) {
+  animation-play-state: paused !important;
+}
+
+/*html:hover timer {
+  filter: hue-rotate(45deg);
+}*/
+/*  Danger Zone !!!*/
+body {
+  position: relative;
+  height: calc(100% - 80px);
+  margin: 0;
+}
+
+html {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><foreignObject width="100%" height="100%"><div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;border-radius:50%;background:conic-gradient(from 90deg at 4px 4px,%230000 90deg, %232f2b2f 0) -4px -4px/calc(50% + 2px) calc(50% + 2px),repeating-radial-gradient(%230000 0 22%,%232f2b2f 23% 32%);" ></div></foreignObject></svg>') 24 24, auto;
+  height: 100%;
+  background: #acacac;
+  box-sizing: border-box;
+  border: 8px solid #004041;
+}
+
+html:before {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: auto 0 0;
+  height: 90px;
+  border: 8px solid #004041;
+  box-sizing: border-box;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(0, 0, 0, 0) 0 8px, rgba(0, 0, 0, 0) 0 10px, rgba(0, 0, 0, 0) 0 12px, rgba(0, 0, 0, 0) 0 14px, rgba(0, 0, 0, 0) 0 16px, rgba(0, 0, 0, 0) 0 18px, rgba(0, 0, 0, 0) 0 20px, rgba(0, 0, 0, 0) 0 22px, rgba(0, 0, 0, 0) 0 24px, rgba(0, 0, 0, 0) 0 26px, rgba(0, 0, 0, 0) 0 28px, rgba(0, 0, 0, 0) 0 30px, rgba(0, 0, 0, 0) 0 32px, rgba(0, 0, 0, 0) 0 34px, rgba(0, 0, 0, 0) 0 36px, rgba(0, 0, 0, 0) 0 38px, rgba(0, 0, 0, 0) 0 40px, rgba(0, 0, 0, 0) 0 42px, rgba(0, 0, 0, 0) 0 44px, rgba(0, 0, 0, 0) 0 46px, rgba(0, 0, 0, 0) 0 48px, rgba(0, 0, 0, 0) 0 50px, rgba(0, 0, 0, 0) 0 52px, rgba(0, 0, 0, 0) 0 54px, rgba(0, 0, 0, 0) 0 56px, rgba(0, 0, 0, 0) 0 58px, rgba(0, 0, 0, 0) 0 60px, rgba(0, 0, 0, 0) 0 62px, rgba(0, 0, 0, 0) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 0px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(0, 0, 0, 0) 0 8px, rgba(0, 0, 0, 0) 0 10px, rgba(0, 0, 0, 0) 0 12px, rgba(0, 0, 0, 0) 0 14px, rgba(68, 54, 66, 0.4980392157) 0 16px, rgba(69, 54, 47, 0.5529411765) 0 18px, rgba(65, 58, 49, 0.5529411765) 0 20px, rgba(63, 56, 49, 0.5529411765) 0 22px, rgba(62, 57, 51, 0.6117647059) 0 24px, rgba(62, 58, 50, 0.6156862745) 0 26px, rgba(62, 58, 49, 0.6156862745) 0 28px, rgba(65, 57, 50, 0.6156862745) 0 30px, rgba(62, 55, 47, 0.6745098039) 0 32px, rgba(64, 56, 50, 0.6745098039) 0 34px, rgba(62, 56, 50, 0.6745098039) 0 36px, rgba(64, 58, 51, 0.6705882353) 0 38px, rgba(64, 55, 52, 0.7333333333) 0 40px, rgba(65, 55, 53, 0.7333333333) 0 42px, rgba(65, 55, 50, 0.7333333333) 0 44px, rgba(66, 55, 50, 0.7411764706) 0 46px, rgba(67, 55, 52, 0.7764705882) 0 48px, rgba(64, 54, 50, 0.7764705882) 0 50px, rgba(58, 52, 46, 0.7764705882) 0 52px, rgba(60, 52, 51, 0.8) 0 54px, rgba(60, 56, 62, 0.5137254902) 0 56px, rgba(0, 0, 0, 0) 0 58px, rgba(0, 0, 0, 0) 0 60px, rgba(0, 0, 0, 0) 0 62px, rgba(0, 0, 0, 0) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 2px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(0, 0, 0, 0) 0 8px, rgba(0, 0, 0, 0) 0 10px, rgba(0, 0, 0, 0) 0 12px, rgba(36, 36, 36, 0.0274509804) 0 14px, rgba(89, 62, 45, 0.6156862745) 0 16px, #6d411c 0 18px, #804a1f 0 20px, #79451c 0 22px, #7a471d 0 24px, #7f4d1f 0 26px, #804d1f 0 28px, #8b5020 0 30px, #884e1f 0 32px, #864c1d 0 34px, #8e5121 0 36px, #8f5221 0 38px, #8e521e 0 40px, #8e521e 0 42px, #8f521f 0 44px, #8f5220 0 46px, #8f5220 0 48px, #8a5123 0 50px, #80491c 0 52px, #6d3d17 0 54px, rgba(94, 63, 42, 0.6705882353) 0 56px, rgba(49, 58, 66, 0.1215686275) 0 58px, rgba(0, 0, 0, 0) 0 60px, rgba(0, 0, 0, 0) 0 62px, rgba(0, 0, 0, 0) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 4px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(0, 0, 0, 0) 0 8px, rgba(0, 0, 0, 0) 0 10px, rgba(0, 0, 0, 0) 0 12px, #46271d 0 14px, #723d10 0 16px, #a34e04 0 18px, #cb6205 0 20px, #bc5501 0 22px, #c15b04 0 24px, #cd6006 0 26px, #cf6103 0 28px, #e16d0b 0 30px, #d86904 0 32px, #d06203 0 34px, #de6d08 0 36px, #de6c04 0 38px, #dd6e06 0 40px, #de6d04 0 42px, #e16f04 0 44px, #e46f01 0 46px, #e46d02 0 48px, #df6d03 0 50px, #ce6002 0 52px, #ab4c01 0 54px, #88460d 0 56px, #4c3524 0 58px, rgba(79, 79, 85, 0.1647058824) 0 60px, rgba(0, 0, 0, 0) 0 62px, rgba(0, 0, 0, 0) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 6px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(0, 0, 0, 0) 0 8px, rgba(0, 0, 0, 0) 0 10px, rgba(51, 45, 31, 0.9843137255) 0 12px, #9d500c 0 14px, #aa5001 0 16px, #b15200 0 18px, #b85502 0 20px, #ca6304 0 22px, #c45b01 0 24px, #bb5500 0 26px, #cc6104 0 28px, #cb6203 0 30px, #ce6204 0 32px, #ce6102 0 34px, #ce6102 0 36px, #cc6303 0 38px, #ce6001 0 40px, #d16002 0 42px, #e06e04 0 44px, #f77902 0 46px, #ed7504 0 48px, #e46d01 0 50px, #e26c02 0 52px, #d06201 0 54px, #c15801 0 56px, #a64f06 0 58px, #4a3627 0 60px, rgba(64, 64, 64, 0.0156862745) 0 62px, rgba(0, 0, 0, 0) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 8px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(55, 55, 55, 0.0549019608) 0 8px, #3f3329 0 10px, #603c18 0 12px, #a85711 0 14px, #b05400 0 16px, #af5300 0 18px, #b35104 0 20px, #b05403 0 22px, #b15400 0 24px, #b15300 0 26px, #b15300 0 28px, #b15300 0 30px, #b15300 0 32px, #b35200 0 34px, #af5402 0 36px, #ba5401 0 38px, #bc5501 0 40px, #ba5300 0 42px, #ce6201 0 44px, #e66b01 0 46px, #ee7202 0 48px, #f67b03 0 50px, #fc8c0f 0 52px, #f57c01 0 54px, #e67006 0 56px, #ca6409 0 58px, #7a4624 0 60px, #3f3127 0 62px, rgba(65, 63, 71, 0.8470588235) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 10px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(55, 36, 36, 0.0549019608) 0 8px, #392619 0 10px, #a25007 0 12px, #b25202 0 14px, #af5301 0 16px, #af5202 0 18px, #a35003 0 20px, #693607 0 22px, #713f12 0 24px, #7f4a19 0 26px, #7b4615 0 28px, #774814 0 30px, #914d0f 0 32px, #ac5608 0 34px, #804a1b 0 36px, #824a16 0 38px, #884e19 0 40px, #8e4d19 0 42px, #8d5019 0 44px, #c56209 0 46px, #df6b05 0 48px, #f57b01 0 50px, #fb8910 0 52px, #e46f00 0 54px, #e26c03 0 56px, #dd6f0c 0 58px, #98562d 0 60px, #483627 0 62px, rgba(68, 63, 73, 0.8352941176) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 12px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(55, 36, 36, 0.0549019608) 0 8px, #38281d 0 10px, #9e4f07 0 12px, #af5405 0 14px, #aa5302 0 16px, #a25304 0 18px, #713e0b 0 20px, #78491f 0 22px, #6d431f 0 24px, #5e3b14 0 26px, #5c3912 0 28px, #7b4c27 0 30px, #844d1a 0 32px, #8d4c13 0 34px, #a1520e 0 36px, #6f4016 0 38px, #69421c 0 40px, #6a3e16 0 42px, #804f25 0 44px, #ae4f05 0 46px, #c65f04 0 48px, #e57301 0 50px, #f87e01 0 52px, #bd5803 0 54px, #ae5707 0 56px, #9a530d 0 58px, #c15f0e 0 60px, #4c351f 0 62px, rgba(65, 66, 70, 0.8196078431) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 14px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(55, 36, 36, 0.0549019608) 0 8px, #38281d 0 10px, #9d4e06 0 12px, #aa5103 0 14px, #a14f02 0 16px, #8b4f11 0 18px, #845227 0 20px, #a76c3b 0 22px, #a66936 0 24px, #9b6637 0 26px, #9a6536 0 28px, #9b5f2c 0 30px, #955b2b 0 32px, #915523 0 34px, #955317 0 36px, #6a3d13 0 38px, #5d3c18 0 40px, #543616 0 42px, #704519 0 44px, #904f15 0 46px, #b95a07 0 48px, #e06f04 0 50px, #dc6b09 0 52px, #b25919 0 54px, #9a551c 0 56px, #7e4d1a 0 58px, #bf5808 0 60px, #4a3720 0 62px, rgba(64, 64, 67, 0.8117647059) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 16px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(55, 36, 36, 0.0549019608) 0 8px, #39281c 0 10px, #994e0c 0 12px, #a04d08 0 14px, #904d13 0 16px, #814c1c 0 18px, #b06832 0 20px, #d98f54 0 22px, #da8f51 0 24px, #db8c4e 0 26px, #dd8c4b 0 28px, #c0713b 0 30px, #b56c37 0 32px, #a56431 0 34px, #854b1c 0 36px, #734115 0 38px, #623b16 0 40px, #4b2d0d 0 42px, #673b0f 0 44px, #824d24 0 46px, #ae5c0e 0 48px, #e06d05 0 50px, #ad5a11 0 52px, #ad6730 0 54px, #9a5b29 0 56px, #834b1d 0 58px, #9e5009 0 60px, #4f341d 0 62px, rgba(66, 63, 66, 0.8039215686) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 18px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(55, 36, 36, 0.0549019608) 0 8px, #372a1f 0 10px, #5c3d1a 0 12px, #a16437 0 14px, #a56132 0 16px, #aa612c 0 18px, #f8aa64 0 20px, #fdba83 0 22px, #f7bc8f 0 24px, #fcbb87 0 26px, #f7a969 0 28px, #f8a965 0 30px, #ee9c5b 0 32px, #de8a4b 0 34px, #dd894b 0 36px, #ce7d41 0 38px, #bf773c 0 40px, #a96632 0 42px, #a8612f 0 44px, #ac6128 0 46px, #b6611d 0 48px, #c85e06 0 50px, #feb478 0 52px, #d98c4f 0 54px, #c67b43 0 56px, #a86233 0 58px, #7d4d22 0 60px, #473529 0 62px, rgba(65, 61, 65, 0.7882352941) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 20px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(55, 36, 36, 0.0549019608) 0 8px, #342a21 0 10px, #5e3d15 0 12px, #a46338 0 14px, #b86e38 0 16px, #ce8043 0 18px, #de8b4b 0 20px, #f6a157 0 22px, #fba35a 0 24px, #f7a967 0 26px, #fbb479 0 28px, #fdc59d 0 30px, #fbc59e 0 32px, #fbc79b 0 34px, #f9b67d 0 36px, #e5914d 0 38px, #e08e4c 0 40px, #d78c4f 0 42px, #ab6536 0 44px, #f5a25b 0 46px, #dd8545 0 48px, #ab5100 0 50px, #f9b47e 0 52px, #fcc79e 0 54px, #e0a97c 0 56px, #b9753c 0 58px, #623c13 0 60px, #352a1e 0 62px, rgba(55, 52, 55, 0.7764705882) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 22px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(55, 36, 36, 0.0549019608) 0 8px, #352a1c 0 10px, #5d3d18 0 12px, #a46236 0 14px, #ca8c59 0 16px, #feb576 0 18px, #f9a868 0 20px, #fbb574 0 22px, #fdb77f 0 24px, #faba8b 0 26px, #fcc69d 0 28px, #fbc69a 0 30px, #fbc59d 0 32px, #fcc59e 0 34px, #fbc69e 0 36px, #f8b67f 0 38px, #f4a565 0 40px, #e5924f 0 42px, #cc7f42 0 44px, #faa15a 0 46px, #fba75e 0 48px, #f8b77b 0 50px, #fbc59f 0 52px, #fbc79d 0 54px, #ecb07f 0 56px, #dc8f51 0 58px, #613d12 0 60px, #392a1f 0 62px, rgba(54, 53, 54, 0.7725490196) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 24px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(55, 36, 36, 0.0549019608) 0 8px, #372b1c 0 10px, #4d3314 0 12px, #b57043 0 14px, #cd7e42 0 16px, #da9762 0 18px, #76543b 0 20px, #6f523b 0 22px, #8f6341 0 24px, #b17243 0 26px, #f7b87f 0 28px, #fdd3b0 0 30px, #f9cfb0 0 32px, #fcc49b 0 34px, #fac69f 0 36px, #fcc19a 0 38px, #f0ad78 0 40px, #e08b48 0 42px, #cc8046 0 44px, #fdaf6f 0 46px, #f7b780 0 48px, #f5c497 0 50px, #fbe1cd 0 52px, #efba88 0 54px, #e8a56b 0 56px, #db8e50 0 58px, #603c11 0 60px, #3a2b21 0 62px, rgba(54, 54, 54, 0.7647058824) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 26px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(57, 49, 47, 0.5764705882) 0 6px, rgba(92, 68, 58, 0.6509803922) 0 8px, #734f35 0 10px, #4a2f12 0 12px, #b37442 0 14px, #b67345 0 16px, #ac7a51 0 18px, #5a3f29 0 20px, #41311a 0 22px, #604021 0 24px, #7d5030 0 26px, #dc9863 0 28px, #eebe95 0 30px, #f2c39b 0 32px, #f8c398 0 34px, #fcc297 0 36px, #fbbe91 0 38px, #f3ae78 0 40px, #ec9050 0 42px, #d28449 0 44px, #da9767 0 46px, #cf9b73 0 48px, #bda084 0 50px, #c0bab1 0 52px, #f2c59d 0 54px, #e8af7d 0 56px, #d98e55 0 58px, #5c350e 0 60px, #382b1c 0 62px, rgba(53, 50, 54, 0.7529411765) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 28px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(49, 44, 33, 0.7921568627) 0 6px, #784d31 0 8px, #b26d37 0 10px, #46311d 0 12px, #b67441 0 14px, #9d653f 0 16px, #6e513b 0 18px, #734b25 0 20px, #493720 0 22px, #43341f 0 24px, #3b261c 0 26px, #9b6135 0 28px, #df9b61 0 30px, #eca573 0 32px, #fab78d 0 34px, #fab785 0 36px, #f8b37b 0 38px, #f7ab6b 0 40px, #eca069 0 42px, #ce8d50 0 44px, #a26435 0 46px, #7d5446 0 48px, #413445 0 50px, #453930 0 52px, #f4dacc 0 54px, #e7bd97 0 56px, #db8f50 0 58px, #4f2f11 0 60px, #452e1e 0 62px, rgba(63, 52, 44, 0.7568627451) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 30px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(53, 43, 38, 0.8117647059) 0 6px, #94643f 0 8px, #d59155 0 10px, #301f0e 0 12px, #d38f5b 0 14px, #d18444 0 16px, #c17d43 0 18px, #857a73 0 20px, #040147 0 22px, #171141 0 24px, #261e21 0 26px, #291e1c 0 28px, #301e14 0 30px, #73492e 0 32px, #af6937 0 34px, #af6834 0 36px, #b06a37 0 38px, #815733 0 40px, #2c1e16 0 42px, #2e1c18 0 44px, #3b2b2b 0 46px, #2a1d56 0 48px, #060389 0 50px, #777168 0 52px, #5a4435 0 54px, #ab815e 0 56px, #f8ba83 0 58px, #30200b 0 60px, #c4824e 0 62px, #9d683a 0 64px, #332d21 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 32px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(53, 41, 36, 0.8235294118) 0 6px, #7f5230 0 8px, #bc733e 0 10px, #985c2e 0 12px, #db8c4f 0 14px, #dc8b4a 0 16px, #d78b4d 0 18px, #bbb6b1 0 20px, #08037b 0 22px, #1203b6 0 24px, #1502d2 0 26px, #b0a9a2 0 28px, #9c0807 0 30px, #b54b2f 0 32px, #c4793d 0 34px, #f09a58 0 36px, #b2672b 0 38px, #ac4c2e 0 40px, #a00403 0 42px, #b6a9a6 0 44px, #11057e 0 46px, #1402ba 0 48px, #1206cf 0 50px, #cbc1ba 0 52px, #d18e56 0 54px, #de8b48 0 56px, #dd8e51 0 58px, #341f0a 0 60px, #efa569 0 62px, #b88151 0 64px, #322c20 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 34px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(53, 41, 38, 0.8352941176) 0 6px, #93643d 0 8px, #da8a47 0 10px, #fba058 0 12px, #dd8b47 0 14px, #e7a26a 0 16px, #f9bb8a 0 18px, #f8b47e 0 20px, #f4a97b 0 22px, #f8a781 0 24px, #f4a882 0 26px, #f5b47e 0 28px, #fbba89 0 30px, #fcb685 0 32px, #f9b479 0 34px, #fdd6b7 0 36px, #f5a969 0 38px, #f9b47f 0 40px, #fcc69f 0 42px, #f6b57f 0 44px, #efac7d 0 46px, #f5a87e 0 48px, #f2a880 0 50px, #f6b483 0 52px, #fabb85 0 54px, #eeaa70 0 56px, #da8d4d 0 58px, #975e2e 0 60px, #c17942 0 62px, #95623a 0 64px, #322a23 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 36px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(53, 42, 38, 0.8470588235) 0 6px, #94653d 0 8px, #da8a47 0 10px, #fa9f56 0 12px, #f4a25e 0 14px, #f2b787 0 16px, #fcd0af 0 18px, #f9d2a7 0 20px, #fcdbb9 0 22px, #fbdcc4 0 24px, #fcdbbe 0 26px, #fad2a7 0 28px, #f7bc8d 0 30px, #fab47f 0 32px, #f4aa6e 0 34px, #fed7bc 0 36px, #fbc090 0 38px, #fcc395 0 40px, #fcc69e 0 42px, #fbc393 0 44px, #fbcca3 0 46px, #fad1b3 0 48px, #f9dec4 0 50px, #fce1c6 0 52px, #f9d1ac 0 54px, #f6be8d 0 56px, #f2a464 0 58px, #e9af7f 0 60px, #d4884d 0 62px, #a26d44 0 64px, #332c22 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 38px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(54, 42, 42, 0.8588235294) 0 6px, #9b6a43 0 8px, #ea954d 0 10px, #e4904f 0 12px, #f9a964 0 14px, #f6b885 0 16px, #f9ceb2 0 18px, #fbd3be 0 20px, #fddec6 0 22px, #fadfc2 0 24px, #fbd9bc 0 26px, #fdcfac 0 28px, #e3a778 0 30px, #f2a96f 0 32px, #f5ae75 0 34px, #f9d7be 0 36px, #fbc7a2 0 38px, #f8bf94 0 40px, #f6b383 0 42px, #f8c6a0 0 44px, #fdcda7 0 46px, #f8d7bb 0 48px, #fae2ca 0 50px, #fce2ca 0 52px, #f7d0b1 0 54px, #f9bf90 0 56px, #fca766 0 58px, #eea874 0 60px, #e4975b 0 62px, #b17b4f 0 64px, #342b22 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 40px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(56, 42, 38, 0.5019607843) 0 6px, rgba(170, 118, 77, 0.8392156863) 0 8px, #ee9f5e 0 10px, #be7946 0 12px, #f1a86a 0 14px, #f6b27b 0 16px, #fdc39c 0 18px, #fcd4b3 0 20px, #fcd4b3 0 22px, #fbcfab 0 24px, #fcc59f 0 26px, #fcc390 0 28px, #cd824b 0 30px, #e1985d 0 32px, #f1b07c 0 34px, #f5d1b0 0 36px, #f7c49a 0 38px, #f1b381 0 40px, #e8975d 0 42px, #fec294 0 44px, #fcc79f 0 46px, #f9cca5 0 48px, #fdd3b4 0 50px, #fcd4b2 0 52px, #fcc599 0 54px, #f7b882 0 56px, #f5a669 0 58px, #d78a4d 0 60px, #f4a86b 0 62px, #b6835c 0 64px, rgba(48, 44, 47, 0.9450980392) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 42px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(139, 97, 68, 0.631372549) 0 8px, #ac6b37 0 10px, #8c5026 0 12px, #bf7c46 0 14px, #de945c 0 16px, #fdb47f 0 18px, #fdc69d 0 20px, #fcc69d 0 22px, #fac69d 0 24px, #ffc49a 0 26px, #ed9953 0 28px, #b36730 0 30px, #a1602f 0 32px, #955625 0 34px, #93582b 0 36px, #955628 0 38px, #975b2c 0 40px, #a35d2b 0 42px, #f9aa68 0 44px, #fdc79a 0 46px, #fcc49e 0 48px, #fcc59d 0 50px, #fdc59a 0 52px, #f9b17a 0 54px, #e39e64 0 56px, #c17a42 0 58px, #8d501f 0 60px, #a96a3c 0 62px, rgba(146, 100, 76, 0.7882352941) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 44px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(58, 47, 47, 0.6) 0 8px, #38281e 0 10px, #895025 0 12px, #f7a968 0 14px, #eb9c5a 0 16px, #da8b49 0 18px, #f7ac69 0 20px, #fdc69a 0 22px, #fbc197 0 24px, #fcba85 0 26px, #f7a866 0 28px, #faa059 0 30px, #fca059 0 32px, #f89e59 0 34px, #d68141 0 36px, #faa863 0 38px, #f9b177 0 40px, #f9bc8a 0 42px, #f9b47a 0 44px, #fdc597 0 46px, #fbc59f 0 48px, #ffc393 0 50px, #f9aa68 0 52px, #dd8c4a 0 54px, #e5934f 0 56px, #f8a35a 0 58px, #8c5020 0 60px, #3a291e 0 62px, rgba(52, 41, 39, 0.4588235294) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 46px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(62, 50, 52, 0.4980392157) 0 8px, #433122 0 10px, #8c4f23 0 12px, #f5b67f 0 14px, #fbac69 0 16px, #f3a15e 0 18px, #fbbb87 0 20px, #fbc59d 0 22px, #fcba8a 0 24px, #f5a86d 0 26px, #fbb579 0 28px, #fcb989 0 30px, #fbba89 0 32px, #fbba88 0 34px, #fbba8b 0 36px, #f9b987 0 38px, #fac091 0 40px, #fec79a 0 42px, #f9b57a 0 44px, #f6aa6a 0 46px, #f4b583 0 48px, #f8c69e 0 50px, #fdc598 0 52px, #f3a35c 0 54px, #f8a65e 0 56px, #f9ab69 0 58px, #8c5120 0 60px, #463020 0 62px, rgba(59, 50, 44, 0.4588235294) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 48px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(60, 50, 45, 0.4) 0 8px, #3c3429 0 10px, #4c301d 0 12px, #f7b683 0 14px, #f8ad6e 0 16px, #f9a662 0 18px, #f9bb8a 0 20px, #fcc59c 0 22px, #e7ad83 0 24px, #cb8148 0 26px, #9d6235 0 28px, #b17245 0 30px, #c47f4c 0 32px, #d78b53 0 34px, #d98a56 0 36px, #da8b53 0 38px, #c9844f 0 40px, #b3784e 0 42px, #9c6134 0 44px, #c88348 0 46px, #dea173 0 48px, #fbc69b 0 50px, #fec3a0 0 52px, #f5a766 0 54px, #faac6a 0 56px, #f7b880 0 58px, #4e311b 0 60px, #3e3328 0 62px, rgba(59, 54, 52, 0.4588235294) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 50px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(42, 42, 42, 0.0235294118) 0 8px, rgba(64, 50, 47, 0.7921568627) 0 10px, #352b20 0 12px, #f7b781 0 14px, #f6b279 0 16px, #f6ac6f 0 18px, #fac195 0 20px, #fbc69d 0 22px, #efb082 0 24px, #dc8e51 0 26px, #c48c62 0 28px, #d09366 0 30px, #d9996a 0 32px, #e4a576 0 34px, #e5ae86 0 36px, #e3b088 0 38px, #d9a780 0 40px, #d2986c 0 42px, #c47d43 0 44px, #db985e 0 46px, #eaae80 0 48px, #fbc69b 0 50px, #fac49f 0 52px, #f8b382 0 54px, #fab47d 0 56px, #f7bc86 0 58px, #34251b 0 60px, rgba(54, 54, 40, 0.0745098039) 0 62px, rgba(73, 36, 73, 0.0274509804) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 52px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(0, 0, 0, 0) 0 8px, rgba(66, 58, 62, 0.2431372549) 0 10px, #332a22 0 12px, #f5b286 0 14px, #f9b37a 0 16px, #f9b57e 0 18px, #fac69f 0 20px, #fbc59c 0 22px, #f9bb89 0 24px, #efa566 0 26px, #faba89 0 28px, #fbb888 0 30px, #fabe8d 0 32px, #f8c598 0 34px, #fcd2b3 0 36px, #fad5b7 0 38px, #fbd0a9 0 40px, #fbc595 0 42px, #f5a562 0 44px, #fab379 0 46px, #f8bf92 0 48px, #fcc59e 0 50px, #fdc69c 0 52px, #fabf93 0 54px, #fbbd8d 0 56px, #f5c091 0 58px, #2c1f15 0 60px, rgba(0, 0, 0, 0) 0 62px, rgba(0, 0, 0, 0) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 54px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(0, 0, 0, 0) 0 8px, rgba(66, 57, 66, 0.2274509804) 0 10px, #33271c 0 12px, #d38c5a 0 14px, #e69d63 0 16px, #f9b379 0 18px, #fbc59c 0 20px, #fbc69e 0 22px, #f9c7a1 0 24px, #fbc69b 0 26px, #f7b47d 0 28px, #f5aa6c 0 30px, #f3a15f 0 32px, #f09955 0 34px, #ef9954 0 36px, #faa664 0 38px, #f9ad69 0 40px, #f5b67d 0 42px, #f9c89d 0 44px, #f6c8a3 0 46px, #fac89d 0 48px, #fbc69d 0 50px, #fdc497 0 52px, #f8b47b 0 54px, #fab67d 0 56px, #f6c194 0 58px, #2c1f15 0 60px, rgba(0, 0, 0, 0) 0 62px, rgba(0, 0, 0, 0) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 56px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(0, 0, 0, 0) 0 8px, rgba(60, 60, 60, 0.2156862745) 0 10px, #2f261e 0 12px, #a1633c 0 14px, #c1743e 0 16px, #d68c50 0 18px, #fdc197 0 20px, #fcc59f 0 22px, #fccca9 0 24px, #f9d5bc 0 26px, #fde9db 0 28px, #f7d8bc 0 30px, #facfad 0 32px, #fac49a 0 34px, #fcc49c 0 36px, #f9c69f 0 38px, #fcc5a1 0 40px, #f8c6a2 0 42px, #fad6b8 0 44px, #fce8d5 0 46px, #f8dcc1 0 48px, #fdc59b 0 50px, #f8b479 0 52px, #f4a969 0 54px, #f8b57e 0 56px, #facaa3 0 58px, rgba(44, 30, 22, 0.9921568627) 0 60px, rgba(0, 0, 0, 0) 0 62px, rgba(0, 0, 0, 0) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 58px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(0, 0, 0, 0) 0 8px, rgba(63, 58, 58, 0.2078431373) 0 10px, #30261e 0 12px, #975e34 0 14px, #9d5d2b 0 16px, #a65d29 0 18px, #dc8b4b 0 20px, #f5a868 0 22px, #f8b57f 0 24px, #fbc69e 0 26px, #f9c69f 0 28px, #fbc6a1 0 30px, #f9be8c 0 32px, #fab375 0 34px, #d78c4f 0 36px, #fbb67a 0 38px, #f7bc8b 0 40px, #f9c4a0 0 42px, #f7c59f 0 44px, #f8c69d 0 46px, #f9bb86 0 48px, #f7a967 0 50px, #ee9950 0 52px, #fba155 0 54px, #f8af74 0 56px, #f8cba6 0 58px, rgba(65, 49, 40, 0.9843137255) 0 60px, rgba(0, 0, 0, 0) 0 62px, rgba(0, 0, 0, 0) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 60px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(0, 0, 0, 0) 0 8px, rgba(66, 56, 56, 0.1960784314) 0 10px, #31261d 0 12px, #955e34 0 14px, #8f552b 0 16px, #82491d 0 18px, #ad6531 0 20px, #c77f47 0 22px, #d1894e 0 24px, #dd9358 0 26px, #dc925a 0 28px, #dc9357 0 30px, #d88c50 0 32px, #d48548 0 34px, #b66b34 0 36px, #d1864d 0 38px, #d58b4f 0 40px, #d9935c 0 42px, #db925a 0 44px, #dc9258 0 46px, #d68b4e 0 48px, #c67f47 0 50px, #b16835 0 52px, #fbc191 0 54px, #fcc395 0 56px, #f8cba5 0 58px, rgba(65, 49, 38, 0.8784313725) 0 60px, rgba(0, 0, 0, 0) 0 62px, rgba(0, 0, 0, 0) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 62px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(0, 0, 0, 0) 0 8px, rgba(65, 60, 60, 0.1843137255) 0 10px, #392d23 0 12px, #955e35 0 14px, #895128 0 16px, #6d4219 0 18px, #8f5727 0 20px, #946134 0 22px, #9c673a 0 24px, #a86c41 0 26px, #a86d41 0 28px, #a76d40 0 30px, #a26a3e 0 32px, #9c6538 0 34px, #8d592c 0 36px, #a66a38 0 38px, #ad6c39 0 40px, #b5723e 0 42px, #b7733e 0 44px, #c0773d 0 46px, #ba723a 0 48px, #b16f38 0 50px, #ba6e3b 0 52px, #fac79c 0 54px, #fbc59c 0 56px, #f8caa6 0 58px, rgba(65, 48, 36, 0.7568627451) 0 60px, rgba(0, 0, 0, 0) 0 62px, rgba(0, 0, 0, 0) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 64px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(0, 0, 0, 0) 0 8px, rgba(64, 52, 58, 0.1725490196) 0 10px, #413229 0 12px, #965d35 0 14px, #865127 0 16px, #633f19 0 18px, #79481d 0 20px, #5c3711 0 22px, #573916 0 24px, #5a3913 0 26px, #5b3914 0 28px, #613918 0 30px, #613b16 0 32px, #613b15 0 34px, #71431c 0 36px, #7d481f 0 38px, #7f491e 0 40px, #844c20 0 42px, #834d22 0 44px, #9d5f30 0 46px, #a26333 0 48px, #a26c3e 0 50px, #d08650 0 52px, #f7c092 0 54px, #f9c094 0 56px, #fac89f 0 58px, rgba(67, 48, 38, 0.6392156863) 0 60px, rgba(0, 0, 0, 0) 0 62px, rgba(0, 0, 0, 0) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 66px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(0, 0, 0, 0) 0 8px, rgba(64, 51, 51, 0.1568627451) 0 10px, #3d332a 0 12px, #936033 0 14px, #85512b 0 16px, #653f18 0 18px, #885124 0 20px, #7f4c20 0 22px, #7d4c20 0 24px, #804b1f 0 26px, #8a4f23 0 28px, #a4612f 0 30px, #a96130 0 32px, #a76132 0 34px, #a76034 0 36px, #a86133 0 38px, #a7602f 0 40px, #a5612d 0 42px, #b06936 0 44px, #c77c45 0 46px, #dea172 0 48px, #fbc49d 0 50px, #fcc59b 0 52px, #c77d47 0 54px, #df9252 0 56px, #f8ae70 0 58px, rgba(76, 55, 38, 0.5254901961) 0 60px, rgba(0, 0, 0, 0) 0 62px, rgba(0, 0, 0, 0) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 68px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(0, 0, 0, 0) 0 8px, rgba(68, 51, 51, 0.0588235294) 0 10px, #463630 0 12px, #784e24 0 14px, #77451f 0 16px, #643f16 0 18px, #7d4c1e 0 20px, #885224 0 22px, #96582a 0 24px, #a46130 0 26px, #a66330 0 28px, #d98b50 0 30px, #ce8043 0 32px, #bc713b 0 34px, #ce8045 0 36px, #cd8042 0 38px, #cf7f45 0 40px, #cd7d46 0 42px, #b26935 0 44px, #f9b67c 0 46px, #faba8a 0 48px, #f9bf98 0 50px, #fbc59f 0 52px, #fbc59d 0 54px, #e6ac7b 0 56px, #ca814c 0 58px, rgba(78, 55, 37, 0.4352941176) 0 60px, rgba(0, 0, 0, 0) 0 62px, rgba(0, 0, 0, 0) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 70px/74px 2px no-repeat, linear-gradient(90deg, rgba(0, 0, 0, 0) 0 0px, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0) 0 4px, rgba(0, 0, 0, 0) 0 6px, rgba(0, 0, 0, 0) 0 8px, rgba(0, 0, 0, 0.0039215686) 0 10px, #453730 0 12px, #7b4e27 0 14px, #7e4a26 0 16px, #7e4b25 0 18px, #8b5225 0 20px, #a46332 0 22px, #b9703a 0 24px, #d38248 0 26px, #dd8b4f 0 28px, #fdb577 0 30px, #efa369 0 32px, #d8894d 0 34px, #fbcaa2 0 36px, #fac69d 0 38px, #f9bb8a 0 40px, #faaa6b 0 42px, #cc7f47 0 44px, #db8946 0 46px, #e4ac82 0 48px, #fed5ad 0 50px, #f6a66b 0 52px, #f4a969 0 54px, #d79057 0 56px, #a96632 0 58px, rgba(74, 54, 37, 0.3490196078) 0 60px, rgba(0, 0, 0, 0) 0 62px, rgba(0, 0, 0, 0) 0 64px, rgba(0, 0, 0, 0) 0 66px, rgba(0, 0, 0, 0) 0 68px, rgba(0, 0, 0, 0) 0 70px, rgba(0, 0, 0, 0) 0 72px) 50% 72px/74px 2px no-repeat, linear-gradient(#48474b 0 0) 50%/80px 100% no-repeat, #0000ab;
+}
+
+html:after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  height: 169px;
+  width: 200px;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-48%);
+  background: linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #0000 0 60px, #0000 0 64px, #0000 0 68px, #0000 0 72px, #0000 0 76px, #0000 0 80px, #0000 0 84px, #0000 0 88px, #ebebeb 0 92px, #e3ecec 0 96px, #b5d7d7 0 100px, #a1c7c7 0 104px, #0000 0 108px, #0000 0 112px, #0000 0 116px, #0000 0 120px, #0000 0 124px, #0000 0 128px, #0000 0 132px, #0000 0 136px, #0000 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 124px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #0000 0 60px, #0000 0 64px, #0000 0 68px, #0000 0 72px, #0000 0 76px, #0000 0 80px, #d6d6d6 0 84px, #abc6c6 0 88px, #c7dede 0 92px, #e0f4f4 0 96px, #7dc6c6 0 100px, #339393 0 104px, #9fbcbc 0 108px, #d2d2d2 0 112px, #0000 0 116px, #0000 0 120px, #0000 0 124px, #0000 0 128px, #0000 0 132px, #0000 0 136px, #0000 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 128px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #0000 0 60px, #0000 0 64px, #0000 0 68px, #0000 0 72px, #b0c3c3 0 76px, #a2b9b9 0 80px, #869e9e 0 84px, #388080 0 88px, #64a1a1 0 92px, #9dc3c3 0 96px, #58a2a2 0 100px, #007171 0 104px, #206e6e 0 108px, #7e9696 0 112px, #a2b9b9 0 116px, #a7bdbd 0 120px, #0000 0 124px, #0000 0 128px, #0000 0 132px, #0000 0 136px, #0000 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 132px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #0000 0 60px, #0000 0 64px, #b4c6c6 0 68px, #aebdbd 0 72px, #316b6b 0 76px, #005252 0 80px, #005252 0 84px, #005252 0 88px, #005252 0 92px, #005252 0 96px, #005252 0 100px, #005252 0 104px, #005252 0 108px, #005252 0 112px, #005252 0 116px, #155b5b 0 120px, #aebcbc 0 124px, #b0c3c3 0 128px, #0000 0 132px, #0000 0 136px, #0000 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 136px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #0000 0 60px, #c0cece 0 64px, #206464 0 68px, #003a3a 0 72px, #003434 0 76px, #003434 0 80px, #003434 0 84px, #003434 0 88px, #003434 0 92px, #003434 0 96px, #003434 0 100px, #003434 0 104px, #003434 0 108px, #003434 0 112px, #003434 0 116px, #003434 0 120px, #003636 0 124px, #125555 0 128px, #bec8c8 0 132px, #0000 0 136px, #0000 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 140px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #c6d2d2 0 60px, #185f5f 0 64px, #003a3a 0 68px, #050f0f 0 72px, #070707 0 76px, #0f0f0f 0 80px, #111111 0 84px, #0c0c0c 0 88px, #041313 0 92px, #001b1b 0 96px, #051717 0 100px, #0f0f0f 0 104px, #0a0a0a 0 108px, #111111 0 112px, #101010 0 116px, #080808 0 120px, #070707 0 124px, #242626 0 128px, #0b3f3f 0 132px, #c5cdcd 0 136px, #0000 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 144px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #166060 0 60px, #003b3b 0 64px, #030b0b 0 68px, #181f1f 0 72px, #253232 0 76px, #415151 0 80px, #4a5959 0 84px, #364444 0 88px, #206666 0 92px, #198989 0 96px, #267272 0 100px, #404e4e 0 104px, #2f3737 0 108px, #4a5656 0 112px, #475656 0 116px, #303030 0 120px, #202020 0 124px, #050505 0 128px, #1c1d1d 0 132px, #053d3d 0 136px, #0000 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 148px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #d6dada 0 56px, #144747 0 60px, #070c0c 0 64px, #1b1f1f 0 68px, #063f3f 0 72px, #107272 0 76px, #138d8d 0 80px, #057b7b 0 84px, #007272 0 88px, #6bb2b2 0 92px, #a0dcdc 0 96px, #51b1b1 0 100px, #007171 0 104px, #004545 0 108px, #016262 0 112px, #118989 0 116px, #4b5555 0 120px, #2b2b2b 0 124px, #202020 0 128px, #040404 0 132px, #1e1e1e 0 136px, #d6dada 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 152px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0b4646 0 56px, #000a0a 0 60px, #4d5555 0 64px, #114444 0 68px, #046f6f 0 72px, #97d1d1 0 76px, #a5e0e0 0 80px, #41a5a5 0 84px, #049898 0 88px, #91d2d2 0 92px, #d4eeee 0 96px, #6abebe 0 100px, #007373 0 104px, #004646 0 108px, #106a6a 0 112px, #3cb7b7 0 116px, #048686 0 120px, #2e2e2e 0 124px, #2c2c2c 0 128px, #292c2c 0 132px, black 0 136px, #034040 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 156px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0b4444 0 56px, #035a5a 0 60px, #43b9b9 0 64px, #506464 0 68px, #50b0b0 0 72px, #d6efef 0 76px, #b7e5e5 0 80px, #41b1b1 0 84px, #48b5b5 0 88px, #bce3e3 0 92px, #d4eeee 0 96px, #6ac5c5 0 100px, #018787 0 104px, #0d4f4f 0 108px, #253f3f 0 112px, #008f8f 0 116px, #099e9e 0 120px, #4f5454 0 124px, #2b2d2d 0 128px, #033f3f 0 132px, #020202 0 136px, #212121 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 160px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0b0b0b 0 56px, #48b6b6 0 60px, #47bfbf 0 64px, #0c9393 0 68px, #d4e9e9 0 72px, #c8eded 0 76px, #87d1d1 0 80px, #40b9b9 0 84px, #6bcaca 0 88px, #ceecec 0 92px, #d4eeee 0 96px, #6ac8c8 0 100px, #1d8e8e 0 104px, #4a4c4c 0 108px, #253d3d 0 112px, #048a8a 0 116px, #1eb1b1 0 120px, #038080 0 124px, #2f2f2f 0 128px, #525252 0 132px, #2b2d2d 0 136px, #010101 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 164px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0b0b0b 0 56px, #ededed 0 60px, #20a4a4 0 64px, #40bcbc 0 68px, #def2f2 0 72px, #c8eded 0 76px, #52c3c3 0 80px, #3abcbc 0 84px, #7ad0d0 0 88px, #ceecec 0 92px, #d4eeee 0 96px, #73cccc 0 100px, #189f9f 0 104px, #0a6666 0 108px, #253939 0 112px, #0b7b7b 0 116px, #45bebe 0 120px, #23abab 0 124px, #525252 0 128px, #2b2d2d 0 132px, #005858 0 136px, #010101 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 168px/100% 4px no-repeat, #0000;
+}
+
+html:active:after {
+  background: linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #0000 0 60px, #0000 0 64px, #0000 0 68px, #0000 0 72px, #0000 0 76px, #0000 0 80px, #0000 0 84px, #0000 0 88px, #0000 0 92px, #0000 0 96px, #0000 0 100px, #0000 0 104px, #0000 0 108px, #0000 0 112px, #0000 0 116px, #0000 0 120px, #0000 0 124px, #0000 0 128px, #0000 0 132px, #0000 0 136px, #0000 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 4px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #0000 0 60px, #0000 0 64px, #0000 0 68px, #0000 0 72px, #0000 0 76px, #0000 0 80px, #0000 0 84px, #0000 0 88px, #0000 0 92px, #0000 0 96px, #0000 0 100px, #0000 0 104px, #0000 0 108px, #0000 0 112px, #0000 0 116px, #0000 0 120px, #0000 0 124px, #0000 0 128px, #0000 0 132px, #0000 0 136px, #0000 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 8px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #0000 0 60px, #0000 0 64px, #0000 0 68px, #0000 0 72px, #0000 0 76px, #0000 0 80px, #0000 0 84px, #0000 0 88px, #0000 0 92px, #e3dede 0 96px, #e3e0e0 0 100px, #0000 0 104px, #0000 0 108px, #0000 0 112px, #0000 0 116px, #0000 0 120px, #0000 0 124px, #0000 0 128px, #0000 0 132px, #0000 0 136px, #0000 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 12px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #0000 0 60px, #0000 0 64px, #0000 0 68px, #0000 0 72px, #0000 0 76px, #0000 0 80px, #0000 0 84px, #0000 0 88px, #e5e0e0 0 92px, #ae6464 0 96px, #bb8686 0 100px, #e4e1e1 0 104px, #0000 0 108px, #0000 0 112px, #0000 0 116px, #0000 0 120px, #0000 0 124px, #0000 0 128px, #0000 0 132px, #0000 0 136px, #0000 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 16px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #0000 0 60px, #0000 0 64px, #0000 0 68px, #0000 0 72px, #0000 0 76px, #0000 0 80px, #0000 0 84px, #0000 0 88px, #c25b5b 0 92px, #b00000 0 96px, #9b0000 0 100px, #b67979 0 104px, #0000 0 108px, #0000 0 112px, #0000 0 116px, #0000 0 120px, #0000 0 124px, #0000 0 128px, #0000 0 132px, #0000 0 136px, #0000 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 20px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #0000 0 60px, #0000 0 64px, #0000 0 68px, #0000 0 72px, #0000 0 76px, #0000 0 80px, #0000 0 84px, #e5e3e3 0 88px, #c25959 0 92px, #ce0000 0 96px, #c70000 0 100px, #ca7777 0 104px, #e5e4e4 0 108px, #0000 0 112px, #0000 0 116px, #0000 0 120px, #0000 0 124px, #0000 0 128px, #0000 0 132px, #0000 0 136px, #0000 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 24px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #0000 0 60px, #0000 0 64px, #0000 0 68px, #0000 0 72px, #0000 0 76px, #0000 0 80px, #0000 0 84px, #a24d4d 0 88px, #c40000 0 92px, #f10000 0 96px, #ed0000 0 100px, #ca0000 0 104px, #c76c6c 0 108px, #0000 0 112px, #0000 0 116px, #0000 0 120px, #0000 0 124px, #0000 0 128px, #0000 0 132px, #0000 0 136px, #0000 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 28px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #0000 0 60px, #0000 0 64px, #0000 0 68px, #0000 0 72px, #0000 0 76px, #0000 0 80px, #e6e5e5 0 84px, #bf4d4d 0 88px, #d10000 0 92px, #f13736 0 96px, #ed2c2b 0 100px, #ca0000 0 104px, #c66b6b 0 108px, #0000 0 112px, #0000 0 116px, #0000 0 120px, #0000 0 124px, #0000 0 128px, #0000 0 132px, #0000 0 136px, #0000 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 32px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #0000 0 60px, #0000 0 64px, #0000 0 68px, #0000 0 72px, #0000 0 76px, #0000 0 80px, #bb3e3e 0 84px, #d40000 0 88px, #f33a3a 0 92px, #fcbe54 0 96px, #fca754 0 100px, #ef3030 0 104px, #cd0000 0 108px, #c35e5e 0 112px, #0000 0 116px, #0000 0 120px, #0000 0 124px, #0000 0 128px, #0000 0 132px, #0000 0 136px, #0000 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 36px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #0000 0 60px, #0000 0 64px, #0000 0 68px, #0000 0 72px, #0000 0 76px, #ba3636 0 80px, #d60000 0 84px, #f50000 0 88px, #fc5757 0 92px, #fccb64 0 96px, #fcba6a 0 100px, #fc4747 0 104px, #de0000 0 108px, #b00000 0 112px, #bf4e4e 0 116px, #0000 0 120px, #0000 0 124px, #0000 0 128px, #0000 0 132px, #0000 0 136px, #0000 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 40px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #0000 0 60px, #0000 0 64px, #0000 0 68px, #0000 0 72px, #b72727 0 76px, #d80000 0 80px, #f60000 0 84px, #fc5e5e 0 88px, #fca4a4 0 92px, #fce27e 0 96px, #fcba6a 0 100px, #fc6161 0 104px, #f12828 0 108px, #d00000 0 112px, #b00000 0 116px, #bc4343 0 120px, #0000 0 124px, #0000 0 128px, #0000 0 132px, #0000 0 136px, #0000 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 44px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #0000 0 60px, #0000 0 64px, #0000 0 68px, #901c1c 0 72px, #ab0000 0 76px, #d80000 0 80px, #f63333 0 84px, #fc9a9a 0 88px, #fce677 0 92px, #fcfc54 0 96px, #fcfc54 0 100px, #fcc167 0 104px, #fc6565 0 108px, #f32c2c 0 112px, #d30000 0 116px, #bc4343 0 120px, #0000 0 124px, #0000 0 128px, #0000 0 132px, #0000 0 136px, #0000 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 48px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #0000 0 60px, #0000 0 64px, #0000 0 68px, #b41c1c 0 72px, #da0000 0 76px, #f73636 0 80px, #fc7070 0 84px, #fcdb5f 0 88px, #fcfc54 0 92px, #fcfc54 0 96px, #fcfc54 0 100px, #fcfc54 0 104px, #fcca65 0 108px, #fc6969 0 112px, #f53030 0 116px, #d50000 0 120px, #ba3636 0 124px, #0000 0 128px, #0000 0 132px, #0000 0 136px, #0000 0 140px, #0000 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 52px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #0000 0 60px, #0000 0 64px, #8e1616 0 68px, #c30000 0 72px, #f60000 0 76px, #fc6969 0 80px, #fcacac 0 84px, #fceb71 0 88px, #fcfc54 0 92px, #fcfcbe 0 96px, #fcfca7 0 100px, #fcfc54 0 104px, #fce07f 0 108px, #fc9898 0 112px, #fc4040 0 116px, #eb0000 0 120px, #b00000 0 124px, #b72929 0 128px, #0000 0 132px, #e3d8d8 0 136px, #ae0000 0 140px, #880000 0 144px, #8a0303 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 56px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #0000 0 56px, #0000 0 60px, #0000 0 64px, #ca1616 0 68px, #de0000 0 72px, #f93838 0 76px, #fc7272 0 80px, #fce35c 0 84px, #fcfc54 0 88px, #fcfcc8 0 92px, #fcfcfc 0 96px, #fcfcfc 0 100px, #fcfcb2 0 104px, #fcfc54 0 108px, #fcd262 0 112px, #fc6d6d 0 116px, #f63333 0 120px, #d70000 0 124px, #b00000 0 128px, #b00000 0 132px, #b30000 0 136px, #e00000 0 140px, #df0000 0 144px, #8a0303 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 60px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #880101 0 48px, #880000 0 52px, #b00000 0 56px, #c70000 0 60px, #c80000 0 64px, #c80000 0 68px, #de0000 0 72px, #f96e6e 0 76px, #fcaeae 0 80px, #fcee6a 0 84px, #fcfc54 0 88px, #fcfcc8 0 92px, #fcfcfc 0 96px, #fcfcfc 0 100px, #fcfcb2 0 104px, #fcfc54 0 108px, #fce578 0 112px, #fc9f9f 0 116px, #fc4343 0 120px, #f70000 0 124px, #e00000 0 128px, #e00000 0 132px, #e20000 0 136px, #fc0000 0 140px, #fb0000 0 144px, #b10303 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 64px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #880101 0 48px, #fb0000 0 52px, #fc0000 0 56px, #fc0000 0 60px, #fc0000 0 64px, #fc0000 0 68px, #fc0000 0 72px, #fc6e6e 0 76px, #fcaeae 0 80px, #fcee6a 0 84px, #fcfc54 0 88px, #fcfcc8 0 92px, #fcfcfc 0 96px, #fcfcfc 0 100px, #fcfcb2 0 104px, #fcfc54 0 108px, #fcfc54 0 112px, #fcdc5f 0 116px, #fc6f6f 0 120px, #f73535 0 124px, #e30d0d 0 128px, #fc5454 0 132px, #fc5353 0 136px, #fc4040 0 140px, #fb3f3f 0 144px, #b10303 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 68px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #e00101 0 48px, #a90000 0 52px, #fc4040 0 56px, #fc5353 0 60px, #fc5454 0 64px, #fc4141 0 68px, #fc4040 0 72px, #fc7575 0 76px, #fce85b 0 80px, #fcfc54 0 84px, #fcfcd2 0 88px, #fcfcfc 0 92px, #fcfcfc 0 96px, #fcfcfc 0 100px, #fcfcfc 0 104px, #fcfcbc 0 108px, #fcfc54 0 112px, #fce368 0 116px, #fc9595 0 120px, #fc7575 0 124px, #fc5959 0 128px, #fc7c7c 0 132px, #fc7c7c 0 136px, #fc7979 0 140px, #fb3f3f 0 144px, #b10303 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 72px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #e00101 0 52px, #fc5454 0 56px, #fcb5b5 0 60px, #fc9d9d 0 64px, #fc7e7e 0 68px, #fc7c7c 0 72px, #fc9898 0 76px, #fced61 0 80px, #fcfc54 0 84px, #fcfcd2 0 88px, #fcfcfc 0 92px, #fcfcfc 0 96px, #fcfcfc 0 100px, #fcfcfc 0 104px, #fcfcbc 0 108px, #fcfc54 0 112px, #fcea71 0 116px, #fcb2b2 0 120px, #fc9696 0 124px, #fc7c7c 0 128px, #fc8879 0 132px, #fcf457 0 136px, #fb7676 0 140px, #e00606 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 76px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #e00101 0 56px, #fbf552 0 60px, #fcfc54 0 64px, #fcbcb2 0 68px, #fcb8b8 0 72px, #fcb8b8 0 76px, #fcf166 0 80px, #b1e2c2 0 84px, #9cdcdc 0 88px, #9cdcdc 0 92px, #d7efef 0 96px, #caeaea 0 100px, #9cdcdc 0 104px, #9cdcdc 0 108px, #bee7b0 0 112px, #fcfc54 0 116px, #fced6c 0 120px, #fcc5a7 0 124px, #fcfc54 0 128px, #fcf65e 0 132px, #fcb4b4 0 136px, #f87676 0 140px, #b10606 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 80px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #e00101 0 56px, #aa0100 0 60px, #f9f251 0 64px, #fcfcf2 0 68px, #fcfc64 0 72px, #fcfc54 0 76px, #ade2c6 0 80px, #e9f6f5 0 84px, #e2f6f6 0 88px, #c3ecec 0 92px, #77d0d0 0 96px, #b1e1e1 0 100px, #fcfcfc 0 104px, #edf8f8 0 108px, #cdf0f0 0 112px, #cbedc3 0 116px, #fcfc54 0 120px, #fcfc75 0 124px, #fcfce7 0 128px, #fcf65e 0 132px, #faadad 0 136px, #de0000 0 140px, #b10606 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 84px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #0000 0 48px, #0000 0 52px, #e00101 0 56px, #fb3e3e 0 60px, #fcb4b3 0 64px, #fcf8f8 0 68px, #fcfc64 0 72px, #8d8d77 0 76px, #7c7c7c 0 80px, #7c7c7c 0 84px, #7c7c7c 0 88px, #7c7c7c 0 92px, #7c7c7c 0 96px, #7c7c7c 0 100px, #7c7c7c 0 104px, #7c7c7c 0 108px, #7c7c7c 0 112px, #7c7c7c 0 116px, #9b9b73 0 120px, #fcfc75 0 124px, #fcfce7 0 128px, #fcf65e 0 132px, #faadad 0 136px, #e00d0d 0 140px, #e6e5e5 0 144px, #0000 0 148px, #0000 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 88px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #b10202 0 48px, #e00101 0 52px, #fc3f3f 0 56px, #fc5353 0 60px, #fcf555 0 64px, #85857b 0 68px, #595957 0 72px, #555554 0 76px, #545454 0 80px, #545454 0 84px, #545454 0 88px, #545454 0 92px, #545454 0 96px, #545454 0 100px, #545454 0 104px, #545454 0 108px, #545454 0 112px, #545454 0 116px, #555554 0 120px, #5d5d5b 0 124px, #8e8e78 0 128px, #fcf65e 0 132px, #faadad 0 136px, #dd0000 0 140px, #b00101 0 144px, #b00101 0 148px, #b10404 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 92px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #880101 0 32px, #880101 0 36px, #b00101 0 40px, #b00101 0 44px, #e00000 0 48px, #fc3f3f 0 52px, #fc5454 0 56px, #fc7b7b 0 60px, #827c7c 0 64px, #565656 0 68px, #2f2f2f 0 72px, #2c2c2c 0 76px, #2c2c2c 0 80px, #2c2c2c 0 84px, #2c2c2c 0 88px, #2c2c2c 0 92px, #2c2c2c 0 96px, #2c2c2c 0 100px, #2c2c2c 0 104px, #2c2c2c 0 108px, #2c2c2c 0 112px, #2c2c2c 0 116px, #2c2c2c 0 120px, #333333 0 124px, #595959 0 128px, #888879 0 132px, #fcf457 0 136px, #fc7a7a 0 140px, #fc5353 0 144px, #fc0101 0 148px, #fc5353 0 152px, #e00101 0 156px, #b00101 0 160px, #b00101 0 164px, #b00000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 96px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #8b0909 0 20px, #b20909 0 24px, #e00909 0 28px, #dd0000 0 32px, #f83e3e 0 36px, #f95151 0 40px, #f95151 0 44px, #fb7878 0 48px, #fcb4b4 0 52px, #fcf654 0 56px, #847f7b 0 60px, #575757 0 64px, #303030 0 68px, #212121 0 72px, #2b2b2b 0 76px, #095050 0 80px, #017272 0 84px, #019696 0 88px, #018787 0 92px, #245353 0 96px, #1d5d5d 0 100px, #018c8c 0 104px, #018383 0 108px, #164c4c 0 112px, #353535 0 116px, #292929 0 120px, #232323 0 124px, #333333 0 128px, #595959 0 132px, #89847f 0 136px, #fcb3b3 0 140px, #fc7b7b 0 144px, #fc7777 0 148px, #fc4040 0 152px, #fb0000 0 156px, #f90000 0 160px, #de0000 0 164px, #de0000 0 168px, #b20909 0 172px, #b20909 0 176px, #8b0909 0 180px, #8b0909 0 184px, #8b0909 0 188px, #0000 0 192px, #0000 0 196px) 0 100px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #8c0c0c 0 8px, #b20c0c 0 12px, #e00c0c 0 16px, #dc0000 0 20px, #f93e3e 0 24px, #fb5151 0 28px, #fb5151 0 32px, #fc7a7a 0 36px, #fc7a7a 0 40px, #fcb4b4 0 44px, #fcf756 0 48px, #fcf958 0 52px, #fcfc54 0 56px, #5a5a56 0 60px, #2f2f2f 0 64px, #212121 0 68px, #045151 0 72px, #028c8c 0 76px, #5fbcbc 0 80px, #8ed4d4 0 84px, #dbf0f0 0 88px, #84d2d2 0 92px, #1f9595 0 96px, #93c1c1 0 100px, #d4efef 0 104px, #71caca 0 108px, #018989 0 112px, #025151 0 116px, #0c3b3b 0 120px, #2a2a2a 0 124px, #222222 0 128px, #313131 0 132px, #626256 0 136px, #fcf958 0 140px, #fcf756 0 144px, #fcf657 0 148px, #fcb3b3 0 152px, #fc7777 0 156px, #fc0000 0 160px, #fb0000 0 164px, #b20000 0 168px, #8a0000 0 172px, #8a0000 0 176px, #e2dddd 0 180px, #e2dddd 0 184px, #e2dddd 0 188px, #0000 0 192px, #0000 0 196px) 0 104px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #e1dbdb 0 8px, #e4dbdb 0 12px, #e6dbdb 0 16px, #8d0000 0 20px, #8e0303 0 24px, #b40505 0 28px, #b40505 0 32px, #e20808 0 36px, #e20808 0 40px, #e20f0f 0 44px, #e21605 0 48px, #fc5d53 0 52px, #5e5e54 0 56px, #30302f 0 60px, #373737 0 64px, dimgray 0 68px, #48b5b5 0 72px, #0a9c9c 0 76px, #62c0c0 0 80px, #c2eaea 0 84px, #f2fafa 0 88px, #8ad5d5 0 92px, #1fa7a7 0 96px, #98d0d0 0 100px, #eaf8f8 0 104px, #9fdede 0 108px, #2fa5a5 0 112px, #006666 0 116px, #014b4b 0 120px, #0d6767 0 124px, #353535 0 128px, #2c2c2c 0 132px, #343434 0 136px, #898978 0 140px, #fcfb56 0 144px, #fcbab1 0 148px, #fc5959 0 152px, #e20808 0 156px, #e20000 0 160px, #b40000 0 164px, #8a0000 0 168px, #e1dbdb 0 172px, #e1dbdb 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 108px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #dfd5d5 0 20px, #dfd5d5 0 24px, #e2d5d5 0 28px, #e2d5d5 0 32px, #b40000 0 36px, #b40000 0 40px, #e00000 0 44px, #e00000 0 48px, #fcafaf 0 52px, #555454 0 56px, #464646 0 60px, #6a6a6a 0 64px, #96cece 0 68px, #4fc2c2 0 72px, #0a9d9d 0 76px, #82d0d0 0 80px, #cbefef 0 84px, #f2fafa 0 88px, #8ad5d5 0 92px, #1fa8a8 0 96px, #98d0d0 0 100px, #fbfcfc 0 104px, #c4e7e7 0 108px, #4ebaba 0 112px, #009292 0 116px, #006565 0 120px, #015e5e 0 124px, #0c6969 0 128px, #363636 0 132px, #2e2e2e 0 136px, #56564d 0 140px, #fcfb56 0 144px, #fcb5b5 0 148px, #e20707 0 152px, #e00101 0 156px, #e6d5d5 0 160px, #e2d5d5 0 164px, #dfd5d5 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 112px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #dfcccc 0 36px, #dfcccc 0 40px, #e00000 0 44px, #f86d6d 0 48px, #fcf261 0 52px, #323231 0 56px, #515151 0 60px, #2ca8a8 0 64px, #95d9d9 0 68px, #1aa2a2 0 72px, #5bbebe 0 76px, #a8e0e0 0 80px, #eaf7f7 0 84px, #e4f6f6 0 88px, #7ed2d2 0 92px, #1fa8a8 0 96px, #85cccc 0 100px, #ecf8f8 0 104px, #c7e8e8 0 108px, #51bcbc 0 112px, #009999 0 116px, #006e6e 0 120px, #004f4f 0 124px, #017c7c 0 128px, #0b5151 0 132px, #2c2c2c 0 136px, #3b3b32 0 140px, #fcfc54 0 144px, #fcf262 0 148px, #f8a1a1 0 152px, #e00101 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 116px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #e13333 0 40px, #f86b6b 0 44px, #fce95a 0 48px, #fcc3a9 0 52px, #2d2d2c 0 56px, #119595 0 60px, #d5eeee 0 64px, #5ec7c7 0 68px, #089c9c 0 72px, #84d1d1 0 76px, #c9eeee 0 80px, #f4fafa 0 84px, #ceefef 0 88px, #72cece 0 92px, #1fa8a8 0 96px, #72c6c6 0 100px, #dbf3f3 0 104px, #ddf2f2 0 108px, #8ad6d6 0 112px, #2fafaf 0 116px, #007a7a 0 120px, #004d4d 0 124px, #008181 0 128px, #056b6b 0 132px, #353535 0 136px, #37372e 0 140px, #fcfc54 0 144px, #fcfc54 0 148px, #fcf165 0 152px, #f76b6b 0 156px, #e13232 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 120px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #ba3a3a 0 36px, #f73535 0 40px, #fc7c7c 0 44px, #fc9675 0 48px, #eadddc 0 52px, #0a0a0a 0 56px, #7ecccc 0 60px, #c2eaea 0 64px, #33b7b7 0 68px, #039a9a 0 72px, #8ad4d4 0 76px, #cef0f0 0 80px, #f4fafa 0 84px, #caeeee 0 88px, #70cdcd 0 92px, #1fa8a8 0 96px, #61bfbf 0 100px, #cdecec 0 104px, #e0f4f4 0 108px, #94dbdb 0 112px, #37b8b8 0 116px, #009393 0 120px, #006363 0 124px, #006565 0 128px, #017d7d 0 132px, #0f5151 0 136px, #403937 0 140px, #fc7955 0 144px, #fcc5a6 0 148px, #fcc5a6 0 152px, #fcadad 0 156px, #f76767 0 160px, #e13a3a 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 124px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #a14848 0 32px, #d40000 0 36px, #e71313 0 40px, #e72626 0 44px, #e72626 0 48px, #e24848 0 52px, #606060 0 56px, #e1f0f0 0 60px, #6ccccc 0 64px, #10a1a1 0 68px, #53baba 0 72px, #a6e0e0 0 76px, #e8f6f6 0 80px, #fafcfc 0 84px, #caeeee 0 88px, #a6e1e1 0 92px, #87d3d3 0 96px, #7bcccc 0 100px, #66c4c4 0 104px, #47b2b2 0 108px, #2e9f9f 0 112px, #0f9292 0 116px, #008686 0 120px, #006b6b 0 124px, #004e4e 0 128px, #008282 0 132px, #046a6a 0 136px, #413636 0 140px, #e71a1a 0 144px, #fc6f6f 0 148px, #fc8c8c 0 152px, #fc8b8b 0 156px, #fc7c7c 0 160px, #f54141 0 164px, #be4848 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 128px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #880000 0 32px, #a40000 0 36px, #bf0000 0 40px, #e4a7a7 0 44px, #e4a7a7 0 48px, #e4a7a7 0 52px, #93c0c0 0 56px, #f9fafa 0 60px, #50c3c3 0 64px, #059a9a 0 68px, #86d1d1 0 72px, #b3e6e6 0 76px, #f1f8f8 0 80px, #d7f1f1 0 84px, #e0f4f4 0 88px, #c8ecec 0 92px, #a7e1e1 0 96px, #87d1d1 0 100px, #4bbcbc 0 104px, #0ea5a5 0 108px, #008a8a 0 112px, #007676 0 116px, #007676 0 120px, #006b6b 0 124px, #004545 0 128px, #006868 0 132px, #017c7c 0 136px, #1d4b4b 0 140px, #bf0000 0 144px, #e91e1e 0 148px, #e92e2e 0 152px, #e82e2e 0 156px, #c82e2e 0 160px, #c81e1e 0 164px, #940000 0 168px, #a75656 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 132px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #c59c9c 0 32px, #c59c9c 0 36px, #d39c9c 0 40px, #0000 0 44px, #0000 0 48px, #c9e7e7 0 52px, #9cdcdc 0 56px, #6dbfbf 0 60px, #7dd1d1 0 64px, #6bc5c5 0 68px, #98dada 0 72px, #c6eded 0 76px, #d0f0f0 0 80px, #cdefef 0 84px, #eff9f9 0 88px, #cfefef 0 92px, #a7e1e1 0 96px, #87d1d1 0 100px, #4fbfbf 0 104px, #1bafaf 0 108px, #0e9494 0 112px, #006a6a 0 116px, #157272 0 120px, #57abab 0 124px, #70acac 0 128px, #139191 0 132px, #007272 0 136px, #034848 0 140px, #4d3d3d 0 144px, #e49c9c 0 148px, #e49c9c 0 152px, #e49c9c 0 156px, #d39c9c 0 160px, #d39c9c 0 164px, #c59c9c 0 168px, #c59c9c 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 136px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #0000 0 44px, #91d1d1 0 48px, #a7e1e1 0 52px, #c0eaea 0 56px, #76c9c9 0 60px, #d1eded 0 64px, #c1eaea 0 68px, #aee4e4 0 72px, #e5f6f6 0 76px, #c1ebeb 0 80px, #e2f5f5 0 84px, #f8fbfb 0 88px, #cfefef 0 92px, #a7e1e1 0 96px, #87d1d1 0 100px, #4fbfbf 0 104px, #20b2b2 0 108px, #169b9b 0 112px, #006a6a 0 116px, #0e6969 0 120px, #41a8a8 0 124px, #5dc3c3 0 128px, #0e9c9c 0 132px, #139292 0 136px, #006c6c 0 140px, #024b4b 0 144px, #718d8d 0 148px, #72a3a3 0 152px, #0000 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 140px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #0000 0 40px, #7db9b9 0 44px, #75cece 0 48px, #cdecec 0 52px, #bae8e8 0 56px, #dbf2f2 0 60px, #fbfcfc 0 64px, #cbefef 0 68px, #b9e8e8 0 72px, #f4fafa 0 76px, #c4ecec 0 80px, #eef8f8 0 84px, #fcfcfc 0 88px, #cfefef 0 92px, #a7e1e1 0 96px, #87d1d1 0 100px, #4fbfbf 0 104px, #20b2b2 0 108px, #16a0a0 0 112px, #007676 0 116px, #005d5d 0 120px, #037878 0 124px, #10a3a3 0 128px, #119f9f 0 132px, #0f9c9c 0 136px, #007c7c 0 140px, #005b5b 0 144px, #113131 0 148px, #015757 0 152px, #7eabab 0 156px, #0000 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 144px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #0000 0 36px, #8abfbf 0 40px, #4eb1b1 0 44px, #a8e1e1 0 48px, #ecf8f8 0 52px, #9cdcdc 0 56px, #f9fbfb 0 60px, #edf9f9 0 64px, #bbe9e9 0 68px, #c5eded 0 72px, #dbf3f3 0 76px, #bfeaea 0 80px, #eef8f8 0 84px, #fcfcfc 0 88px, #cfefef 0 92px, #a7e1e1 0 96px, #87d1d1 0 100px, #4fbfbf 0 104px, #20b2b2 0 108px, #16a6a6 0 112px, #008585 0 116px, #005f5f 0 120px, #006262 0 124px, #049494 0 128px, #1dadad 0 132px, #009090 0 136px, #007575 0 140px, #007070 0 144px, #132f2f 0 148px, #0f3333 0 152px, #015a5a 0 156px, #8ab2b2 0 160px, #0000 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 148px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #0000 0 32px, #98c4c4 0 36px, #1fa0a0 0 40px, #a6e0e0 0 44px, #d2f0f0 0 48px, #c2ebeb 0 52px, #a7e0e0 0 56px, #fafbfb 0 60px, #daf4f4 0 64px, #bae9e9 0 68px, #e3f6f6 0 72px, #beeaea 0 76px, #c2ecec 0 80px, #f1f9f9 0 84px, #fcfcfc 0 88px, #cfefef 0 92px, #a7e1e1 0 96px, #87d1d1 0 100px, #4fbfbf 0 104px, #20b2b2 0 108px, #16aaaa 0 112px, #009191 0 116px, #006a6a 0 120px, #005e5e 0 124px, #038282 0 128px, #14a6a6 0 132px, #0c9f9f 0 136px, #008181 0 140px, #006d6d 0 144px, #005151 0 148px, #142d2d 0 152px, #0d3434 0 156px, #005b5b 0 160px, #98b9b9 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 152px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #a8cbcb 0 32px, #1b9d9d 0 36px, #64c9c9 0 40px, #c2ecec 0 44px, #f1fafa 0 48px, #9ddcdc 0 52px, #c2ecec 0 56px, #fafcfc 0 60px, #d0f1f1 0 64px, #b9e9e9 0 68px, #f7fafa 0 72px, #c1ebeb 0 76px, #dcf4f4 0 80px, #f7fbfb 0 84px, #fcfcfc 0 88px, #cfefef 0 92px, #a7e1e1 0 96px, #87d1d1 0 100px, #4fbfbf 0 104px, #20b2b2 0 108px, #16acac 0 112px, #009797 0 116px, #006e6e 0 120px, #005b5b 0 124px, #006e6e 0 128px, #039595 0 132px, #1eaeae 0 136px, #008e8e 0 140px, #007474 0 144px, #006b6b 0 148px, #004747 0 152px, #172a2a 0 156px, #0b3737 0 160px, #005f5f 0 164px, #0000 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 156px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #0000 0 28px, #179b9b 0 32px, #60c8c8 0 36px, #ade3e3 0 40px, #e2f6f6 0 44px, #c8eeee 0 48px, #a4dfdf 0 52px, #e2f6f6 0 56px, #f2fafa 0 60px, #bae9e9 0 64px, #c1ebeb 0 68px, #e6f5f5 0 72px, #beeaea 0 76px, #f1f8f8 0 80px, #fcfcfc 0 84px, #fcfcfc 0 88px, #cfefef 0 92px, #a7e1e1 0 96px, #87d1d1 0 100px, #4fbfbf 0 104px, #20b2b2 0 108px, #18adad 0 112px, #079c9c 0 116px, #007474 0 120px, #005c5c 0 124px, #005d5d 0 128px, #028282 0 132px, #17a9a9 0 136px, #099d9d 0 140px, teal 0 144px, #007070 0 148px, #005e5e 0 152px, #004040 0 156px, #202020 0 160px, #0a3838 0 164px, #adc6c6 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 160px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #c6dede 0 28px, #5cc6c6 0 32px, #a2dede 0 36px, #d8f4f4 0 40px, #fcfcfc 0 44px, #9cdcdc 0 48px, #bfeaea 0 52px, #fcfcfc 0 56px, #d9f4f4 0 60px, #b9e9e9 0 64px, #def5f5 0 68px, #bbe9e9 0 72px, #beeaea 0 76px, #f2f9f9 0 80px, #fcfcfc 0 84px, #fcfcfc 0 88px, #cfefef 0 92px, #a7e1e1 0 96px, #87d1d1 0 100px, #4fbfbf 0 104px, #20b2b2 0 108px, #20b0b0 0 112px, #19a7a7 0 116px, #008585 0 120px, #006a6a 0 124px, #005b5b 0 128px, #007373 0 132px, #029696 0 136px, #1eaeae 0 140px, #008c8c 0 144px, #007d7d 0 148px, #006c6c 0 152px, #004a4a 0 156px, #1a2727 0 160px, #202020 0 164px, #006363 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 164px/100% 4px no-repeat, linear-gradient(90deg, #0000 0 0px, #0000 0 4px, #0000 0 8px, #0000 0 12px, #0000 0 16px, #0000 0 20px, #0000 0 24px, #48c0c0 0 28px, #9cdcdc 0 32px, #b8e8e8 0 36px, #d8f4f4 0 40px, #fcfcfc 0 44px, #9cdcdc 0 48px, #d7f4f4 0 52px, #fcfcfc 0 56px, #d9f4f4 0 60px, #b9e9e9 0 64px, #f8fbfb 0 68px, #beeaea 0 72px, #d4f3f3 0 76px, #f6fbfb 0 80px, #fcfcfc 0 84px, #fcfcfc 0 88px, #cfefef 0 92px, #a7e1e1 0 96px, #87d1d1 0 100px, #4fbfbf 0 104px, #20b2b2 0 108px, #20b0b0 0 112px, #19a7a7 0 116px, #008787 0 120px, #006f6f 0 124px, #005b5b 0 128px, #007272 0 132px, #028787 0 136px, #1eaeae 0 140px, #008c8c 0 144px, #008484 0 148px, #006c6c 0 152px, #006c6c 0 156px, #004040 0 160px, #202020 0 164px, #004040 0 168px, #0000 0 172px, #0000 0 176px, #0000 0 180px, #0000 0 184px, #0000 0 188px, #0000 0 192px, #0000 0 196px) 0 168px/100% 4px no-repeat, #0000;
+}

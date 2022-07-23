@@ -1,0 +1,272 @@
+$n:220; /* control the number of circles (don't forget to update the HTML value*/
+
+audio{
+	position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 100px;
+	height: 54px;
+	clip-path: circle(26px at 27% 50%);
+}
+h2 {
+	color: #fff;
+  font-family: sans-serif;
+  position: absolute;
+  inset: 0 0 0 170px;
+  margin: auto;
+  width: 160px;
+  height: fit-content;
+  font-size: 30px;
+  text-align: center;
+}
+s {
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	width: 50px;
+	aspect-ratio: 1;
+	background: #fc86a9;
+	border-radius: 50%;
+	opacity: 0;
+	transition: 999s 999s;
+}
+s:after {
+  content: "";
+  position: absolute;
+  width: 48px;
+  height: 20px;
+  background: #fff;
+  left: 104%;
+  top: calc(50% - 10px);
+  clip-path: polygon(20px 0,20px 30%,100% 30%,100% 60%,20px 60%,20px 100%,0 50%);
+  pointer-events: none;
+}
+s:before {
+  content: "When the music starts, click the circle!";
+  position: absolute;
+  left: calc(100% + 50px);
+  top: 50%;
+  color: #fff;
+  font-family: sans-serif;
+  font-weight: bold;
+  width: 195px;
+  text-align: center;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+audio:hover ~ s{
+	opacity: 1;
+	transition: 0s;
+}
+s:active {
+	opacity: 0.01;
+	transition: 0s;
+}
+c {
+	position: absolute;
+	display: grid;
+	width: 60px;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	overflow: hidden;
+	outline: 4px solid #fff;
+	place-items: center;
+	font-family: sans-serif;
+	font-weight: bold;
+	animation: c 2s linear both 1s;
+	transition: filter 999s 999s, outline 999s 999s;
+}
+l {
+	position: fixed;
+	z-index: 20;
+	inset: 0 0 100%;
+	background: #000;
+	transition: 999s 999s;
+  display: grid;
+  place-content: center;
+	text-align: center;
+  overflow: hidden;
+  background: #000;
+	font-family: monospace;
+	pointer-events: none;
+}
+l:before {
+	content: "Your cursor left the screen :(";
+	font-size: 40px;
+  color: red;
+}
+l:after {
+  content: "Refresh the page to start a new game!";
+	font-size: 20px;
+  color: white;
+}
+cc {
+	position: fixed;
+	z-index: 23;
+	inset: 0;
+	display: none;
+	background: #000;
+	border: 60px solid;
+}
+@property --time{
+  syntax: '<integer>';
+  inherits: true;
+	initial-value: 0;
+}
+@keyframes time{
+	0%  {--time: 138}
+	100%{--time: 0}
+}
+cc:before {
+	content: counter(time);
+	counter-reset: time var(--time);
+	animation: time 138s linear forwards;
+	display: grid;
+	place-content: center;
+	position: fixed;
+	inset: 0;
+	z-index: 10;
+	color :#fff9;
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 80px;
+}
+s:active ~ cc,
+cc:hover {
+	display: block;
+}
+s:active ~ l {
+	inset: 0;
+	transition: 0s;
+}
+c:before,
+c:after {
+	content: "Miss";
+	grid-area: 1/1;
+}
+c:after {
+	content: "Good";
+	border-image: conic-gradient(#009247 0 0) fill 0/ /50px;
+	opacity: 0;
+	transition: opacity 999s 999s, font-size 999s 999s;
+}
+c:active {
+	filter: opacity(50%);
+	outline-color: #0000;
+	transition: filter 0s, outline 0s;
+}
+c:active:after {
+	opacity: 1;
+	font-size: 16px;
+	transition: opacity 0s, font-size 0s;
+}
+@keyframes c {
+	0%,
+	2% {
+		z-index: 9;
+		opacity: 0;
+		font-size: 0;
+		outline-offset: 35px;
+	  background: #fc86a9;
+	}
+	10% {
+		z-index: 15;
+		opacity: 1;
+		font-size: 0;
+		outline-offset: 35px;
+	  background: #fc86a9;
+	}
+	75% {
+		z-index: 15;
+		opacity: 1;
+		font-size: 0;
+		outline-offset: 0px;
+  	background: #fc86a9;
+	}
+	76% {
+		z-index: 9;
+	}
+	80% {
+		font-size: 16px;
+  	background: #ea2127;
+	}
+	100% {
+		opacity: 0;
+  	background: #ea2127;
+	}
+}
+
+$sum: ();
+$anime: ();
+@for $i from 1 to ($n+1) {
+  @property --c#{$i}{
+    syntax: '<integer>';
+    inherits: true;
+    initial-value: 0;
+  }
+  c:nth-of-type(#{$i}) {
+  	top: (random(100))*1%;
+  	left: (random(100))*1%;
+		animation-duration: (random(3)+1)+s;
+		animation-delay: (#{132*$i/$n})+s;
+	}
+  c:nth-of-type(#{$i}) ~ r{
+    --c#{$i}: 0;
+    --s#{$i}: paused
+  }
+  c:nth-of-type(#{$i}):active ~ r{
+    --s#{$i}: running;
+  }
+  @keyframes c#{$i} {
+    to{--c#{$i}:1;}
+  }
+  $sum: append($sum,'+ var(--c#{$i})' , space);
+  $anime: append($anime,'c#{$i} var(--s#{$i}) forwards 0.01s' , comma);
+}
+
+r {
+  --sum:calc(0 #{$sum});
+  animation: 138s end linear forwards, #{$anime};
+  position: absolute;
+  display: grid;
+  place-content: center;
+	text-align: center;
+  color: #fff;
+  overflow: hidden;
+	z-index: 999;
+  background: #000;
+	font-family: monospace;
+}
+@keyframes end {
+	0%,99% {
+		inset: 0 0 100%;
+	}
+	100% {
+		inset: 0;
+	}
+}
+r:before {
+	content: "Score: " counter(T) "/#{$n}";
+	counter-reset: T var(--sum);
+  font-size: 60px;
+}
+r:after {
+  content: "Refresh the page to start a new game!";
+	font-size: 20px;
+	color: red;
+}
+
+
+
+html {
+	background: #000;
+	cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><foreignObject width="100%" height="100%"><div xmlns="http://www.w3.org/1999/xhtml" style="width:70%;height:70%;margin:15%;border-radius:50%;background:%23eae889;box-shadow: 0px 0px 10px %23fff;" ></div></foreignObject></svg>')
+			20 20,
+		auto;
+}
+html:active {
+	background: #000;
+	cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><foreignObject width="100%" height="100%"><div xmlns="http://www.w3.org/1999/xhtml" style="width:70%;height:70%;margin:15%;border-radius:50%;background:%2389ea91;box-shadow: 0px 0px 10px %23fff;" ></div></foreignObject></svg>')
+			20 20,
+		auto;
+}

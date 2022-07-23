@@ -1,0 +1,162 @@
+g {
+  --s: 300px;
+  /* size of the puzzle */
+  display: grid;
+  max-width: var(--s);
+  border: 1px solid;
+  margin: auto;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+g:before {
+  content: "Original Image";
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
+  text-shadow: 0 0 2px #000, 0 0 2px #000, 0 0 2px #000;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: calc(var(--s)*0.6);
+  aspect-ratio: 1;
+  -webkit-mask: repeating-linear-gradient(-45deg, #000 0 10%, #000d 0 20%);
+  background: var(--i) 0/100% 100%;
+  display: grid;
+  place-content: center;
+}
+
+z {
+  aspect-ratio: 1;
+  outline: 1px dashed;
+  display: grid;
+  position: relative;
+  pointer-events: none;
+}
+
+a {
+  width: 0;
+  transition: 0s 0.2s;
+  pointer-events: initial;
+}
+
+b {
+  position: absolute;
+  inset: 0;
+  background: var(--i) 0/var(--s) var(--s);
+  box-shadow: 0 0 4px 1px red;
+  z-index: 2;
+  cursor: grab;
+  pointer-events: initial;
+}
+
+z:nth-of-type(1) b {
+  background-position: 0% 0%;
+  transform: translate(150%, 150%) rotate(68deg) translate(355%) rotate(-69deg);
+}
+
+z:nth-of-type(2) b {
+  background-position: 33.3333333333% 0%;
+  transform: translate(50%, 150%) rotate(92deg) translate(327%) rotate(-83deg);
+}
+
+z:nth-of-type(3) b {
+  background-position: 66.6666666667% 0%;
+  transform: translate(-50%, 150%) rotate(95deg) translate(396%) rotate(-100deg);
+}
+
+z:nth-of-type(4) b {
+  background-position: 100% 0%;
+  transform: translate(-150%, 150%) rotate(119deg) translate(387%) rotate(-118deg);
+}
+
+z:nth-of-type(5) b {
+  background-position: 0% 33.3333333333%;
+  transform: translate(150%, 50%) rotate(140deg) translate(310%) rotate(-146deg);
+}
+
+z:nth-of-type(6) b {
+  background-position: 33.3333333333% 33.3333333333%;
+  transform: translate(50%, 50%) rotate(107deg) translate(331%) rotate(-102deg);
+}
+
+z:nth-of-type(7) b {
+  background-position: 66.6666666667% 33.3333333333%;
+  transform: translate(-50%, 50%) rotate(177deg) translate(339%) rotate(-172deg);
+}
+
+z:nth-of-type(8) b {
+  background-position: 100% 33.3333333333%;
+  transform: translate(-150%, 50%) rotate(71deg) translate(348%) rotate(-61deg);
+}
+
+z:nth-of-type(9) b {
+  background-position: 0% 66.6666666667%;
+  transform: translate(150%, -50%) rotate(98deg) translate(317%) rotate(-94deg);
+}
+
+z:nth-of-type(10) b {
+  background-position: 33.3333333333% 66.6666666667%;
+  transform: translate(50%, -50%) rotate(103deg) translate(308%) rotate(-100deg);
+}
+
+z:nth-of-type(11) b {
+  background-position: 66.6666666667% 66.6666666667%;
+  transform: translate(-50%, -50%) rotate(128deg) translate(350%) rotate(-118deg);
+}
+
+z:nth-of-type(12) b {
+  background-position: 100% 66.6666666667%;
+  transform: translate(-150%, -50%) rotate(15deg) translate(356%) rotate(-10deg);
+}
+
+z:nth-of-type(13) b {
+  background-position: 0% 100%;
+  transform: translate(150%, -150%) rotate(140deg) translate(390%) rotate(-148deg);
+}
+
+z:nth-of-type(14) b {
+  background-position: 33.3333333333% 100%;
+  transform: translate(50%, -150%) rotate(119deg) translate(400%) rotate(-124deg);
+}
+
+z:nth-of-type(15) b {
+  background-position: 66.6666666667% 100%;
+  transform: translate(-50%, -150%) rotate(121deg) translate(370%) rotate(-115deg);
+}
+
+z:nth-of-type(16) b {
+  background-position: 100% 100%;
+  transform: translate(-150%, -150%) rotate(61deg) translate(331%) rotate(-60deg);
+}
+
+z b {
+  transition: 9999s 9999s;
+}
+
+z:active a {
+  width: 100%;
+  transition: 0s;
+}
+
+z a:hover ~ b {
+  transform: translate(0);
+  box-shadow: none;
+  transition: 0s;
+}
+
+body {
+  background: #2c6603;
+  color: #fff;
+  font-family: system-ui, sans-serif;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+  text-align: center;
+}
+
+p {
+  font-size: 1.2rem;
+  text-align: center;
+}
