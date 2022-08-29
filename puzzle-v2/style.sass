@@ -1,0 +1,173 @@
+$n : 5; /* number of columns/rows, don't forget to adjust the HTML value */
+
+g {
+	--s: 70px; /* size of the puzzle */
+	--r: 12px;
+	display: grid;
+	width: fit-content;
+	border: 1px solid;
+	margin: auto;
+	grid: auto-flow var(--s)/repeat($n,var(--s));
+}
+g:before {
+	content: "Original Image";
+	color: #fff;
+	font-size: 25px;
+	font-weight: bold;
+	text-shadow: 0 0 2px #000,0 0 2px #000,0 0 2px #000;
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	width: calc(#{$n}*var(--s)*0.6);
+	aspect-ratio: 1;
+	-webkit-mask: repeating-linear-gradient(-45deg,#000 0 10%,#000d 0 20%);
+	background: var(--i) 0/100% 100%;
+	display: grid;
+	place-content: center;
+}
+z {
+	display: grid;
+	position: relative;
+	pointer-events: none;
+	outline: 1px dashed;
+}
+a {
+	grid-area: 1/1;
+	width: 0;
+	transition: 0s .2s;
+	pointer-events: initial;
+}
+b {
+	grid-area: 1/1;
+	z-index: 2;
+	display: grid;
+	filter: drop-shadow(0 0 2px red) drop-shadow(0 0 2px red);
+	cursor: grab;
+	pointer-events: initial;
+	height: calc(100% + var(--r));
+	width: calc(100% + var(--r));
+	place-self: start end;
+	--m: 
+		radial-gradient(var(--r) at calc(50% - var(--r)/2) 0,#0000 98%,#000) var(--r)  0/100% var(--r) no-repeat,
+		radial-gradient(var(--r) at calc(100% - var(--r)) calc(50% - var(--r)/2),#0000 98%,#000) var(--r) 50%/100% calc(100% - 2*var(--r)) no-repeat,
+		radial-gradient(var(--r) at var(--r) calc(50% - var(--r)/2),#000 98%,#0000),
+		radial-gradient(var(--r) at calc(50% + var(--r)/2) calc(100% - var(--r)),#000 98%,#0000);
+}
+b:before {
+	content: "";
+	background: var(--i) 0/calc(#{$n}*var(--s)) calc(#{$n}*var(--s));
+	-webkit-mask: var(--m);
+	        mask: var(--m);
+}
+
+z:first-child b{
+	height: calc(100% + var(--r));
+	width: 100%;
+	--m: 
+		radial-gradient(var(--r) at 100% calc(50% + var(--r)/2),#0000 98%,#000)
+		 0 calc(-1*var(--r)) no-repeat,
+		radial-gradient(var(--r) at 50% calc(100% - var(--r)),#000 98%,#0000)
+}
+z:nth-child(-n + #{$n - 1}):not(:first-child) b{
+	place-self: start end;
+	height: calc(100% + var(--r));
+	width: calc(100% + var(--r));
+	--m: 
+		radial-gradient(var(--r) at calc(100% - var(--r)) calc(50% + var(--r)/2),#0000 98%,#000)
+		 var(--r) calc(-1*var(--r)) no-repeat,
+		radial-gradient(var(--r) at var(--r) calc(50% - var(--r)/2),#000 98%,#0000),
+		radial-gradient(var(--r) at calc(50% + var(--r)/2) calc(100% - var(--r)),#000 98%,#0000)
+}
+z:nth-child(#{$n}) b{
+	place-self: start end;
+	height: calc(100% + var(--r));
+	width: calc(100% + var(--r));
+	--m: 
+		linear-gradient(#000 0 0) var(--r) calc(-1*var(--r)) no-repeat,
+		radial-gradient(var(--r) at var(--r) calc(50% - var(--r)/2),#000 98%,#0000),
+		radial-gradient(var(--r) at calc(50% + var(--r)/2) calc(100% - var(--r)),#000 98%,#0000)
+}
+z:nth-child(#{$n}n + 1):not(:first-child):not(:nth-last-child(#{$n})) b{
+	height: calc(100% + var(--r));
+	width: 100%;
+	--m: 
+		radial-gradient(var(--r) at 100% calc(50% - var(--r)/2),#0000 98%,#000) 50%/ 100% calc(100% - 2*var(--r)) no-repeat,
+		radial-gradient(var(--r) at 50% 0,#0000 98%,#000) 0 0/ 100% var(--r) no-repeat,
+		radial-gradient(var(--r) at 50% calc(100% - var(--r)),#000 98%,#0000)
+}
+z:nth-last-child(#{$n}) b{
+	height: 100%;
+	width: 100%;
+	--m: 
+		radial-gradient(var(--r) at 100% calc(50% - var(--r)),#0000 98%,#000) 0 var(--r) no-repeat,
+		radial-gradient(var(--r) at 50% 0,#0000 98%,#000) 0 0/ 100% var(--r) no-repeat;
+}
+z:nth-child(#{$n}n):not(:nth-child(#{$n})):not(:last-child) b{
+	place-self: start end;
+	height: calc(100% + var(--r));
+	width: calc(100% + var(--r));
+	--m: 
+		radial-gradient(var(--r) at calc(50% - var(--r)/2) var(--r),#0000 98%,#000) var(--r) calc(-1*var(--r)) no-repeat,
+		radial-gradient(var(--r) at var(--r) calc(50% - var(--r)/2),#000 98%,#0000),
+		radial-gradient(var(--r) at calc(50% + var(--r)/2) calc(100% - var(--r)),#000 98%,#0000)
+}
+z:last-child b{
+	place-self: end;
+	height: 100%;
+	width: calc(100% + var(--r));
+	--m: 
+		radial-gradient(var(--r) at calc(50% - var(--r)/2) 0,#0000 98%,#000) var(--r) 0 no-repeat,
+		radial-gradient(var(--r) at var(--r) 50%,#000 98%,#0000)
+}
+z:nth-last-child(-n + #{$n - 1}):not(:last-child) b{
+	place-self: end;
+	height: 100%;
+	width: calc(100% + var(--r));
+	--m: 
+		radial-gradient(var(--r) at calc(50% - var(--r)/2) 0,#0000 98%,#000) var(--r)  0/100% var(--r) no-repeat,
+		radial-gradient(var(--r) at calc(100% - var(--r)) calc(50% - var(--r)/2),#0000 98%,#000) var(--r) 100%/100% calc(100% - var(--r)) no-repeat,
+		radial-gradient(var(--r) at var(--r) 50%,#000 98%,#0000)
+}
+
+@for $i from 1 to ($n*$n + 1) {
+	$r: (random(180));
+	$x: (($i - 1)%$n);
+	$y: floor(($i - 0.001)/$n);
+	z:nth-of-type(#{$i}) b{
+		transform: 
+			translate((($n - 1)/2 - $x)*100%,(($n - 1)/2 - $y)*100%) 
+			rotate($r*1deg) 
+			translate((random(70)*1% + ($n - 1)*100%)) 
+			rotate((random(20) - 10 - $r)*1deg)
+	}
+	z:nth-of-type(#{$i}) b:before{
+		background-position: ($x/($n - 1))*100% ($y/($n - 1))*100%;
+	}
+}
+z b {
+	transition: 9999s 9999s;
+}
+z:active a{
+	width: 100%;
+	transition: 0s;
+}
+z a:hover ~ b {
+	transform: translate(0);
+	filter: none;
+	transition: 0s;
+}
+
+body {
+  background: #547980;
+  color: #fff;
+  font-family: system-ui, sans-serif;
+}
+h1 {
+  font-size: 2rem;
+	margin: 0;
+  text-align: center;
+}
+p {
+  font-size: .8rem;
+  text-align: center;
+}
