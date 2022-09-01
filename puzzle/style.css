@@ -160,3 +160,18 @@ p {
   font-size: 1.2rem;
   text-align: center;
 }
+[data-ea-publisher] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 999;
+}
+[data-ea-publisher].loaded .ea-content, 
+[data-ea-type].loaded .ea-content {
+  background: rgb(255 255 255 / 80%)!important;
+}
+@media (max-width: 1024px) {
+  [data-ea-publisher] {
+    display: none!important;
+  }
+}
