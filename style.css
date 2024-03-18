@@ -1,5 +1,5 @@
 :root {
-	--font-size: 17px;
+	--pico-font-size: 17px;
 }
 html {
     display: grid;
@@ -47,8 +47,8 @@ h1 span:nth-child(2):before {
     position: absolute;
     top: 10px;
     height: 28px;
-    border-left: 1.5px solid var(--background-color);
-    border-top: 1.5px solid var(--background-color);
+    border-left: 1.5px solid var(--pico-background-color);
+    border-top: 1.5px solid var(--pico-background-color);
     width: 44px;
     left: 2px;
     border-top-left-radius: 41px 24px;
@@ -59,7 +59,7 @@ h1 span:nth-child(2):after {
     bottom: 0;
     left: 4.5px;
     height: 37px;
-    border-left: 1.5px solid var(--background-color);
+    border-left: 1.5px solid var(--pico-background-color);
     z-index: 5;
 }
 body header h1 + p {
@@ -68,7 +68,7 @@ body header h1 + p {
     font-size: 15px;
 }
 
-body>footer, body>header, body>main {
+body>header, body>main {
 	padding: 0;
 }
 body header,
@@ -78,14 +78,15 @@ body footer {
 }
 body main.grid {
 	margin: 0 auto 50px;
-    grid-gap: calc(1.5*var(--grid-spacing-horizontal));
+    grid-gap: calc(1.5*var(--pico-grid-column-gap));
 	align-content: start;
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
     .grid {
         grid-template-columns: repeat(3,minmax(0%,1fr));
     }
 }
+
 body header > * {
 	margin: 5px;
 }
@@ -94,6 +95,7 @@ article {
     position: relative;
     background: center/cover no-repeat;
     margin: 0;
+    overflow: hidden;
 }
 article a {
     position: absolute;
@@ -105,18 +107,6 @@ article a {
     text-decoration: none;
     background: linear-gradient(0deg,#fffd 2.5em,#0000 0);
     font-weight: bold;
-}
-a.tweet {
-    background-color: #1095c1;
-    border-radius: 9999px;
-    display: grid;
-    place-content: center;
-    width: 52px;
-    height: 52px;
-    position: fixed;
-    left: 15px;
-    bottom: 80px;
-    box-shadow: rgb(0 0 0 / 40%) 0px 4px 8px;
 }
 .chrome:before {
     content: "Chrome Only";
