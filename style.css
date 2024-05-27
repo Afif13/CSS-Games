@@ -86,7 +86,6 @@ body main.grid {
         grid-template-columns: repeat(3,minmax(0%,1fr));
     }
 }
-
 body header > * {
 	margin: 5px;
 }
