@@ -1,0 +1,317 @@
+/*  Control the grid */
+$n: 11; /* rows */
+$m: 5; /* columns */
+$s: 60px; /* size */
+/* the number of coins (don't forget to update the html code) */
+$c: 14;
+/* number of enemies (don't forget to update the html code) */
+$e: 5;
+/* keyboard sensitivity ]1 +infinity[
+   bigger values will get you a slower move
+*/
+$v: 3;
+
+
+$odd: 1,3,5,7,9,11,13,15,17,19,21,23,25,27;
+$even:2,4,6,8,10,12,14,16,18,20,22,24,26;
+
+@import url('https://fonts.cdnfonts.com/css/retro-mario');
+@property --s1 {
+  syntax: '<integer>';
+  inherits: true;
+  initial-value: 0
+}
+@property --s2 {
+  syntax: '<integer>';
+  inherits: true;
+  initial-value: 0
+}
+@property --sum {
+  syntax: '<integer>';
+  inherits: true;
+  initial-value: 0
+}
+@property --ee {
+  syntax: '<integer>';
+  inherits: true;
+  initial-value: 0
+}
+b {
+  display: grid;
+  grid-template-columns: repeat($n,1fr);
+  grid-template-rows: repeat($m,1fr);
+  width: ($n + 1)*$s;
+  height: ($m + 2)*$s;
+  position: sticky;
+  border: solid #0000;
+  border-width: $s/2 $s/2 1.5*$s;
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+  font-weight: initial;
+}
+m {
+  content:"";
+  position: absolute;
+  left: 0;
+  top: 0;
+  translate: -50% -50%;
+  width: $s;
+  aspect-ratio:1;
+  opacity:0;
+  background: url(https://assets.codepen.io/1480814/mm.png) center/cover;
+  animation: x linear,y linear;
+  animation-timeline: scroll(nearest inline),scroll(nearest block);
+}
+@keyframes x{to {left: 100%}}
+@keyframes y{to {top: 100%}}
+c,e {
+  position: absolute;
+  inset: 0;
+  animation-timeline: scroll(nearest inline),scroll(nearest block)!important;
+}
+:is(c,e):before {
+  content:"";
+  position: absolute;
+  width: #{100%/$n};
+  aspect-ratio: 1;
+  scale: .6;
+  background: 
+    url(https://assets.codepen.io/1480814/ccc.png)
+    0 50%/600% auto no-repeat;
+}
+e:before {
+  scale: .8;
+  animation: g .4s steps(2) infinite;
+  background: url(https://assets.codepen.io/1480814/goomba_1.png) 0 50%/200% auto no-repeat;
+}
+@keyframes b {to {background-position: 120% 50%}}
+@keyframes g {to {background-position: 200% 50%}}
+@keyframes e {to {opacity:0;translate:0 -100%}}
+$sel: ("");
+@for $i from 1 to ($c+1) {
+  c#{$sel}{
+    animation: c#{$i}-x linear,c#{$i}-y linear;
+    container-name: c#{$i};
+  }
+  $x:nth($odd, random(ceil($n/2)));
+  $y:random($m);
+  c#{$sel}:before {
+    left: #{($x - 1)*100%/$n};
+    top: #{($y - 1)*100%/$m};
+    animation: 
+      b .8s steps(6) infinite,
+      e .05s forwards var(--e#{$i},paused);
+    @container c#{$i} style(--c#{$i}-x: 1) and style(--c#{$i}-y: 1) {--e#{$i}: running}
+  }
+  @keyframes c#{$i}-x {
+    0%,#{($x - 1)*(100%/$n)},#{$x*(100%/$n)},to{--c#{$i}-x:0}
+    #{($x - 1)*(100%/$n) + .1%},#{$x*(100%/$n) - .1%}{--c#{$i}-x:1}
+  }
+  @keyframes c#{$i}-y {
+    0%,#{($y - 1)*(100%/$m)},#{$y*(100%/$m)},to{--c#{$i}-y:0}
+    #{($y - 1)*(100%/$m) + .1%},#{$y*(100%/$m) - .1%}{--c#{$i}-y:1}
+  }
+  $sel: append($sel,'>c',space);
+}
+$sel: ("");
+@for $i from 1 to ($e+1) {
+  e#{$sel}{
+    animation: e#{$i}-x linear,e#{$i}-y linear;
+    container-name: e#{$i};
+  }
+  $x:nth($even, random(floor($n/2)));
+  $y:random($m);
+  e#{$sel}:before {
+    left: #{($x - 1)*100%/$n};
+    top: #{($y - 1)*100%/$m};
+  }
+  @keyframes e#{$i}-x {
+    0%,#{($x - 1)*(100%/$n)},#{$x*(100%/$n)},to{--e#{$i}-x:0}
+    #{($x - 1)*(100%/$n) + .1%},#{$x*(100%/$n) - .1%}{--e#{$i}-x:1}
+  }
+  @keyframes e#{$i}-y {
+    0%,#{($y - 1)*(100%/$m)},#{$y*(100%/$m)},to{--e#{$i}-y:0}
+    #{($y - 1)*(100%/$m) + .1%},#{$y*(100%/$m) - .1%}{--e#{$i}-y:1}
+  }
+  $sel: append($sel,'>e',space);
+}
+r {
+  color: #fefeff;
+  font-size: 35px;
+  visibility: hidden;
+  $anim: ();
+  @for $i from 1 to ($c+1) {
+    --r#{$i}:0; 
+    $anim: append($anim,'r#{$i} .1s forwards var(--s-r#{$i},paused)',comma);
+    @container c#{$i} style(--c#{$i}-x: 1) and style(--c#{$i}-y: 1) {--s-r#{$i}: running}
+    @keyframes r#{$i} {1%,to {--r#{$i}:1}}
+  }
+  $anim: append($anim,'eeee .1s forwards var(--eeee,paused)',comma);
+  --ee: 0;
+  @for $i from 1 to ($e+1) {
+    @container e#{$i} style(--e#{$i}-x: 1) and style(--e#{$i}-y: 1) {--eeee: running}
+  }
+  @keyframes eeee {1%,to {--ee:1}}
+  $sum: ("var(--r1)");
+  @for $i from 2 to ($c+1) {
+    $sum: append($sum,'+ var(--r#{$i})' , space);
+  }
+  --sum: calc(#{$sum});
+  animation: #{$anim};
+  container-name: r;
+}
+r:before {
+  content: "SCORE - " counter(r,decimal-leading-zero);
+  position: absolute;
+  right: $s/-2;
+  bottom: -1.5*$s;
+  padding: 8px 16px 8px 0;
+  counter-reset: r var(--sum);
+}
+r:after {
+  content: "TIME - " counter(s1,decimal-leading-zero) "s";
+  font-variant-numeric: tabular-nums;
+  counter-reset: s1 var(--s1) s2 var(--s2);
+  position: absolute;
+  left: $s/-2;
+  bottom: -1.5*$s;
+  padding: 8px;
+  animation: s1 60s linear forwards paused;
+  background: url(https://assets.codepen.io/1480814/win_1.png) bottom/auto 0 no-repeat;
+  @container r style(--sum: #{$c}) {
+    content:"You did it in " counter(s1,decimal-leading-zero) "s";
+    background:
+      url(https://assets.codepen.io/1480814/win_1.png) 50% 70%/auto 60% no-repeat
+      var(--b) content-box;
+    inset: $s/-2 $s/-2 -1.5*$s;
+    padding-right: 6px;
+    animation-play-state: paused !important;
+    text-align: center;
+    font-size: 55px;
+    z-index: 99989;
+    visibility: visible;
+  }
+  @container r style(--ee: 1) {
+    content:"\aGame Over\a\a Refresh the page\a and try again ";
+    white-space: pre-wrap;
+    background: var(--b) content-box;
+    inset: $s/-2 $s/-2 -1.5*$s;
+    padding-right: 6px;
+    animation-play-state: paused !important;
+    text-align: center;
+    font-size: 55px;
+    z-index: 99989;
+    visibility: visible;
+  }
+}
+@keyframes s1 {to{--s1:60}}
+g {
+  display: block;
+  width: ($n + 1)*$s*$v;
+  height: ($m + 2)*$s*$v;
+}
+body {
+  position: relative;
+  margin: auto auto $s/2;
+  overflow: auto;
+  scrollbar-width: none;
+  width: ($n + 1)*$s;
+  height: ($m + 2)*$s;
+  box-shadow: 
+    -6px 0 var(--c2),
+    -6px 0 var(--c2) inset,
+    0 -6px  var(--c2) inset;
+  background: var(--b);
+  cursor: pointer;
+}
+b:before {
+  content:"Collect the Coins\aWith your keyboard!\a\a\a🖱️Click to start";
+  font-size: 40px;
+  white-space: pre;
+  text-align: center;
+  position: absolute;
+  inset: $s/-4 $s/-4 -1*$s;
+  padding-top: $s/2;
+  pointer-events: none;
+  z-index: 5896;
+  color: #fefeff;
+  background: 
+    url(https://assets.codepen.io/1480814/mm.png) bottom/80px auto no-repeat,
+    url(https://assets.codepen.io/1480814/k.png) 50% 43%/110px auto no-repeat var(--b);
+}
+body:focus-within {
+  cursor: none;
+}
+body:focus-within b:before {
+  opacity: 0;
+}
+body:focus-within m {
+  opacity: 1;
+}
+body:focus-within r {
+  visibility: visible;
+}
+body:focus-within r:after {
+  animation-play-state: running;
+}
+html {
+  font-family: 'Retro Mario', sans serif;
+  min-height:100vh;
+  overflow: hidden;
+  display: grid;
+  --c1: #954b0c;
+  --c2: #000;
+  --b: #6185f8;
+  --g:conic-gradient(at 90% 40%,#0000 75%,var(--c1) 0);
+  background: 
+    var(--g) 50% 100%,
+    var(--g) calc(50% + #{$s/2}) calc(100% + #{$s/2})
+    var(--c2);
+  background-size: $s $s;
+}
+html:before {
+  content: "Super CSS Mario II";
+  position: absolute;
+  inset: auto 0 ($m + 3)*$s;
+  width: fit-content;
+  margin: auto;
+  color: #ffccc5;
+  font-size: 50px;
+  padding: 10px 25px;
+  background: #994e00;
+  text-shadow: 5px 5px #000;
+  border: 3px solid;
+}
+@media (width < ($n + 1)*$s), (height < ($m + 4)*$s) {
+  html:after {
+    content: "Sorry but your screen is too small for this game\a\a Buy a bigger one and try again!";
+    white-space: pre-wrap;
+    background: var(--b);
+    position: absolute;
+    inset: 0;
+    z-index: calc(infinity);
+    display: grid;
+    place-content: center;
+    text-align: center;
+    font-size: 40px;
+    padding: 40px;
+    color: #fff;
+  }
+}
+@supports not (animation-timeline: scroll()) {
+  html:after {
+    content: "Firefox and Safari users aren't allowed\a✋ \aThis is a chromium experimentation\a(Use Chrome or Edge)";
+    white-space: pre-wrap;
+    background: var(--b);
+    position: absolute;
+    inset: 0;
+    z-index: calc(infinity);
+    display: grid;
+    place-content: center;
+    text-align: center;
+    font-size: 40px;
+    padding: 40px;
+    color: #fff;
+  }
+}

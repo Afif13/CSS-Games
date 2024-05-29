@@ -80,6 +80,7 @@ body main.grid {
 	margin: 0 auto 50px;
     grid-gap: calc(1.5*var(--pico-grid-column-gap));
 	align-content: start;
+    max-width: 1200px;
 }
 @media (min-width: 768px) {
     .grid {
