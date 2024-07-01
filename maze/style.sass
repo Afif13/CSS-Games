@@ -1,0 +1,196 @@
+$s: 60px; /* control the size */
+/* If the movement is off you have to update the below variable
+   go here and follow the steps: https://codepen.io/t_afif/pen/ZENaPPG/bdd15282dc854a3e77d6e40232ee5787
+   You need to perform a scroll with one keypress 
+   to get the amount of pixel you need to move by 
+*/
+$v: 40px;
+
+
+/* don't touch this. The game is static not dynamic */
+$n: 10;  
+$m: 5;  
+@property --s1 {
+	syntax: '<integer>';
+	inherits: true;
+	initial-value: 0
+}
+@property --x {
+	syntax: '<integer>';
+	inherits: true;
+	initial-value: 0
+}
+@property --y {
+	syntax: '<integer>';
+	inherits: true;
+	initial-value: 0
+}
+b {
+  display: block;
+  width: $n*$s;
+  height: $m*$s;
+  position: sticky;
+  left: 0;
+  top: 0;
+  --g:conic-gradient(var(--b) 0 0) no-repeat;
+  background: 
+    conic-gradient(from 90deg at 1px 1px,#0000 25%,var(--c1) 0)
+    -1px -1px/calc((100% + 1px)/#{$n}) calc((100% + 1px)/#{$m}),
+    url(https://assets.codepen.io/1480814/dii.png) no-repeat 
+     calc(100% - #{.1*$s}) calc(100% - #{.1*$s})/auto #{.8*$s},
+    var(--g) 0 0/#{2*$s} #{$s},
+    var(--g) #{$s} #{3*$s}/#{3*$s} #{$s},
+    var(--g) #{3*$s} #{2*$s}/#{3*$s} #{$s},
+    var(--g) #{5*$s} #{$s}/#{3*$s} #{$s},
+    var(--g) #{5*$s} #{4*$s}/#{3*$s} #{$s},
+    var(--g) #{7*$s} #{3*$s}/#{3*$s} #{$s},
+    var(--g) #{$s} 0/#{$s} #{4*$s},
+    var(--g) #{5*$s} #{$s}/#{$s} #{4*$s},
+    var(--g) #{9*$s} 0/#{$s} #{5*$s},
+    var(--g) #{7*$s} 0/#{$s} #{5*$s},
+    var(--g) #{7*$s} 0/#{3*$s} #{$s},
+    url(https://assets.codepen.io/1480814/w.jpg) 0 0/#{$s} #{$s};
+  animation: x linear,y linear;
+  animation-timeline: scroll(nearest inline),scroll(nearest block);
+  container-name: b;
+}
+@keyframes x{to {--x: #{$n - 1}}}
+@keyframes y{to {--y: #{$m - 1}}}
+m {
+  content: "";
+  position: absolute;
+  translate: calc(var(--x)*100%) calc(var(--y)*100%);
+  width: $s;
+  aspect-ratio:1;
+  opacity:0;
+  background: url(https://assets.codepen.io/1480814/ad.png) center/cover;
+}
+b:after {
+  content: "TIME - " counter(s1,decimal-leading-zero) "s";
+  white-space: pre-wrap;
+  color: #fefeff;
+  font-size: 35px;
+  visibility: hidden;
+  font-variant-numeric: tabular-nums;
+  counter-reset: s1 var(--s1);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1*$s;
+  text-align: center;
+  padding: 8px;
+  z-index: 99989;
+  animation: 
+    f .1s linear forwards paused,
+    s1 60s linear forwards paused;
+  @container style(--x: #{$n - 1}) and style(--y: #{$m - 1}) {
+    animation-play-state: running, paused !important;
+    --_c: "\a Congratulations!\a\aYou did it in " counter(s1,decimal-leading-zero) "s";
+  }
+  @container 
+    (style(--x: 0) and (style(--y: 1) or style(--y: 2) or style(--y: 3) or style(--y: 4)))
+ or (style(--x: 1) and (style(--y: 4)))
+ or (style(--x: 2) and (style(--y: 0) or style(--y: 1) or style(--y: 2) or style(--y: 4)))
+ or (style(--x: 3) and (style(--y: 0) or style(--y: 1) or style(--y: 4)))
+ or (style(--x: 4) and (style(--y: 0) or style(--y: 1) or style(--y: 3) or style(--y: 4)))
+ or (style(--x: 5) and (style(--y: 0)))
+ or (style(--x: 6) and (style(--y: 0) or style(--y: 2) or style(--y: 3)))
+ or (style(--x: 8) and (style(--y: 1) or style(--y: 2) or style(--y: 4))) {
+    animation-play-state: running, paused !important;
+  }
+}
+@keyframes f {
+  1%,to {
+    content: var(--_c,"\aGame Over\a\a Refresh the page\a and try again ");
+    font-size: 50px;
+    background: var(--b);
+    inset: 0 0 -1*$s;
+  }
+}
+@keyframes s1 {to{--s1:60}}
+g {
+  display: block;
+  width: $n*$s + ($n - 1)*$v;
+  height: ($m + 1)*$s + ($m - 1)*$v;
+}
+body {
+  position: relative;
+  margin: auto auto $s/2;
+  overflow: auto;
+  scrollbar-width: none;
+  width: $n*$s;
+  height: ($m + 1)*$s;
+  border: 5px solid var(--c1);
+  background: var(--c1);
+  cursor: pointer;
+}
+b:before {
+  content:"Grab the dino without\a touching the wall\a\aUse your keyboard to move\a\a\a🖱️Click to start";
+  font-size: 30px;
+  white-space: pre;
+  text-align: center;
+  position: absolute;
+  inset: 0 0 -1*$s;
+  padding-top: 20px;
+  pointer-events: none;
+  z-index: 5896;
+  color: #fefeff;
+  background: 
+    url(https://assets.codepen.io/1480814/ad.png) bottom/90px auto no-repeat,
+    url(https://assets.codepen.io/1480814/k.png) 50% 55%/90px auto no-repeat var(--b);
+}
+body:focus-within {
+  cursor: none;
+}
+body:focus-within b:before {
+  opacity: 0;
+}
+body:focus-within m {
+  opacity: 1;
+}
+body:focus-within b:after {
+  visibility: visible;
+  animation-play-state: paused,running;
+}
+html {
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+  font-weight: 900;
+  min-height:100vh;
+  overflow: hidden;
+  display: grid;
+  --c1: #252521;
+  --b: #4c6ef5;
+  background: #ced4da;
+}
+@media (width < ($n + 1)*$s), (height < ($m + 1)*$s) {
+  html:after {
+    content: "Sorry but your screen is too small for this game\a\a Buy a bigger one and try again!";
+    white-space: pre-wrap;
+    background: var(--b);
+    position: absolute;
+    inset: 0;
+    z-index: calc(infinity);
+    display: grid;
+    place-content: center;
+    text-align: center;
+    font-size: 40px;
+    padding: 40px;
+    color: #fff;
+  }
+}
+@supports not (animation-timeline: scroll()) {
+  html:after {
+    content: "Firefox and Safari users aren't allowed\a✋ \aThis is a chromium experimentation\a(Use Chrome or Edge)";
+    white-space: pre-wrap;
+    background: var(--b);
+    position: absolute;
+    inset: 0;
+    z-index: calc(infinity);
+    display: grid;
+    place-content: center;
+    text-align: center;
+    font-size: 40px;
+    padding: 40px;
+    color: #fff;
+  }
+}
